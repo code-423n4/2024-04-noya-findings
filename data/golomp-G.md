@@ -63,3 +63,13 @@ Redundant Variable
 There is a redundant MINIMUM HEALTH FACTOR variable in the code, which is only used to assign the value of the minimumHealthFactor variable.
 
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/SiloConnector.sol#L20
+
+*********************************************************************************
+Tttile: 
+Cached global variables
+
+Storing global variables in local storage might appear as a useful caching mechanism. However, in Solidity, accessing global variables directly is often more gas-efficient than caching them. Consider removing these redundant assignments and use the global variables directly.
+
+    caller = msg.sender;
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerFlashLoan.sol#L41
