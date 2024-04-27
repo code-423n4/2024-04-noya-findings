@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "En3cyptedDegenExt",
+  "risk": "3",
+  "title": "[H1]   Integer Overflow in Collateral Value Calculation",
+  "issueId": 7,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/7"
+}
