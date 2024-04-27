@@ -57,3 +57,9 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/BaseConnector.sol#L249
 
 *********************************************************************************
+Tttile: 
+Redundant Variable
+
+There is a redundant MINIMUM HEALTH FACTOR variable in the code, which is only used to assign the value of the minimumHealthFactor variable.
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/SiloConnector.sol#L20
