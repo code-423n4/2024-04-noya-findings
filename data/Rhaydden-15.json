@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Rhaydden",
+  "risk": "2",
+  "title": "Infinite Recursive loop in NoyaValueOracle._getValue",
+  "issueId": 15,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/15"
+}
