@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "itsabinashb",
+  "risk": "3",
+  "title": "Lack of address(0) check for receiver in AccountingManager::withdraw() results DoS while executing the withdraw.",
+  "issueId": 26,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/26"
+}
