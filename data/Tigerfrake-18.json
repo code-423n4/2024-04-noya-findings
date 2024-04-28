@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Tigerfrake",
+  "risk": "2",
+  "title": "Missing token sanitization",
+  "issueId": 18,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/18"
+}
