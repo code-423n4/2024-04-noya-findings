@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "4rdiii",
+  "risk": "2",
+  "title": "`BaseConnector::addLiquidity` Always Reverts When using Fee On Transfer ERC20",
+  "issueId": 57,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/57"
+}
