@@ -613,3 +613,205 @@ File: contracts/helpers/valueOracle/oracles/WETH_Oracle.sol
 
 </details>
 
+
+
+## [G-03] Usage of `uints`/`ints` smaller than 32 bytes (256 bits) incurs overhead (**saves ~6 Gas**)
+> When using elements that are smaller than 32 bytes, your contract’s gas usage may be higher. This is because the EVM operates on 32 bytes at a time. Therefore, if the element is smaller than that, the EVM must use more operations in order to reduce the size of the element from 32 bytes to the desired size.
+
+https://docs.soliditylang.org/en/v0.8.11/internals/layout_in_storage.html
+
+Use a larger size then downcast where needed
+
+
+<details>
+<summary><i>60 issue instances in 14 files:</i></summary>
+
+```solidity
+File: contracts/accountingManager/AccountingManager.sol
+
+228: uint64 i = 0;
+264: uint64 i = 0;
+330: uint64 i = 0;
+400: uint64 i = 0;
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/AccountingManager.sol)
+
+```solidity
+File: contracts/connectors/CompoundConnector.sol
+
+97: uint16 assetsIn = userBasic.assetsIn;
+101: uint256 principalInBase = uint256(uint104(userBasic.principal));
+104: uint8 numberOfAssets = comet.numAssets();
+107: for (uint8 i; i < numberOfAssets; ++i) {
+
+141: function isInAsset(uint16 assetsIn, uint8 assetOffset) public pure returns (bool) {
+142: return (assetsIn & (uint16(1) << assetOffset) != 0);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/CompoundConnector.sol)
+
+```solidity
+File: contracts/connectors/CurveConnector.sol
+
+169: ICurveSwap(poolInfo.pool).remove_liquidity_one_coin(amount, int128(uint128(withdrawIndex)), minAmount);
+302: int128 tokenIndex = int128(uint128(index));
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/CurveConnector.sol)
+
+```solidity
+File: contracts/connectors/MaverickConnector.sol
+
+139: uint8 tokenIndex;
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/MaverickConnector.sol)
+
+```solidity
+File: contracts/connectors/SNXConnector.sol
+
+30: function deposit(address _token, uint256 _amount, uint128 _accountId) public onlyManager {
+46: function withdraw(address _token, uint256 _amount, uint128 _accountId) public onlyManager {
+69: uint128 _accountId;
+76: uint128 poolId = SNXCoreProxy.getPreferredPool();
+83: uint128 _accountId;
+90: _accountId, uint128(poolIds[poolIndex]), collateralType, newCollateralAmountD18, leverage
+94: function claimRewards(uint128 accountId, uint128 poolId, address collateralType, address distributor)
+104: uint128 _accountId,
+105: uint128 poolId,
+122: (uint128 accountId, address collateralType) = abi.decode(p.data, (uint128, address));
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/SNXConnector.sol)
+
+```solidity
+File: contracts/connectors/StargateConnector.sol
+
+84: uint16(withdrawRequest.poolId), withdrawRequest.routerAmount, address(this)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/StargateConnector.sol)
+
+```solidity
+File: contracts/connectors/UNIv3Connector.sol
+
+64: (uint128 currentLiquidity, address token0, address token1) = getCurrentLiquidity(p.tokenId);
+116: function getCurrentLiquidity(uint256 tokenId) public view returns (uint128, address, address) {
+117: (,, address token0, address token1,,,, uint128 liquidity,,,,) = positionManager.positions(tokenId);
+123: CollectParams memory params = CollectParams(tokenId, address(this), type(uint128).max, type(uint128).max);
+133: (int24 tL, int24 tU, uint24 fee) = abi.decode(p.additionalData, (int24, int24, uint24));
+138: (uint128 liquidity,,, uint128 tokensOwed0, uint128 tokensOwed1) = pool.positions(key);
+140: (uint160 sqrtPriceX96,,,,,,) = pool.slot0();
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/UNIv3Connector.sol)
+
+```solidity
+File: contracts/governance/Keepers.sol
+
+15: uint8 public threshold;
+20: event UpdateThreshold(uint8 threshold);
+27: constructor(address[] memory _owners, uint8 _threshold) EIP712("Keepers", "1") Ownable2Step() Ownable(msg.sender) {
+63: function setThreshold(uint8 _threshold) public onlyOwner {
+91: uint8[] memory sigV,
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol)
+
+```solidity
+File: contracts/governance/Watchers.sol
+
+7: constructor(address[] memory _owners, uint8 _threshold) Keepers(_owners, _threshold) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Watchers.sol)
+
+```solidity
+File: contracts/helpers/LZHelpers/LZHelperReceiver.sol
+
+19: mapping(uint32 => ChainInfo) public chainInfo; // chainId => ChainInfo
+24: uint32 constant TVL_UPDATE = 1;
+40: function setChainInfo(uint256 chainId, uint32 lzChainId, address lzHelperAddress) public onlyOwner {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/LZHelpers/LZHelperReceiver.sol)
+
+```solidity
+File: contracts/helpers/LZHelpers/LZHelperSender.sol
+
+10: uint32 lzChainId;
+51: function setChainInfo(uint256 chainId, uint32 lzChainId, address lzHelperAddress) public onlyOwner {
+78: uint32 lzChainId = chainInfo[vaultIdToVaultInfo[vaultId].baseChainId].lzChainId;
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/LZHelpers/LZHelperSender.sol)
+
+```solidity
+File: contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol
+
+19: uint32 public period = 1800;
+21: event NewPeriod(uint32 period);
+38: function setPeriod(uint32 _period) external onlyMaintainer {
+48: function addPool(address tokenIn, address baseToken, uint24 fee) external onlyMaintainer {
+61: uint128 amountIn128 = uint128(amount);
+69: uint32[] memory secondsAgos = new uint32[](2);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol)
+
+```solidity
+File: contracts/helpers/valueOracle/oracles/WETH_Oracle.sol
+
+8: returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/WETH_Oracle.sol)
+
+</details>
+
+
+## [G-04] Declare `immutable` as `private` to save gas (**saves ~3000 Gas**)
+
+Using `private` instead of `public` for immutables saves gas.
+
+The compiler doesn't need to create non-payable getter functions for deployment calldata, store the bytes of the value outside of where it's used, or add another entry to the method ID table, saving 3406-3606 gas in deployment.
+
+<details>
+<summary><i>3 issue instances in 2 files:</i></summary>
+
+```solidity
+File: contracts/connectors/MorphoBlueConnector.sol
+
+13: IMorpho public immutable morphoBlue;
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/MorphoBlueConnector.sol#L13)
+
+```solidity
+File: contracts/connectors/UNIv3Connector.sol
+16: INonfungiblePositionManager public immutable positionManager;
+17: IUniswapV3Factory public immutable factory;
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/UNIv3Connector.sol#L16-L17)
+
+</details>
+
+
+## [G-05] Use `unchecked` for Non-Loop Increment/Decrement Operations (**saves ~30 Gas**)
+
+*Disclaimer: `You should be sure that underflow is not possible `
+Using `unchecked` increments can save gas by bypassing the built-in overflow checks.
+This can save 30-40 gas per iteration.
+It is recommended to use unchecked increments when overflow is not possible.
+
+<details>
+<summary><i>3 issue instances in 3 files:</i></summary>
+
+```solidity
+File: contracts/governance/Keepers.sol
+
+113: nonce++;
+```
+[103](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol#L113)
+
+```solidity
+File: contracts/governance/Keepers.sol
+
+50: numOwnersTemp--;
+```
+[103](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol#L50)
+
+```solidity
+File: contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol
+
+83: timeWeightedAverageTick--;
+```
+[103](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L83)
+</details>
