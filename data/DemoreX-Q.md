@@ -4,7 +4,7 @@
 > contracts/accountingManager/AccountingManager.sol:304-316
 
 
-Deposit() and Withdraw() functions increment the last field of depositQueue object. There is no function to manage last index of the queue. Therefore, it will be increasing continously. Nobody can deposit or withdraw their funds after the max value of uint256. The max value of uint256 has 78 decimals which is extremely large for overflowing and this is why this finding is at not-critical level.
+Deposit() and Withdraw() functions increment the last field of depositQueue/withdrawQueue object. There is no function to manage last index of the queue. Therefore, it will be increasing continously. Nobody can deposit or withdraw their funds after the max value of uint256. The max value of uint256 has 78 decimals which is extremely large for overflowing and this is why this finding is at not-critical level.
 
 ## Proof of Concept Test Function
 
