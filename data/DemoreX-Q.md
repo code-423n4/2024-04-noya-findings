@@ -51,3 +51,43 @@ Balance of Alice before deposit: 11000000
 Giving allowance to accounting manager
 Balance of Alice after deposit: 11000000
 ```
+
+## Normal Deposit Process
+
+```solidity
+function test_Deposit() public {
+
+        vm.startPrank(owner);
+        (uint first, uint middle, uint last, uint tokenAmountWaitingForDeposit) = accountingManager.depositQueue();
+        console.log("Queue First: %d", first);
+        console.log("Queue Middle: %d", middle);
+        console.log("Queue Last: %d", last);
+        vm.stopPrank();
+
+        // Set up address
+        vm.deal(alice, 10 ether);
+        _dealWhale(baseToken, address(alice), address(0xf89d7b9c864f589bbF53a82105107622B35EaA40), 11e6);
+        vm.startPrank(alice);
+        console.log("Balance of Alice before deposit: %d", IERC20(baseToken).balanceOf(address(alice)));
+        
+        // Set up allowance
+        console.log("Giving allowance to accounting manager");
+        IERC20(baseToken).approve(address(accountingManager), 11e6);
+        
+        // Try deposit
+        accountingManager.deposit(alice, 11e6, alice);
+        console.log("Balance of Alice after deposit: %d", IERC20(baseToken).balanceOf(address(alice)));
+        vm.stopPrank();
+}
+```
+
+## Log results
+
+```terminal
+Queue First: 0
+Queue Middle: 0
+Queue Last: 0
+Balance of Alice before deposit: 11000000
+Giving allowance to accounting manager
+Balance of Alice after deposit: 0
+```
