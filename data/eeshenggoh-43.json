@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "eeshenggoh",
+  "risk": "3",
+  "title": "Missing Array Length checks which can cause the oracle to have empty addresses.",
+  "issueId": 43,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/43"
+}
