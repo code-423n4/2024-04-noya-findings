@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": " `UniswapValueOracle.getValue()` returns lagging price due to current `period` setting and is also having a flawed implementation being that one `period` is set for multiple assets",
+  "issueId": 61,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/61"
+}
