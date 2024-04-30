@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": " Protocol does not implement the `forceResumeReceive` function which would mean a blocked channel can't ever be unblocked",
+  "issueId": 86,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/86"
+}
