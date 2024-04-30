@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "4rdiii",
+  "risk": "3",
+  "title": " `Registry::OnlyVaultMaintaner` has Wrong Access Control Causing multiple functions to revert",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/77"
+}
