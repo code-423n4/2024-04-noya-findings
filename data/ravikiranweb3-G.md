@@ -1,0 +1,1 @@
+### BaseConnector::MINIMUM_HEALTH_FACTOR should be declared immutable instead of state variable.
