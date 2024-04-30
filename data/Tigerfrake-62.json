@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Tigerfrake",
+  "risk": "3",
+  "title": "`_baseToken` is not added as a trusted token for the `accounting manager` in `addVault()`",
+  "issueId": 62,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/62"
+}
