@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "JanuaryPersimmon2024",
+  "risk": "2",
+  "title": "Registry.sol:: the onlyVaultMaintainer modifier doesn't let the vaults[_vaultId].maintainer access the restricted functions unless the vaults[_vaultId].maintainer also has the EMERGENCY_ROLE, which is not a usual combination",
+  "issueId": 87,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/87"
+}
