@@ -35,7 +35,7 @@ function testFail_OverflowQueue() public {
         // Try deposit
         vm.expectRevert();
         accountingManager.deposit(alice, 11e6, alice);
-        console.log("Balance of Alice after deposit: %d", IERC20(baseToken).balanceOf(address(alice)));
+        console.log("Balance of Alice after deposit: %d", IERC20(baseToken).balanceOf(address(alice))); // If this line prints same amount of USDC, it means deposit doesn't work at this point.
         vm.stopPrank();
 }
 ```
