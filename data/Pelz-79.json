@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Pelz",
+  "risk": "2",
+  "title": "Incorrect Event Emission in sendTokensToTrustedAddress Function",
+  "issueId": 79,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/79"
+}
