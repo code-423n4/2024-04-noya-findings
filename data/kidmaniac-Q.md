@@ -4,7 +4,7 @@
 
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L528
 
-The vulnerability arises from the reliance on `block.timestamp` for time-based checks within the `collectPerformanceFees() ` function. Specifically, the function contains conditional statements that check the time difference between the current block's timestamp and a stored timestamp (profitStoredTime). These checks are intended to enforce specific time constraints for the execution of the fee collection process.
+The vulnerability arises from the reliance on `block.timestamp` for time-based checks within the `collectPerformanceFees()` function. Specifically, the function contains conditional statements that check the time difference between the current block's timestamp and a stored timestamp (profitStoredTime). These checks are intended to enforce specific time constraints for the execution of the fee collection process.
 However, the vulnerability lies in the fact that miners can potentially manipulate the `block.timestamp` value to bypass these time-based checks. By artificially adjusting the timestamp of the block they are mining, miners can influence the outcome of the conditional statements and potentially trigger the execution of the fee collection process at an unintended time.
 
 ### Code Snippet
