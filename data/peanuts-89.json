@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "peanuts",
+  "risk": "3",
+  "title": "ChainlinkOracleConnector.getValue returns prices in base token decimals instead of asset token decimals",
+  "issueId": 89,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/89"
+}
