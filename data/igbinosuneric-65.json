@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "igbinosuneric",
+  "risk": "2",
+  "title": "Lack of Lower Bound Check in setMaxNumHoldingPositions Function",
+  "issueId": 65,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/65"
+}
