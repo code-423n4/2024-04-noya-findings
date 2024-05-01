@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "JanuaryPersimmon2024",
+  "risk": "3",
+  "title": "AccountingManager:: Specifying the withdrawal receiver as a blacklisted address causes a permanent DoS to the withdrawal queue",
+  "issueId": 112,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/112"
+}
