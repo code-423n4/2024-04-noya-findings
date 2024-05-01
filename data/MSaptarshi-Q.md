@@ -10,3 +10,8 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L170
 ## Recommendation
 Add a zero fee check
+
+# [L-03] A malicious owner can set themselves as the fee reciever
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/NoyaFeeReceiver.sol#L20
+## Recommendation
+Add proper explicit check for owners if trying to do malicious things
