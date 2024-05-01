@@ -3,3 +3,9 @@ The protocol actually checks for address not set to zero in most of the cases, b
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L31
 ## Recommendation
 Add a zero address check
+
+# [L-02] Missing check for zero fee
+The protocol should check for zero fee initialization 
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L112
+## Recommendation
+Add a zero fee check
