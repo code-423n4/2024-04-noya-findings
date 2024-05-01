@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ZdravkoHr",
+  "risk": "3",
+  "title": "Withdrawals can be sabotaged for vaults using tokens that revert on 0 transfers",
+  "issueId": 111,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/111"
+}
