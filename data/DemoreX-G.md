@@ -64,7 +64,7 @@ function fulfillCurrentWithdrawGroup() public onlyManager nonReentrant whenNotPa
 | fulfillCurrentWithdrawGroupV2                                                | 115923          | 115923 | 115923 | 115923 | 1       |
 ```
 
-## 2574 Gas saved
+## 2574 gas per function call saved
 
 
 
