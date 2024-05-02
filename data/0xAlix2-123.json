@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "Aerodrome connector doesn't include tokens staked in gauge in the position's TVL",
+  "issueId": 123,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/123"
+}
