@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "igbinosuneric",
+  "risk": "2",
+  "title": "Insufficient Validation of _amount in depositIntoAuraBooster Function",
+  "issueId": 127,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/127"
+}
