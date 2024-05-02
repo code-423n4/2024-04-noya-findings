@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Jorgect",
+  "risk": "2",
+  "title": "the deposit and withdraw process can DoS",
+  "issueId": 114,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/114"
+}
