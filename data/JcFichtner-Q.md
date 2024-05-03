@@ -1,4 +1,4 @@
-## Centralization Risks in AccountingManager.sol
+## [C-01] Centralization Risks in AccountingManager.sol
 
 https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/AccountingManager.sol
 
@@ -40,6 +40,10 @@ The `emergencyStop` and `unpause` functions, accessible only by the `Emergency` 
 
 The `rescue` function allows the `Emergency` role to transfer any tokens from the contract to any address. While potentially useful for recovering lost funds, it also presents a risk of asset theft if the emergency role is compromised.
 
+###### Centralization Score: 8/10 (HIGH)
+
+Considering the identified centralization risks and the significant control concentrated in the `Maintainer` and `Manager roles`, I would rate `AccountingManager` as highly centralized, with a score of 8 out of 10.
+
 ###### Recommendations for Mitigation:
 
 - **Decentralize Governance:** Implement a `DAO` or `multi-sig mechanism` for critical functions currently controlled by the `maintainer` and `manager`. This allows for community-driven decision-making and reduces reliance on single entities.
@@ -52,14 +56,7 @@ The `rescue` function allows the `Emergency` role to transfer any tokens from th
 
 - **Consider Upgradability:** Design the contract to be upgradable, allowing for future improvements and security enhancements through community governance.
 
-Mitigation Measures Could Lower the Score:
-
 By addressing these centralization risks, the smart contract can become more secure, transparent, and resilient to potential threats, ultimately fostering greater trust and confidence in the vault system.
-
-###### Centralization Score: 8/10
-
-Considering the identified centralization risks and the significant control concentrated in the `Maintainer` and `Manager roles`, I would rate `AccountingManager` as highly centralized, with a score of 8 out of 10.
-
 
 
 
