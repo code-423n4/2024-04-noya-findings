@@ -39,7 +39,3 @@ Typographical error in function name
 
 Description:
 The function name checkIfTVLHasDroped() in the AccountingManager.sol contract contains a typographical error, where "Droped" is misspelled as "Dropped". While being non-critical and not impacting the functionality, security, or performance of the contract, the typo could potentially cause mild confusion or readability issues for developers/users reviewing or interacting with the code. Correcting the spelling would enhance code clarity and maintain naming consistency without affecting the contract's execution or behavior.
-
-    uint256 totalDepositAmount = 0;
-
-https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/SiloConnector.sol#L109
