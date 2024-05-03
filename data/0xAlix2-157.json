@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "Invalid handling of holding positions in `MaverickConnector::removeLiquidityFromMaverickPool`",
+  "issueId": 157,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/157"
+}
