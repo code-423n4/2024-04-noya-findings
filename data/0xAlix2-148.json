@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "Resetting the middle of the withdrawal Q leads to invalid `currentWithdrawGroup.totalCBAmount`",
+  "issueId": 148,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/148"
+}
