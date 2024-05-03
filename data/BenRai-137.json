@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "`DolomiteConnector::closeBorrowPosition` does not check if all assets are removed from the borrow position before removing it which can result in a calculated TVL that is to low ",
+  "issueId": 137,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/137"
+}
