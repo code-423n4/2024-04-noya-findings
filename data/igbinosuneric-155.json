@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "igbinosuneric",
+  "risk": "2",
+  "title": "Inaccurate Liquidity Removal Validation due to Balance Check in CamelotConnector",
+  "issueId": 155,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/155"
+}
