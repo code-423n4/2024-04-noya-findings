@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "shaflow2",
+  "risk": "3",
+  "title": "USDC and ERC20 implementations similar to based on OpenZeppelin, may render the system's withdrawal function permanently unusable",
+  "issueId": 147,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/147"
+}
