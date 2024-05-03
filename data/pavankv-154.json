@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pavankv",
+  "risk": "3",
+  "title": "Malicious user can DOS the `retrieveTokensForWithdraw()` and withdraw feature with minimum amount of baseToken",
+  "issueId": 154,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/154"
+}
