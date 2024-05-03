@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "igbinosuneric",
+  "risk": "3",
+  "title": "Insufficient Validation of Returned Flash Loan Amounts",
+  "issueId": 141,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/141"
+}
