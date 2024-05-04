@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Jorgect",
+  "risk": "3",
+  "title": "A transaction can be approved with less than the required number of owners",
+  "issueId": 160,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/160"
+}
