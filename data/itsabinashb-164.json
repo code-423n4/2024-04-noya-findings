@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "itsabinashb",
+  "risk": "2",
+  "title": "AccountingManager::calculateDepositShares() emitting event incorrect order",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/164"
+}
