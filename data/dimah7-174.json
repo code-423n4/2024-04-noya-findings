@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "dimah7",
+  "risk": "2",
+  "title": "Possible DoS scenario if a user gets blacklisted by the baseToken",
+  "issueId": 174,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/174"
+}
