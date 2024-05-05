@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "havewemeetbefore",
+  "risk": "3",
+  "title": "Unauthorized access Anyone can call addTrustedPosition/updateConnectorTrustedTokens",
+  "issueId": 186,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/186"
+}
