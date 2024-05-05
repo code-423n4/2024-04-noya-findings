@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "joicygiore",
+  "risk": "2",
+  "title": "`NoyaValueOracle::_getValue()` loops with the wrong value and ends up with the wrong price",
+  "issueId": 180,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/180"
+}
