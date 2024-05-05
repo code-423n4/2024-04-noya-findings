@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Kaysoft",
+  "risk": "2",
+  "title": "The `depositIntoConvexBooster(...)` will always revert on Arbitrum and Polygon because Convex code on L2 have some differences from mainnet code",
+  "issueId": 197,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/197"
+}
