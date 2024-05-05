@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "dimulski",
+  "risk": "2",
+  "title": "If the middle index of the withdraw queue is reset, currentWithdrawGroup.totalCBAmount will be more than it should be, when withdraws are recalcualted",
+  "issueId": 195,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/195"
+}
