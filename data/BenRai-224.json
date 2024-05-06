@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "Missing check for the healthFactor when calling `SiloConnector::borrow`",
+  "issueId": 224,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/224"
+}
