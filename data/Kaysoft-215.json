@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Kaysoft",
+  "risk": "2",
+  "title": "Stale chainlink price because the same heartbeat is used to validate freshness of all price feed.",
+  "issueId": 215,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/215"
+}
