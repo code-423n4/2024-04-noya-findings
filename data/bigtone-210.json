@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "2",
+  "title": "The `refundGas` doesn't work in the `OperatorDelegator` if NativeEthRestakeAdmin is a contract account.",
+  "issueId": 210,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/210"
+}
