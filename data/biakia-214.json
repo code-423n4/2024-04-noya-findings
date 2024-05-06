@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "biakia",
+  "risk": "2",
+  "title": "`ChainlinkOracleConnector` doesn't check If Arbitrum sequencer is down in Chainlink feeds",
+  "issueId": 214,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/214"
+}
