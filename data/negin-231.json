@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "negin",
+  "risk": "3",
+  "title": "MorphoBlueConnector conducts imprecise Health Factor checks for low borrow amounts, resulting in unnecessary reverts for healthy positions",
+  "issueId": 231,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/231"
+}
