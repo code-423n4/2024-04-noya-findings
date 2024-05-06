@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Matin",
+  "risk": "3",
+  "title": "Unhealthy positions in the FraxConnector contract may bypass the minimum Health Factor check, evading any revert",
+  "issueId": 230,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/230"
+}
