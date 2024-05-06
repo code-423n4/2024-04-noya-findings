@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "fandonov",
+  "risk": "2",
+  "title": "The `depositLimitPerTransaction` in the `AccountingManager.sol` contract is too low.",
+  "issueId": 222,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/222"
+}
