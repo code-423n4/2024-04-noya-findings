@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "igbinosuneric",
+  "risk": "3",
+  "title": "No Lower Bound Check on Threshold in setThreshold Function",
+  "issueId": 204,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/204"
+}
