@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "mrjorystewartbaxter",
+  "risk": "2",
+  "title": "Missing checks for the max/min price in the `ChainlinkOracleConnector.sol` contract",
+  "issueId": 216,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/216"
+}
