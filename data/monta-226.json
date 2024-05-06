@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "monta",
+  "risk": "3",
+  "title": "Reentrancy Attack Potential loss of all assets and compromised contract state",
+  "issueId": 226,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/226"
+}
