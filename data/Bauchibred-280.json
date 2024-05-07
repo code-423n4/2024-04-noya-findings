@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": " Protocol's logic of pushing withdrawal requests to users could easily lead to a complete blockage of the withdrawal channel",
+  "issueId": 280,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/280"
+}
