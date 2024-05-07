@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "No minAnswer/maxAnswer circuit braker in Chainlink Oracle while quering prices",
+  "issueId": 263,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/263"
+}
