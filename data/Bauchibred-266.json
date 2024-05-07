@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "Users are being forced on-chain calculated slippaged amount for their withdrawal requests when the withdrawal group's `totalABAmount < totalCBAmount` which means a loss for the users",
+  "issueId": 266,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/266"
+}
