@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Daniel526",
+  "risk": "2",
+  "title": "Unverified Caller in `sendTokensToTrustedAddress` Function",
+  "issueId": 240,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/240"
+}
