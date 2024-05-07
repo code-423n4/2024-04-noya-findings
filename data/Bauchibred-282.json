@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "Aerodrome Connector does not integrate with a safe LP position valuation formula leading to easy attacks",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/282"
+}
