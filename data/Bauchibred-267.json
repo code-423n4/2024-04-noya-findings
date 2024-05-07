@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": " `BalancerFlashLoan` can easily be made easily bricked and made un-usable by an attacker",
+  "issueId": 267,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/267"
+}
