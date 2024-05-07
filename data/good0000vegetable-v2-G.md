@@ -799,19 +799,281 @@ File: contracts/governance/Keepers.sol
 
 113: nonce++;
 ```
-[103](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol#L113)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol#L113)
 
 ```solidity
 File: contracts/governance/Keepers.sol
 
 50: numOwnersTemp--;
 ```
-[103](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol#L50)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol#L50)
 
 ```solidity
 File: contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol
 
 83: timeWeightedAverageTick--;
 ```
-[103](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L83)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L83)
+</details>
+
+
+## [G-06] Use `revert()` to gain maximum gas savings (**saves ~50 Gas**)
+
+If you dont need Error messages, or you want gain maximum gas savings - `revert()` is a cheapest way to revert transaction in terms of gas.
+```solidity
+    revert(); // 117 gas 
+    require(false); // 132 gas
+    revert CustomError(); // 157 gas
+    assert(false); // 164 gas
+    revert("Custom Error"); // 406 gas
+    require(false, "Custom Error"); // 421 gas
+```
+
+
+<details>
+<summary><i>98 issue instances in 24 files:</i></summary>
+```solidity
+File: contracts/accountingManager/AccountingManager.sol
+
+116: revert NoyaAccounting_INVALID_FEE();
+175: revert NoyaAccounting_INVALID_FEE();
+187: revert NoyaAccounting_INSUFFICIENT_FUNDS(balanceOf(from), amount, withdrawRequestsByAddress[from]);
+202: revert NoyaAccounting_INVALID_AMOUNT();
+208: revert NoyaAccounting_DepositLimitPerTransactionExceeded();
+212: revert NoyaAccounting_TotalDepositLimitExceeded();
+295: revert NoyaAccounting_INVALID_CONNECTOR();
+306: revert NoyaAccounting_INSUFFICIENT_FUNDS(
+336: revert NoyaAccounting_ThereIsAnActiveWithdrawGroup();
+375: revert NoyaAccounting_NOT_READY_TO_FULFILL();
+398: revert NoyaAccounting_ThereIsAnActiveWithdrawGroup();
+458: revert NoyaAccounting_INVALID_AMOUNT();
+465: revert NoyaAccounting_INVALID_AMOUNT();
+560: if (balanceBefore + amount > balanceAfter) revert NoyaAccounting_banalceAfterIsNotEnough();
+571: revert NoyaAccounting_INVALID_AMOUNT();
+694: revert NoyaAccounting_NOT_ALLOWED();
+698: revert NoyaAccounting_NOT_ALLOWED();
+702: revert NoyaAccounting_NOT_ALLOWED();
+706: revert NoyaAccounting_NOT_ALLOWED();
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/AccountingManager.sol)
+
+```solidity
+File: contracts/accountingManager/Registry.sol
+
+34: revert UnauthorizedAccess();
+41: revert UnauthorizedAccess();
+48: revert UnauthorizedAccess();
+54: if (vaults[_vaultId].accountManager == address(0)) revert NotExist();
+118: if (vaults[vaultId].accountManager != address(0)) revert AlreadyExists();
+250: if (vault.trustedPositionsBP[positionId].isEnabled) revert AlreadyExists();
+251: if (vault.connectors[calculatorConnector].enabled == false) revert NotExist();
+255: revert TokenNotTrusted(usingTokens[i]);
+272: if (!vault.trustedPositionsBP[_positionId].isEnabled) revert NotExist();
+276: revert CannotRemovePosition(vaultId, _positionId);
+306: revert InvalidPosition(_positionId);
+309: revert TooManyPositions();
+343: if (!vault.connectors[msg.sender].enabled) revert UnauthorizedAccess();
+344: if (!vault.trustedPositionsBP[_positionId].isEnabled) revert InvalidPosition(_positionId);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/Registry.sol)
+
+```solidity
+File: contracts/connectors/AaveConnector.sol
+
+68: revert IConnector_UntrustedToken(_borrowAsset);
+73: if (healthFactor < minimumHealthFactor) revert IConnector_LowHealthFactor(healthFactor);
+104: if (healthFactor < minimumHealthFactor) revert IConnector_LowHealthFactor(healthFactor);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/AaveConnector.sol)
+
+```solidity
+File: contracts/connectors/BalancerFlashLoan.sol
+
+71: revert Unauthorized(caller);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/BalancerFlashLoan.sol)
+
+```solidity
+File: contracts/connectors/CompoundConnector.sol
+
+31: if (!registry.isTokenTrusted(vaultId, asset, address(this))) revert IConnector_UntrustedToken(asset);
+50: if (!registry.isTokenTrusted(vaultId, asset, address(this))) revert IConnector_UntrustedToken(asset);
+52: if (healthFactor < minimumHealthFactor) revert IConnector_LowHealthFactor(healthFactor);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/CompoundConnector.sol)
+
+```solidity
+File: contracts/connectors/Dolomite.sol
+
+66: revert IConnector_UntrustedToken(token);
+85: revert IConnector_UntrustedToken(token);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/Dolomite.sol)
+
+```solidity
+File: contracts/connectors/FraxConnector.sol
+
+92: revert IConnector_InvalidInput();
+110: revert IConnector_LowHealthFactor(healthFactor);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/FraxConnector.sol)
+
+```solidity
+File: contracts/connectors/GearBoxV3.sol
+
+70: if (calls[i].target != facade) revert IConnector_InvalidTarget(calls[i].target);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/GearBoxV3.sol)
+
+```solidity
+File: contracts/connectors/MorphoBlueConnector.sol
+
+84: revert IConnector_LowHealthFactor(getHealthFactor(id, morphoBlue.market(id)));
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/MorphoBlueConnector.sol)
+
+```solidity
+File: contracts/connectors/PendleConnector.sol
+
+192: revert InsufficientSyOut(netSyOut, minSY);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/PendleConnector.sol)
+
+```solidity
+File: contracts/connectors/PrismaConnector.sol
+
+38: revert IConnector_InvalidPosition(positionId);
+80: revert IConnector_InvalidPosition(positionId);
+108: revert IConnector_InvalidPosition(positionId);
+119: revert IConnector_LowHealthFactor(healthFactor);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/PrismaConnector.sol)
+
+```solidity
+File: contracts/connectors/SiloConnector.sol
+
+66: revert IConnector_LowHealthFactor(0);
+104: revert IConnector_LowHealthFactor(0);
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/SiloConnector.sol)
+
+```solidity
+File: contracts/connectors/UNIv3Connector.sol
+
+66: revert IConnector_InvalidAmount();
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/UNIv3Connector.sol)
+
+```solidity
+File: contracts/governance/Keepers.sol
+
+117: require(success, "Transaction execution reverted.");
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol)
+
+
+```solidity
+File: contracts/governance/NoyaGovernanceBase.sol
+
+34: revert NoyaGovernance_Unauthorized(msg.sender);
+45: if (msg.sender != emergencyManager) revert NoyaGovernance_Unauthorized(msg.sender);
+56: revert NoyaGovernance_Unauthorized(msg.sender);
+67: if (msg.sender != maintainer && msg.sender != emergencyManager) revert NoyaGovernance_Unauthorized(msg.sender);
+77: if (msg.sender != maintainer) revert NoyaGovernance_Unauthorized(msg.sender);
+87: if (msg.sender != governer) revert NoyaGovernance_Unauthorized(msg.sender);
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/NoyaGovernanceBase.sol)
+
+```solidity
+File: contracts/helpers/BaseConnector.sol
+
+47: revert IConnector_LowHealthFactor(_minimumHealthFactor);
+103: if (caller != address(this)) revert IConnector_InvalidAddress(caller);
+175: revert IConnector_InvalidAddress(msg.sender);
+184: revert IConnector_InsufficientDepositAmount(_balanceAfter - _balance, amounts[i]);
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/BaseConnector.sol)
+
+```solidity
+File: contracts/helpers/LZHelpers/LZHelperSender.sol
+
+76: if (msg.sender != vaultIdToVaultInfo[vaultId].omniChainManager) revert InvalidSender();
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/LZHelpers/LZHelperSender.sol)
+
+```solidity
+File: contracts/helpers/OmniChainHandler/OmnichainLogic.sol
+
+72: revert IConnector_BridgeTransactionNotApproved(txn);
+74: if (bridgeRequest.from != address(this)) revert IConnector_InvalidInput();
+79: revert IConnector_InvalidDestinationChain();
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainLogic.sol)
+
+```solidity
+File: contracts/helpers/OmniChainHandler/OmnichainManagerBaseChain.sol
+
+33: if (msg.sender != lzHelper) revert IConnector_InvalidSender();
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainManagerBaseChain.sol)
+
+```solidity
+File: contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol
+
+30: if (routes[_routeId].route == address(0) && !routes[_routeId].isEnabled) revert RouteNotFound();
+98: if (_swapRequest.amount == 0) revert InvalidAmount();
+100: if (swapImplInfo.isBridge) revert RouteNotAllowedForThisAction();
+135: if (!bridgeImplInfo.isBridge) revert RouteNotAllowedForThisAction();
+166: revert RouteNotFound();
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol)
+
+```solidity
+File: contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol
+
+
+113: revert InvalidSelector();
+118: if (from != _request.from) revert InvalidReceiver(from, _request.from);
+119: if (receivingAmount < _request.minAmount) revert InvalidMinAmount();
+120: if (sendingAssetId != _request.inputToken) revert InvalidInputToken();
+121: if (receivingAssetId != _request.outputToken) revert InvalidOutputToken();
+122: if (amount != _request.amount) revert InvalidAmount();
+153: if (isBridgeWhiteListed[bridgeData.bridge] == false) revert BridgeBlacklisted();
+154: if (isChainSupported[bridgeData.destinationChainId] == false) revert InvalidChainId();
+155: if (bridgeData.sendingAssetId != _request.inputToken) revert InvalidFromToken();
+157: revert InvalidReceiver(bridgeData.receiver, _request.receiverAddress);
+159: if (bridgeData.minAmount > _request.amount) revert InvalidMinAmount();
+160: if (bridgeData.destinationChainId != _request.destChainId) revert InvalidToChainId();
+179: revert FailedToForward(err);
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol)
+
+
+```solidity
+File: contracts/helpers/valueOracle/NoyaValueOracle.sol
+
+25: if (!registry.hasRole(registry.MAINTAINER_ROLE(), msg.sender)) revert INoyaValueOracle_Unauthorized(msg.sender);
+107: revert NoyaOracle_PriceOracleUnavailable(quotingToken, baseToken);
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/NoyaValueOracle.sol)
+
+```solidity
+File: contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol
+
+42: if (!registry.hasRole(registry.MAINTAINER_ROLE(), msg.sender)) revert INoyaValueOracle_Unauthorized(msg.sender);
+58: revert NoyaChainlinkOracle_INVALID_INPUT();
+96: revert NoyaChainlinkOracle_PRICE_ORACLE_UNAVAILABLE(asset, baseToken, primarySource);
+126: revert NoyaChainlinkOracle_DATA_OUT_OF_DATE();
+129: revert NoyaChainlinkOracle_PRICE_ORACLE_UNAVAILABLE(address(source), address(0), address(0));
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol)
+
+```solidity
+File: contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol
+
+25: if (!registry.hasRole(registry.MAINTAINER_ROLE(), msg.sender)) revert INoyaValueOracle_Unauthorized(msg.sender);
+39: if (_period == 0) revert INoyaValueOracle_InvalidInput();
+66: if (pool == address(0)) revert INoyaOracle_ValueOracleUnavailable(tokenIn, baseToken);
+```
+[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol)
 </details>
