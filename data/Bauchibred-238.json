@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "All attempts to swap via LIFI would fail due to the wrong implementation of the verifications via `verifySwapData()`",
+  "issueId": 238,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/238"
+}
