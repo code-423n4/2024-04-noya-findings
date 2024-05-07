@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "The DolomitConnector does not implement _ getUnderlyingTokens allowing the creation of positions using tokens that are not trusted",
+  "issueId": 261,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/261"
+}
