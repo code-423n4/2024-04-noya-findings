@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "JanuaryPersimmon2024",
+  "risk": "3",
+  "title": "Sending at least 1 wei share of an ERC20 token to the BalancerFlashLoan helper connector contract will break it and cause a DoS",
+  "issueId": 258,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/258"
+}
