@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DanielArmstrong",
+  "risk": "3",
+  "title": "Executing withdrawal can be DOSed by `blackList` of baseToken.",
+  "issueId": 233,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/233"
+}
