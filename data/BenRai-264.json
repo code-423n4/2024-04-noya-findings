@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "The `ChainlinkOracleConnector` will return stale data because chainlinkPriceAgeThreshold is set to 2 hours",
+  "issueId": 264,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/264"
+}
