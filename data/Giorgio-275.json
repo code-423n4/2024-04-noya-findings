@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Giorgio",
+  "risk": "2",
+  "title": "protocol performance fee is supposed to be 20% but capped at 10%",
+  "issueId": 275,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/275"
+}
