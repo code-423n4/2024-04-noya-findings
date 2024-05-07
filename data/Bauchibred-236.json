@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "A position's `TVL` can be easily manipulated due to usage of the price gotten at `slot0` to calculate the price",
+  "issueId": 236,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/236"
+}
