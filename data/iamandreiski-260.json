@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "Uniswap V3 oracles are unsafe to be used on L2s due to possible Sequencer downtime",
+  "issueId": 260,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/260"
+}
