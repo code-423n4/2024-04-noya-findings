@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "itsabinashb",
+  "risk": "3",
+  "title": "Anyone can make AccountingManager to DoS the retrieving token for withdrawal by sending 1e0 amount of USDC to AccountingManager",
+  "issueId": 252,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/252"
+}
