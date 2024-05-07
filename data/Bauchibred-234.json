@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": " Protocol is going to ingest stale data for all `< 1 hour` heartbeat feeds ",
+  "issueId": 234,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/234"
+}
