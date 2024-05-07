@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "Protocol might over/under-value some assets due to the logic attached to the getting the prices",
+  "issueId": 237,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/237"
+}
