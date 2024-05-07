@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "lzSend() forwards all of the contract balance as the native gas fee but the excess won't be always returned",
+  "issueId": 276,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/276"
+}
