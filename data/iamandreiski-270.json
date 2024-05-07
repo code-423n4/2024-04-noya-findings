@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "Fee calculation uses 1e6 precision denomination while most ERC20 tokens have 18 decimals leading to very large fees",
+  "issueId": 270,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/270"
+}
