@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "A malicious user can DoS withdrawals indefinitely by setting the receiver as a blacklisted user",
+  "issueId": 265,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/265"
+}
