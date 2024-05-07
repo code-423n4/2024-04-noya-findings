@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "If an account on Silo has more debt than assets, calculating the TVL of the vault associated with the account will revert and thereby DOS deposits and withdraws ",
+  "issueId": 251,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/251"
+}
