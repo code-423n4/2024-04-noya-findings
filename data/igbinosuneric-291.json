@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "igbinosuneric",
+  "risk": "2",
+  "title": "Potential Nonce Replay Vulnerability in execute Function",
+  "issueId": 291,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/291"
+}
