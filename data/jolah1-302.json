@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "jolah1",
+  "risk": "2",
+  "title": "CurveConnector.sol will be broken on Arbitrum because of the difference in implementation of the Convex Arbitrum contracts.",
+  "issueId": 302,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/302"
+}
