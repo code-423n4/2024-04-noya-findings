@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "swizz",
+  "risk": "2",
+  "title": "An event can be triggered with false values leading to incorrect information on the blockchain",
+  "issueId": 303,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/303"
+}
