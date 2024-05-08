@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "xg",
+  "risk": "3",
+  "title": "The `_getValue` function in the `NoyaValueOracle` has incorrect swap path calculation logic",
+  "issueId": 311,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/311"
+}
