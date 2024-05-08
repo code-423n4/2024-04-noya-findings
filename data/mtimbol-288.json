@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "mtimbol",
+  "risk": "2",
+  "title": "Incorrect Order of Operations in `deposit` Function Leads to Potential Excess Token Transfers",
+  "issueId": 288,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/288"
+}
