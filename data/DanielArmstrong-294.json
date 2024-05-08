@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DanielArmstrong",
+  "risk": "3",
+  "title": "Executing `withdrawRequest` can be DOSed because of zero amount of asset.",
+  "issueId": 294,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/294"
+}
