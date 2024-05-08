@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "WinSec",
+  "risk": "2",
+  "title": "Incorrect implementation of Modifier in `Registry.sol` can lead to unauthorised access",
+  "issueId": 306,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/306"
+}
