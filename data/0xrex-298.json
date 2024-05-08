@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xrex",
+  "risk": "2",
+  "title": "Malicious user can escape paying fees leveraging small withdrawal batches in low cost chains",
+  "issueId": 298,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/298"
+}
