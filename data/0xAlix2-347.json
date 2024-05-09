@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "Users can front-run deposit execution to bypass the deposit limit",
+  "issueId": 347,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/347"
+}
