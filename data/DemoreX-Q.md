@@ -91,3 +91,32 @@ Balance of Alice before deposit: 11000000
 Giving allowance to accounting manager
 Balance of Alice after deposit: 0
 ```
+
+# NC-02 Slippage tolerance can be set higher than %100
+
+> https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol#L57C2-L74C6
+
+```solidity
+    function setGeneralSlippageTolerance(uint256 _slippageTolerance) external onlyMaintainerOrEmergency {
+        genericSlippageTolerance = _slippageTolerance;
+        emit SetSlippageTolerance(address(0), address(0), _slippageTolerance);
+    }
+
+    /**
+     * @notice function responsible for setting the slippage tolerance for a specific pair
+     * @param _inputToken address of the input token
+     * @param _outputToken address of the output token
+     * @param _slippageTolerance uint256 value of the slippage tolerance
+     */
+    function setSlippageTolerance(address _inputToken, address _outputToken, uint256 _slippageTolerance)
+        external
+        onlyMaintainerOrEmergency
+    {
+        slippageTolerance[_inputToken][_outputToken] = _slippageTolerance;
+        emit SetSlippageTolerance(_inputToken, _outputToken, _slippageTolerance);
+}
+```
+
+## Description
+
+The %100 variable defined as 1e6 in the contract, but the above functions can set slippage higher than %100 because it doesn't check the value to be set.
