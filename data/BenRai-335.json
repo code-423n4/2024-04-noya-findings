@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "`PendleConnector::decreasePosition` does not update the token position which can lead to a calculated TVL that is to low ",
+  "issueId": 335,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/335"
+}
