@@ -120,3 +120,19 @@ Balance of Alice after deposit: 0
 ## Description
 
 The %100 variable defined as 1e6 in the contract, but the above functions can set slippage higher than %100 because it doesn't check the value to be set.
+
+```terminal
+function setGeneralSlippageTolerance(uint256 _slippageTolerance) external onlyMaintainerOrEmergency {
++        if (_slippageTolerance > 1e6) {
++            revert InvalidSlippageTolerance();
++        }
+         genericSlippageTolerance = _slippageTolerance;
+
+external
+         onlyMaintainerOrEmergency
+     {
++        if (_slippageTolerance > 1e6) {
++            revert InvalidSlippageTolerance();
++        }
+         slippageTolerance[_inputToken][_outputToken] = _slippageTolerance
+```
