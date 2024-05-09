@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BiasedMerc",
+  "risk": "2",
+  "title": "BalancerConnector::openPosition() doesn't ensure that amounts[] length is same length as tokens",
+  "issueId": 349,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/349"
+}
