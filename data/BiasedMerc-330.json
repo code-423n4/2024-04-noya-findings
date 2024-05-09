@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BiasedMerc",
+  "risk": "3",
+  "title": "AccountingManager::executeWithdraw() can block queued withdraws if data.receiver is a blacklisted address",
+  "issueId": 330,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/330"
+}
