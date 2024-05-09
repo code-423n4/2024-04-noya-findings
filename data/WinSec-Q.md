@@ -77,3 +77,17 @@ if (isBridgeWhiteListed[bridgeData.bridge] == false) revert BridgeBlacklisted();
 ```
 
 Recommendation would be to just change the function name to avoid confusion and setting wrong states.
+
+# Low-03 Many functionality will be broken if external tokens with pausability mechanism ever pause their contract.
+
+As per the contracts readme it is already mentioned that tokens with pausing mechanism are in the scope of this audit.
+
+![pausibility](https://github.com/0xWeb3boy/photo/assets/113019033/b0799d25-1313-47c4-bd15-9bb1b9f95972)
+
+Now there are many tokens like USDT/USDC/FRAX to name a few that have this pausability feature, also if theyt ever decide to pause their contracts there are many functionalities in the protocol that will be bricked since the protocol relies heavily on these tokens.
+
+This should be of medium severity as this particular issue comes under the scope of the audit and the protocol already have mentioned in the readme that external token integration with pausibility mechanism is in the scope of the audit.
+
+Their is no such way to actually mitigate this than just letting the users know before hand about the occurence of this event.
+
+# Low-04  
