@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BiasedMerc",
+  "risk": "2",
+  "title": "AerodromeConnector.sol and other connectors should ensure that 0 amounts are not passed during pool operations",
+  "issueId": 346,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/346"
+}
