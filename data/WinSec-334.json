@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "WinSec",
+  "risk": "3",
+  "title": "`FraxConnector.sol :: repay()` doesn't update holding position which will affect the TVL() of the vault and lead to revert in deposit()",
+  "issueId": 334,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/334"
+}
