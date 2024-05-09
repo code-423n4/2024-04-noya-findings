@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Zac",
+  "risk": "3",
+  "title": "Attacker can spam dust deposits and zero/dust withdrawals temporarily preventing other users deposits/withdraws from being executed",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/352"
+}
