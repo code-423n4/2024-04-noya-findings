@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BiasedMerc",
+  "risk": "2",
+  "title": "AerodromeConnector::constructor() doesn't check if _voter is 0 address",
+  "issueId": 348,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/348"
+}
