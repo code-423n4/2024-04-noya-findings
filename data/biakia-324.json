@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "biakia",
+  "risk": "2",
+  "title": "`SiloConnector` does not update the balance of `Silo` in registry",
+  "issueId": 324,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/324"
+}
