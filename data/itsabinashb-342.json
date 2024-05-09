@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "itsabinashb",
+  "risk": "2",
+  "title": "Protocol may account uneligible DepositRequest & WithdrawRequest in AccountingManager contract while calculating deposit share and withdraw share due to hardcoded `positionTimestamp` in HoldingPI struct",
+  "issueId": 342,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/342"
+}
