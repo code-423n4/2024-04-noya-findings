@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "zhanmingjing",
+  "risk": "2",
+  "title": "updateHoldingPosition() will always revert if setMaxNumHoldingPositions() set maxNumHoldingPositions  to a lower value than the current postion number",
+  "issueId": 356,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/356"
+}
