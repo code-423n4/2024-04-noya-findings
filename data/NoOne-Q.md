@@ -3,3 +3,5 @@ The comment is `Internal Functions *********************************` but all fu
 
 In [PancakeswapConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/PancakeswapConnector.sol#L11)
 The comment is `// ------------ errors -------------- //` but there is no errors
+
+In [SNXConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/SNXConnector.sol#L47) this comment should be `Withdraw`
