@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "When minting sUSD by calling `SNXV3Connector:: mintOrBurnSUSD` no new position of sUSD is created which will result in a calculated TVL that is to low",
+  "issueId": 369,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/369"
+}
