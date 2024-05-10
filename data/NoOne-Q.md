@@ -1,0 +1,2 @@
+Here in [BalancerConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerConnector.sol#L62)
+The comment is `Internal Functions *********************************` but all functions are publuc execpt [function _getPoolInfo](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerConnector.sol#L189)
