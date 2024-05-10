@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "Burning sUSD in `SNXV3Connector:: mintOrBurnSUSD` will not work because the sUSD to burn are not deposited into the SNXV3 protocol",
+  "issueId": 370,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/370"
+}
