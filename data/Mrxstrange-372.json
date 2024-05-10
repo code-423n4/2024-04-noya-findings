@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Mrxstrange",
+  "risk": "2",
+  "title": "Unsafe casting of user amount from `uint256` to `uint128`",
+  "issueId": 372,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/372"
+}
