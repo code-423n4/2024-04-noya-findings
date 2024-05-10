@@ -10,3 +10,9 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 So some users who might be withdrawing <100 , might see their transaction get reverted, and since there is a approve present which is itself prone to frontrunning might be a bit problematic for users
 ## Recommendation
 Either warn users through docs or implement the checks 
+
+# [L-03] Curve admin fees
+Curve has a feature for when adding liquidity into their pool they have a fees kept for admin. The protocol calculates the minAmount offchain to mitiagte for slippage, but for end users who interact with NOYA for them it can  be unknown
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L131
+## Recommendation 
+Make sure it is well known in the docs
