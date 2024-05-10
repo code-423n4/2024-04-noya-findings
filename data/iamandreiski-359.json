@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "If between the fulfillment and the execution of a withdrawal group some of the contract balance of the base token is slashed, protocol will be temporarily DoSd",
+  "issueId": 359,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/359"
+}
