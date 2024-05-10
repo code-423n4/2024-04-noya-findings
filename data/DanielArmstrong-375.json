@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DanielArmstrong",
+  "risk": "2",
+  "title": "WithdrawRequest which is still not calculated can be executed.",
+  "issueId": 375,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/375"
+}
