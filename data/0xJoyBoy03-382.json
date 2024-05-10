@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xJoyBoy03",
+  "risk": "2",
+  "title": "No token update after staking in `AerodromeConnector::stake` function",
+  "issueId": 382,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/382"
+}
