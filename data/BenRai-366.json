@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "`SNXV3Connector::_getPositionTVL` calculates the amount of collateral wrong which leads to a calculated TVL that is to high",
+  "issueId": 366,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/366"
+}
