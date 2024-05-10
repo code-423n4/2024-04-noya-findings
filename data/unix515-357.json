@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "unix515",
+  "risk": "3",
+  "title": "Attacker can stop forever regular deposit request processing by depositing zero `receiver` request.",
+  "issueId": 357,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/357"
+}
