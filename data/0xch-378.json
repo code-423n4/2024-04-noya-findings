@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xch",
+  "risk": "2",
+  "title": "Insufficient Input Validation for amount in withdrawShares and burnShares",
+  "issueId": 378,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/378"
+}
