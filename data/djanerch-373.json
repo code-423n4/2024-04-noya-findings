@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "djanerch",
+  "risk": "3",
+  "title": "Incorrect health factor calculations in `CompoundConnector.sol`",
+  "issueId": 373,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/373"
+}
