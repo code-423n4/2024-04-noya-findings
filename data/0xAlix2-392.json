@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "If the collateral price dropped, Aave's position TVL will always underflow",
+  "issueId": 392,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/392"
+}
