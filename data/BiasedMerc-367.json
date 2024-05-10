@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BiasedMerc",
+  "risk": "2",
+  "title": "Registry::addTrustedPosition() is only accessible by maintainerWithoutTimeLock",
+  "issueId": 367,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/367"
+}
