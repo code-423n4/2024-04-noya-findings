@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xch",
+  "risk": "2",
+  "title": "Non-Compliance with ERC20 decimals Function `ChainlinkOracleConnector`",
+  "issueId": 416,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/416"
+}
