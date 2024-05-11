@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Cryptor",
+  "risk": "3",
+  "title": "Using slot0 to calculate the TVL in the UniswapV3 connector will make it vulnerable to manipulation ",
+  "issueId": 430,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/430"
+}
