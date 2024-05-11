@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "Creating a position for veMav in the PositionRegistry when calling `MaverickConnector::stake()` will DOS the deposit and withdraw functionality of the vault",
+  "issueId": 410,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/410"
+}
