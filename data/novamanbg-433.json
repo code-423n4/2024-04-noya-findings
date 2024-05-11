@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "novamanbg",
+  "risk": "3",
+  "title": "Anyone will be able to DOS the withdraw system by withdrawing 0 amount",
+  "issueId": 433,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/433"
+}
