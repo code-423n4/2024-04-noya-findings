@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xch",
+  "risk": "3",
+  "title": "Missing SafeERC20 Import Statement `OmniChainLogic`",
+  "issueId": 412,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/412"
+}
