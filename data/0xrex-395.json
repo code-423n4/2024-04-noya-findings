@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xrex",
+  "risk": "2",
+  "title": "Malicious user can keep hoarding withdrawal batch space with low value withdrawal requests forcing protocol to spend 3x more",
+  "issueId": 395,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/395"
+}
