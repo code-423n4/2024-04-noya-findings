@@ -1,8 +1,0 @@
-{
-  "contest": 368,
-  "handle": "Mylifechangefast_eth",
-  "risk": "2",
-  "title": "IStargatePool(lpAddress).token() doesn't seem to be  the underlying token address for the specified pool ID",
-  "issueId": 429,
-  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/429"
-}
