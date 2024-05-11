@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Mrxstrange",
+  "risk": "2",
+  "title": "SendTokensToTrustedAddress() need some require  check",
+  "issueId": 408,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/408"
+}
