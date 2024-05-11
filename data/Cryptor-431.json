@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Cryptor",
+  "risk": "2",
+  "title": "Mismatch between the Aave minimum health factor and the Noya health factor will allow some positions to not be removed ",
+  "issueId": 431,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/431"
+}
