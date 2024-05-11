@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "Claimed rewards in `MaverickConnector::claimBoostedPositionRewards` are not included in the TVL",
+  "issueId": 413,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/413"
+}
