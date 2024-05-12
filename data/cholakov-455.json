@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "cholakov",
+  "risk": "2",
+  "title": "Chainlink price feed uses BTC/USD oracle to price WBTC which is problematic if WBTC depegs",
+  "issueId": 455,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/455"
+}
