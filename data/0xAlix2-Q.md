@@ -32,4 +32,30 @@ function testInvaidUpdateRegistry_addColl() public {
     assertEq(IERC20(WETH).balanceOf(address(connector)), 0);
 }
 ```
-2. Nice
+2. Balancer connector is not updating the registry for the col1lateral token after adding liquidity when calling `openPosition`.
+```
+function testInvaidUpdateRegistry_openPosition() public {
+    uint256 USDCamount = 10_000e6;
+    _dealWhale(USDC, address(connector), USDC_Whale, USDCamount);
+
+    bytes32 USDCpositionId = registry.calculatePositionId(address(accountingManager), 0, abi.encode(USDC));
+    bytes memory USDCpositionData = abi.encode(address(connector));
+
+    vm.startPrank(owner);
+
+    connector.updateTokenInRegistry(USDC);
+
+    assertEq(registry.getHoldingPositionIndex(vaultId, USDCpositionId, address(connector), USDCpositionData), 1);
+    assertEq(IERC20(USDC).balanceOf(address(connector)), USDCamount);
+
+    uint256[] memory amounts = new uint256[](4);
+    uint256[] memory amountsW = new uint256[](3);
+    amounts[2] = USDCamount;
+    amountsW[1] = USDCamount;
+    connector.openPosition(vanillaUsdcDaiUsdtId, amounts, amountsW, 0, 0);
+
+    // USDC position still exists in the registry even though the connector USDC balance is 0
+    assertEq(registry.getHoldingPositionIndex(vaultId, USDCpositionId, address(connector), USDCpositionData), 1);
+    assertEq(IERC20(USDC).balanceOf(address(connector)), 0);
+}
+```
