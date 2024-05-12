@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "fractal_20892",
+  "risk": "2",
+  "title": "the function addConnector allows repeated addition of the same connector address with a possibly different enabled/disabled status",
+  "issueId": 447,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/447"
+}
