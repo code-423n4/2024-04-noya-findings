@@ -12,3 +12,5 @@ In [Keepers.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff8201
 
 In [MaverickConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/MaverickConnector.sol#L4) unused imports
 
+In [MaverickConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/MaverickConnector.sol#L161) the function parameter `uint256 id` is unused
+
