@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "fractal_20892",
+  "risk": "2",
+  "title": "The function addLiquidityInMaverickPool does not validate that tokenA is actually ETH when the ethPoolIncluded flag is set to true",
+  "issueId": 452,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/452"
+}
