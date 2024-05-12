@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "`sUSD` debt is not considered in the position TVL in SNX connector",
+  "issueId": 443,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/443"
+}
