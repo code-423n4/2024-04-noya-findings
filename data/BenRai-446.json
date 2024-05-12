@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "When closing an account in the `Gearboxv3` connector there is no check if the account is still holding value",
+  "issueId": 446,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/446"
+}
