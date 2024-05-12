@@ -9,3 +9,6 @@ In [SNXConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332ef
 In [UNIv3Connector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/UNIv3Connector.sol#L121) it has comment for Internal functions but it has more public than internal functions
 
 In [Keepers.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/Keepers.sol#L14)  `nonce` it doesnt set in the constructor
+
+In [MaverickConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/MaverickConnector.sol#L4) unused imports
+
