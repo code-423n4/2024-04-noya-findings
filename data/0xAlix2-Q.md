@@ -1,5 +1,6 @@
-Prisma connector is not updating the registry for the collateral token after adding liquidity when calling `addColl`.
+# Connectors not updating token positions in the registry
 
+1. Prisma connector is not updating the registry for the col1lateral token after adding liquidity when calling `addColl`.
 ```
 function testInvaidUpdateRegistry_addColl() public {
     IStakeNTroveZap troveZap = IStakeNTroveZap(ULTRA_StakeNTroveZap);
@@ -31,3 +32,4 @@ function testInvaidUpdateRegistry_addColl() public {
     assertEq(IERC20(WETH).balanceOf(address(connector)), 0);
 }
 ```
+2. Nice
