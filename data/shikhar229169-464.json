@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "shikhar229169",
+  "risk": "2",
+  "title": "`depositLimitTotalAmount` and `depositLimitPerTransaction` only allows to deposit a very negligible amount as it considers that every base token if of 6 decimals",
+  "issueId": 464,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/464"
+}
