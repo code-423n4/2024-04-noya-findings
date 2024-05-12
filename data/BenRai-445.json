@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "In the `Gearboxv3` connector the health factor of the account is never considered",
+  "issueId": 445,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/445"
+}
