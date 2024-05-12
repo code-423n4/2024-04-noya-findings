@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "shikhar229169",
+  "risk": "3",
+  "title": "Incorrect decimal accounting in `ChainlinkOracleConnector::getValueFromChainlinkFeed` leads to incorrect value returned for the inquired token, thus incorrect TVL calculated",
+  "issueId": 461,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/461"
+}
