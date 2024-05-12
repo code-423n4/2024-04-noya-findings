@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sparrow",
+  "risk": "2",
+  "title": "Absence of Rate Limiting Mechanism in `getValue` Function Allows Potential DoS",
+  "issueId": 468,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/468"
+}
