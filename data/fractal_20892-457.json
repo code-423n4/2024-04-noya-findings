@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "fractal_20892",
+  "risk": "2",
+  "title": "Array Length Mismatch in addConnector can lead to an  an out-of-bounds access",
+  "issueId": 457,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/457"
+}
