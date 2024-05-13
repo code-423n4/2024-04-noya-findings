@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SpicyMeatball",
+  "risk": "2",
+  "title": "ChainlinkOracleConnector.sol returns incorrect price from ETH/USD price feed",
+  "issueId": 511,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/511"
+}
