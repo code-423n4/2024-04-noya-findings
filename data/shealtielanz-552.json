@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "shealtielanz",
+  "risk": "3",
+  "title": "An Attacker can brick the execution of deposits.",
+  "issueId": 552,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/552"
+}
