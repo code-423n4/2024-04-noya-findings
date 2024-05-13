@@ -1,4 +1,5 @@
 # [L-01] A malicious deployer can set themselves as the fee reciever
+In the keeper contract a malicious deployer can set themsleves as fee reciever
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/NoyaFeeReceiver.sol#L20
 ## Recommendation
 Add proper explicit check for deployers/owners for such specific risks
@@ -28,3 +29,16 @@ https://etherscan.io/address/0x0f3159811670c117c372428d4e69ac32325e4d0f#code
 ## Recommendation 
 Make sure user's/keepers are made aware of this issue
 
+# [L-05] Uniswapv3 Price manipulation.
+The oracle uses the TWAP price from Uniswap V3 to determine the price of each asset.
+If a pair is not listed on Uniswap V3, the oracle will not work.
+This will be a relatively common occurrence that doesn't require obscure tokens. Many combinations of tokens on Uniswap are able to be traded because they don't have a pool directly, but they share a poolmate. A quick review of [Uniswap Pairs](https://info.uniswap.org/pairs#/), can show this.
+
+An attacker Create a Uniswap V3 pool with the required token and the token in question
+Seed it with an incredibly low amount of liquidity at a ratio that values that token in question at ~0
+They would just Maintain the price for the length of the TWAP, which shouldn't be hard with a new, unused pool and low liquidity(arbitrages shouldn't touch it). Or they can overinflate the price so that when the price of that token is fetched from that pool, it returns the manipulated price
+
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L60
+## Recommendation
+UniV3Oracle should require the pool being used as an oracle to meet certain liquidity thresholds or have existed for a predefined period of time before returning the price to the Swapper.
