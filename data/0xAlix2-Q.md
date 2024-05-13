@@ -61,3 +61,4 @@ function testInvaidUpdateRegistry_openPosition() public {
 ```
 3. Curve connector is not updating the registry for the col1lateral token after adding liquidity when calling `openCurvePosition`.
 4. Pendle connector is not updating the registry for the col1lateral token after adding liquidity when calling `supply`.
+5. Pendle connector is not updating the registry for the col1lateral token after removing liquidity when calling `decreasePosition`.
