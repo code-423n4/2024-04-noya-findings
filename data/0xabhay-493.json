@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xabhay",
+  "risk": "2",
+  "title": "Missing L2 Sequencer Health Check in Chainlink Oracle Data Retrieval",
+  "issueId": 493,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/493"
+}
