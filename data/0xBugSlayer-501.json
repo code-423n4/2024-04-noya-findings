@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xBugSlayer",
+  "risk": "3",
+  "title": "Tokens with `revert on 0 transfer` functionality may DoS the `executeWithdraw()` function, blocking everybodys' funds in the system",
+  "issueId": 501,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/501"
+}
