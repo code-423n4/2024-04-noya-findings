@@ -17,6 +17,8 @@ In [ConnectorMock2.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332
 In [AerodromeConnector.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AerodromeConnector.sol#L117) the function parameter is unused `uint256 p`
 
 In [BalancerFlashLoan.sol](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerFlashLoan.sol#L69) local variable is unused `address emergencyManager`
+
+In `PendleConnector.sol` in [swapYTForPT](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/PendleConnector.sol#L149) , [swapYTForSY](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/PendleConnector.sol#L166C14-L166C25) has an unused local variables `IPStandardizedYield _SY, IPPrincipalToken _PT` and in [swapExactPTForSY](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/PendleConnector.sol#L183) has an unused local variable `IPStandardizedYield _SY`
  
 In `NoyaGovernanceBase.sol` has unused modifiers 
 [modifier onlyEmergencyOrWatcher](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/NoyaGovernanceBase.sol#L53)
