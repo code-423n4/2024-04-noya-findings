@@ -28,7 +28,17 @@ An attacker Create a Uniswap V3 pool with the required token and the token in qu
 Seed it with an incredibly low amount of liquidity at a ratio that values that token in question at ~0
 They would just Maintain the price for the length of the TWAP, which shouldn't be hard with a new, unused pool and low liquidity(arbitrages shouldn't touch it). Or they can overinflate the price so that when the price of that token is fetched from that pool, it returns the manipulated price
 
-
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L60
 ## Recommendation
 UniV3Oracle should require the pool being used as an oracle to meet certain liquidity thresholds or have existed for a predefined period of time before returning the price to the Swapper.
+
+# [L-05] Admin setter functions missing events
+Events are often used to monitor the protocol status. Without emission of events, users might be affected due to ignorance of the changes.
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L36
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L52
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L51
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L63
+
+## Recommended 
+Add events for the mentioned codelines, & check for other parts where event emission might be needed 
