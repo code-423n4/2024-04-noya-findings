@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "shikhar229169",
+  "risk": "3",
+  "title": "`NoyaValueOracle::_getValue` reverts or returns incorrect value for token prices due to usage of the `asset` as source token all over the loop",
+  "issueId": 531,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/531"
+}
