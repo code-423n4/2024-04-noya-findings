@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "shikhar229169",
+  "risk": "2",
+  "title": "`BalancerFlashLoan::receiveFlashLoan` will suffer a DoS due to the strict equality check for every flash loan token",
+  "issueId": 490,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/490"
+}
