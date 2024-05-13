@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "valentin_s2304",
+  "risk": "2",
+  "title": "`ChainlinkOracleConnector::getValue` is not compilant with tokens that do not support decimals function",
+  "issueId": 509,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/509"
+}
