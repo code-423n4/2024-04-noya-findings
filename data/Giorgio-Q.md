@@ -50,6 +50,19 @@ The `addLiquidityInMaverickPool()` function in the MaverickConnector has the abi
 
 Consider adding a tokenId param to the `MavericAddLiquidityParams` struct. This will enable the protocol to increase an already existing position without needing to create a new one. 
 
+# Unsafe casting to uint128
+
+## Link
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L61
+
+## Description
+
+In the UniswapValueOracle contract, the `getValue()` function is used to determine the value amount of tokenIn to base token. However, the `amount` is unsafely casted from uint256 to uint128. Meaning that any amount above uint128 will be inaccurate and thus return lower amounts of base token.
+
+Consider using safecast or making sure the amount is indeed lower than `type(uint128).max`.
+
+
 # Typos
 
 here are a few typos that I spotted.
