@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Cryptor",
+  "risk": "2",
+  "title": "Repay functions can be front ran by 3rd parties, causing allowance to be greater than it should be ",
+  "issueId": 541,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/541"
+}
