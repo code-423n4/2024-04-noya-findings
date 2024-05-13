@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "3",
+  "title": "Accounting manager does not exclude baseToken pulled from connectors for fulfilling pending withdrawals in calculation of TVL",
+  "issueId": 549,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/549"
+}
