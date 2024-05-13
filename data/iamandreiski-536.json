@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "Maverick Connector uses ETH as liquidity for some of the Maverick pools, but NOYA isn't equipped to handle ETH in its vaults",
+  "issueId": 536,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/536"
+}
