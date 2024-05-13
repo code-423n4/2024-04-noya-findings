@@ -62,6 +62,34 @@ In the UniswapValueOracle contract, the `getValue()` function is used to determi
 
 Consider using safecast or making sure the amount is indeed lower than `type(uint128).max`.
 
+# Unsafe casting from int to uint
+
+## Links
+ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol#L124
+
+## Details
+
+The fetched price from chainlink oracle is a int which can be negative in some rare occasion. If a negative int is unsafely casted to a uint it will overflow and return a humongous number.
+This will break the system's profit calculation.
+
+## Mitigation route
+
+Make sure the fetched price is >= than 0 before casting unsafely
+
+```diff
+    function getValueFromChainlinkFeed(
+        AggregatorV3Interface source,
+        uint256 amountIn,
+        uint256 sourceTokenUnit,
+        bool isInverse
+    ) public view returns (uint256) {
+        int256 price;
+        uint256 updatedAt;
+        (, price,, updatedAt,) = source.latestRoundData();
++       require(price >= 0, "negative price ... revert ...");
+        uint256 uintprice = uint256(price);
+```
+
 
 # Typos
 
