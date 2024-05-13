@@ -18,18 +18,8 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 ## Recommendation 
 Make sure it is well known in the docs
 
-# [L-04] Curve withdraws `weth` when removing liquidity from Curve V2 pools
-https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L169
-Curve V2 pool will always wrap to WETH unless the use_eth is explicitly set to True. `remove_liquidity_one_coin` function is executed without explicitly setting the use_eth parameter to True. Thus, WETH instead of Native ETH will be returned during remove liquidity. As a result, these weth if not accounted for in the vault may cause loss of assets.
-https://etherscan.io/address/0x0f3159811670c117c372428d4e69ac32325e4d0f#code
-```
-[def remove_liquidity_one_coin(token_amount: uint256, i: uint256, min_amount: uint256,
-                              use_eth: bool = False, receiver: address = msg.sender) -> uint256:]
-```
-## Recommendation 
-Make sure user's/keepers are made aware of this issue
 
-# [L-05] Uniswapv3 Price manipulation.
+# [L-04] Uniswapv3 Price manipulation.
 The oracle uses the TWAP price from Uniswap V3 to determine the price of each asset.
 If a pair is not listed on Uniswap V3, the oracle will not work.
 This will be a relatively common occurrence that doesn't require obscure tokens. Many combinations of tokens on Uniswap are able to be traded because they don't have a pool directly, but they share a poolmate. A quick review of [Uniswap Pairs](https://info.uniswap.org/pairs#/), can show this.
