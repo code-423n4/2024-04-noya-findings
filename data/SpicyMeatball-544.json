@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SpicyMeatball",
+  "risk": "2",
+  "title": "setFees doesn't collect previous fees before changing fee values",
+  "issueId": 544,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/544"
+}
