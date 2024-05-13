@@ -59,3 +59,4 @@ function testInvaidUpdateRegistry_openPosition() public {
     assertEq(IERC20(USDC).balanceOf(address(connector)), 0);
 }
 ```
+3. Curve connector is not updating the registry for the col1lateral token after adding liquidity when calling `openCurvePosition`.
