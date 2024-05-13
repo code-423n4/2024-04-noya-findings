@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Stefanov",
+  "risk": "2",
+  "title": "No slippage protection in `deposit` & `withdraw` functions",
+  "issueId": 527,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/527"
+}
