@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "cu5t0mpeo",
+  "risk": "3",
+  "title": "The _getPositionTVL function of BalancerConnector will return an incorrect value.",
+  "issueId": 505,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/505"
+}
