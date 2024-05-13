@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SpicyMeatball",
+  "risk": "3",
+  "title": "The attacker can DoS accounting manager deposit functionality",
+  "issueId": 518,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/518"
+}
