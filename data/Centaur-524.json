@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Centaur",
+  "risk": "3",
+  "title": "Revert in Morpho makes it not compatible with Noya",
+  "issueId": 524,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/524"
+}
