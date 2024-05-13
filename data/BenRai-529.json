@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "When calculating the TVL of a position held by the MorphoBlue connector, the calculated TVL is higher than the actual TVL",
+  "issueId": 529,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/529"
+}
