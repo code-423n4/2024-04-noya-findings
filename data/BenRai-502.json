@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "When calling `AerodromeConnector::withdraw()` the holdingPosition in the PositionRegistry is deleted prematurely",
+  "issueId": 502,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/502"
+}
