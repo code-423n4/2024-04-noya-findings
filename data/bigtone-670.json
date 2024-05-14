@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "2",
+  "title": "The `transferBetweenAccounts` function in the Dolomite contract does not behave as intended.",
+  "issueId": 670,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/670"
+}
