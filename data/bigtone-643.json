@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "3",
+  "title": "The `swapHoldings` function in the BaseConnector contract, doesn't support the native token ",
+  "issueId": 643,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/643"
+}
