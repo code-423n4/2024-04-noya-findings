@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "2",
+  "title": "BalancerConnector assumes all pools report total supply via `totalSupply()`",
+  "issueId": 652,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/652"
+}
