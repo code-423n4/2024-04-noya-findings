@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "EaglesSecurity",
+  "risk": "2",
+  "title": "Voting in Keepers.sol potentially could stuck",
+  "issueId": 667,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/667"
+}
