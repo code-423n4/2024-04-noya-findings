@@ -157,3 +157,22 @@ function closeBorrowPosition(uint256[] memory marketIds, uint256 accountId) publ
         _updateTokenInRegistry(_token);
     }
 ```
+
+
+# L8. Incorrect amount emitted in the sendTokensToTrustedAddress.
+[sendTokensToTrustedAddress](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/AccountingManager.sol#L154)
+```diff
+    function sendTokensToTrustedAddress(address token, uint256 amount, address _caller, bytes calldata _data)
+        external
+        returns (uint256)
+    {
+-        emit TransferTokensToTrustedAddress(token, amount, _caller, _data);
+        if (registry.isAnActiveConnector(vaultId, msg.sender)) {
+            IERC20(token).safeTransfer(address(msg.sender), amount);
++            emit TransferTokensToTrustedAddress(token, amount, _caller, _data);
+            return amount;
+        }
++        emit TransferTokensToTrustedAddress(token, 0, _caller, _data);
+        return 0;
+    }
+```
