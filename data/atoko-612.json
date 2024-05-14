@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "atoko",
+  "risk": "2",
+  "title": "Recovering USDC Failure if `onlyEmergency` is Blacklisted",
+  "issueId": 612,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/612"
+}
