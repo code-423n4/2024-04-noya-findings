@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "said",
+  "risk": "3",
+  "title": "The `TVLHelper.getTVL` calculation differs from the connector's `getPositionTVL`",
+  "issueId": 668,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/668"
+}
