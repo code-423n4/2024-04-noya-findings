@@ -114,3 +114,4 @@ The above function in `FraxConnector` is to repay the borrowed assets but there 
 While in every other connector while repaying they are calling this updateHoldingPosition, this could lead to inconsistency in the accounting.
 
 Although it can be done manually via calling `registry.updateHoldingPosition` function but it should be automatic just like it has been done in other connectors.
+
