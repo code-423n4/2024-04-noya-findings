@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Kaysoft",
+  "risk": "2",
+  "title": "Ensure zero msg.value if executeSwap input token is not ETH",
+  "issueId": 592,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/592"
+}
