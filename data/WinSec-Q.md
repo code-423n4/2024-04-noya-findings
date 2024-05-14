@@ -90,4 +90,27 @@ This should be of medium severity as this particular issue comes under the scope
 
 Their is no such way to actually mitigate this than just letting the users know before hand about the occurence of this event.
 
-# Low-04  
+# Low-04  In `FraxConnector.sol` there are a few inconsistency which could lead to accounting issues
+
+https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/FraxConnector.sol#L87-L98
+
+when a call to `withdraw()` function is made , the holding position is updated there, but while repaying the holding position is not updated.
+
+```solidity
+ function repay(IFraxPair pool, uint256 sharesToRepay) public onlyManager nonReentrant {
+        uint256 repayTokenAmount = pool.toBorrowAmount(sharesToRepay, true);
+        uint256 sharesOwed = pool.userBorrowShares(address(this));
+        address asset = pool.asset();
+        if (sharesToRepay > sharesOwed) {
+            revert IConnector_InvalidInput();
+        }
+        _approveOperations(asset, address(pool), repayTokenAmount); 
+        IFraxPair(pool).repayAsset(sharesToRepay, address(this));
+        _updateTokenInRegistry(asset);
+        emit Repay(address(pool), sharesToRepay);
+    }
+``` 
+The above function in `FraxConnector` is to repay the borrowed assets but there is no call to registry.updateHoldingPosition in this function
+While in every other connector while repaying they are calling this updateHoldingPosition, this could lead to inconsistency in the accounting.
+
+Although it can be done manually via calling `registry.updateHoldingPosition` function but it should be automatic just like it has been done in other connectors.
