@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SeveritySquad",
+  "risk": "2",
+  "title": "Disabled routes can still be used in `GenericSwapAndBridgeHandler` for swapping or bridging.",
+  "issueId": 562,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/562"
+}
