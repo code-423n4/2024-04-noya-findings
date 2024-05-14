@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Rhaydden",
+  "risk": "2",
+  "title": "Misalignment Between `getLatestUpdateTime` Function Logic and NatSpec Comments",
+  "issueId": 577,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/577"
+}
