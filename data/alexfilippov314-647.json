@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexfilippov314",
+  "risk": "2",
+  "title": "The `PositionRegistry.onlyVaultMaintainer` modifier doesn't implement emergency fallback correctly",
+  "issueId": 647,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/647"
+}
