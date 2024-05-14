@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "2",
+  "title": "Underwater positions of Compound connector will block deposits to associated AccountingManager",
+  "issueId": 587,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/587"
+}
