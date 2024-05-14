@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "The AaveConnector does not work for Aave V3 on Arbitum and Optimism because they use a different pool contract",
+  "issueId": 633,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/633"
+}
