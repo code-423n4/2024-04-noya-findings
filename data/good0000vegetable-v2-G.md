@@ -12,6 +12,7 @@
 | [G‑07] | Use nested if and avoid multiple check combinations                      |    19     |
 | [G‑08] | Using Storage Instead of Memory for structs/arrays Saves Gas             |    44     |
 | [G‑09] | Use `revert()` to gain maximum gas savings                               |    98     |
+| [G‑10] | Setting the constructor to payable                                       |    39     |
 
 ## [G-01] Use `assembly` for efficient event emission 
 
@@ -1379,7 +1380,7 @@ File: contracts/governance/NoyaGovernanceBase.sol
 77: if (msg.sender != maintainer) revert NoyaGovernance_Unauthorized(msg.sender);
 87: if (msg.sender != governer) revert NoyaGovernance_Unauthorized(msg.sender);
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/NoyaGovernanceBase.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/NoyaGovernanceBase.sol)
 
 ```solidity
 File: contracts/helpers/BaseConnector.sol
@@ -1389,14 +1390,14 @@ File: contracts/helpers/BaseConnector.sol
 175: revert IConnector_InvalidAddress(msg.sender);
 184: revert IConnector_InsufficientDepositAmount(_balanceAfter - _balance, amounts[i]);
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/BaseConnector.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/BaseConnector.sol)
 
 ```solidity
 File: contracts/helpers/LZHelpers/LZHelperSender.sol
 
 76: if (msg.sender != vaultIdToVaultInfo[vaultId].omniChainManager) revert InvalidSender();
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/LZHelpers/LZHelperSender.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/LZHelpers/LZHelperSender.sol)
 
 ```solidity
 File: contracts/helpers/OmniChainHandler/OmnichainLogic.sol
@@ -1405,14 +1406,14 @@ File: contracts/helpers/OmniChainHandler/OmnichainLogic.sol
 74: if (bridgeRequest.from != address(this)) revert IConnector_InvalidInput();
 79: revert IConnector_InvalidDestinationChain();
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainLogic.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainLogic.sol)
 
 ```solidity
 File: contracts/helpers/OmniChainHandler/OmnichainManagerBaseChain.sol
 
 33: if (msg.sender != lzHelper) revert IConnector_InvalidSender();
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainManagerBaseChain.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainManagerBaseChain.sol)
 
 ```solidity
 File: contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol
@@ -1423,7 +1424,7 @@ File: contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol
 135: if (!bridgeImplInfo.isBridge) revert RouteNotAllowedForThisAction();
 166: revert RouteNotFound();
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol)
 
 ```solidity
 File: contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol
@@ -1443,7 +1444,7 @@ File: contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol
 160: if (bridgeData.destinationChainId != _request.destChainId) revert InvalidToChainId();
 179: revert FailedToForward(err);
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol)
 
 
 ```solidity
@@ -1452,7 +1453,7 @@ File: contracts/helpers/valueOracle/NoyaValueOracle.sol
 25: if (!registry.hasRole(registry.MAINTAINER_ROLE(), msg.sender)) revert INoyaValueOracle_Unauthorized(msg.sender);
 107: revert NoyaOracle_PriceOracleUnavailable(quotingToken, baseToken);
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/NoyaValueOracle.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/NoyaValueOracle.sol)
 
 ```solidity
 File: contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol
@@ -1463,7 +1464,7 @@ File: contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol
 126: revert NoyaChainlinkOracle_DATA_OUT_OF_DATE();
 129: revert NoyaChainlinkOracle_PRICE_ORACLE_UNAVAILABLE(address(source), address(0), address(0));
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol)
 
 ```solidity
 File: contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol
@@ -1472,5 +1473,289 @@ File: contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol
 39: if (_period == 0) revert INoyaValueOracle_InvalidInput();
 66: if (pool == address(0)) revert INoyaOracle_ValueOracleUnavailable(tokenIn, baseToken);
 ```
-[Link to code] (https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol)
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol)
+</details>
+
+## [G-10] Setting the constructor to payable
+You can cut out 10 opcodes in the creation-time EVM bytecode if you declare a constructor payable. Making the constructor payable eliminates the need for an initial check of msg.value == 0 and saves 13 gas on deployment with no security risks.
+
+Furthermore, Solidity's division operation also includes a division-by-0 prevention which is bypassed using shifting.
+
+
+<details>
+<summary><i>39 issue instances in 39 files:</i></summary>
+
+```solidity
+File: contracts/accountingManager/AccountingManager.sol:
+
+94: constructor(AccountingManagerConstructorParams memory p)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/AccountingManager.sol)
+
+```solidity
+File: contracts/accountingManager/NoyaFeeReceiver.sol:
+
+14: constructor(address _accountingManager, address _baseToken, address _receiver) Ownable(msg.sender) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/NoyaFeeReceiver.sol)
+
+```solidity
+File: contracts/accountingManager/Registry.sol:
+
+66: constructor(address _governer, address _maintainer, address _emergency, address _flashLoan) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/accountingManager/Registry.sol)
+
+```solidity
+File: contracts/connectors/AaveConnector.sol:
+
+33: constructor(address _pool, address _poolBaseToken, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/AaveConnector.sol)
+
+```solidity
+File: contracts/connectors/AerodromeConnector.sol:
+
+40: constructor(address _router, address _voter, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/AerodromeConnector.sol)
+
+```solidity
+File: contracts/connectors/BalancerConnector.sol:
+
+42: constructor(address _balancerVault, address bal, address aura, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/BalancerConnector.sol)
+
+```solidity
+File: contracts/connectors/BalancerFlashLoan.sol:
+
+24: constructor(address _balancerVault, PositionRegistry _registry) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/BalancerFlashLoan.sol)
+
+```solidity
+File: contracts/connectors/CamelotConnector.sol:
+
+36: constructor(address _router, address _factory, BaseConnectorCP memory baseCP) BaseConnector(baseCP) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/CamelotConnector.sol)
+
+```solidity
+File: contracts/connectors/CompoundConnector.sol:
+
+17: constructor(BaseConnectorCP memory baseConnectorParams) BaseConnector(baseConnectorParams) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/CompoundConnector.sol)
+
+```solidity
+File: contracts/connectors/CurveConnector.sol:
+
+45: constructor(
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/CurveConnector.sol)
+
+```solidity
+File: contracts/connectors/Dolomite.sol:
+
+18: constructor(
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/Dolomite.sol)
+
+```solidity
+File: contracts/connectors/FraxConnector.sol:
+
+29: constructor(BaseConnectorCP memory baseConnectorParams) BaseConnector(baseConnectorParams) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/FraxConnector.sol)
+
+```solidity
+File: contracts/connectors/GearBoxV3.sol:
+
+17: constructor(BaseConnectorCP memory baseConnectorParams) BaseConnector(baseConnectorParams) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/GearBoxV3.sol)
+
+```solidity
+File: contracts/connectors/LidoConnector.sol:
+
+20: constructor(address _lido, address _lidoW, address _steth, address w, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/LidoConnector.sol)
+
+```solidity
+File: contracts/connectors/MaverickConnector.sol:
+
+43: constructor(address _mav, address _veMav, address mr, address pi, BaseConnectorCP memory baseCP)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/MaverickConnector.sol)
+
+```solidity
+File: contracts/connectors/MorphoBlueConnector.sol:
+
+23: constructor(address MB, BaseConnectorCP memory baseCP) BaseConnector(baseCP) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/MorphoBlueConnector.sol)
+
+```solidity
+File: contracts/connectors/PancakeswapConnector.sol:
+
+19: constructor(address MC, address _positionManager, address _factory, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/PancakeswapConnector.sol)
+
+```solidity
+File: contracts/connectors/PendleConnector.sol:
+
+57: constructor(address _pendleMarketDepositHelper, address _pendleRouter, address SR, BaseConnectorCP memory baseCP)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/PendleConnector.sol)
+
+```solidity
+File: contracts/connectors/PrismaConnector.sol:
+
+25: constructor(BaseConnectorCP memory baseConnectorParams) BaseConnector(baseConnectorParams) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/PrismaConnector.sol)
+
+```solidity
+File: contracts/connectors/SiloConnector.sol:
+
+17: constructor(address SR, BaseConnectorCP memory baseConnectorParams) BaseConnector(baseConnectorParams) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/SiloConnector.sol)
+
+```solidity
+File: contracts/connectors/SNXConnector.sol:
+
+20: constructor(address _SNXCoreProxy, BaseConnectorCP memory baseConnectorParams) BaseConnector(baseConnectorParams) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/SNXConnector.sol)
+
+```solidity
+File: contracts/connectors/StargateConnector.sol:
+
+33: constructor(address lpStacking, address _stargateRouter, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/StargateConnector.sol)
+
+```solidity
+File: contracts/connectors/UNIv3Connector.sol:
+
+27: constructor(address _positionManager, address _factory, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/connectors/UNIv3Connector.sol)
+
+```solidity
+File: contracts/governance/Keepers.sol:
+
+27: constructor(address[] memory _owners, uint8 _threshold) EIP712("Keepers", "1") Ownable2Step() Ownable(msg.sender) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Keepers.sol)
+
+```solidity
+File: contracts/governance/NoyaGovernanceBase.sol:
+
+21: constructor(PositionRegistry _registry, uint256 _vaultId) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/NoyaGovernanceBase.sol)
+
+```solidity
+File: contracts/governance/TimeLock.sol:
+
+7: constructor(uint256 minDelay, address[] memory proposers, address[] memory executors, address owner)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/TimeLock.sol)
+
+```solidity
+File: contracts/governance/Watchers.sol:
+
+7: constructor(address[] memory _owners, uint8 _threshold) Keepers(_owners, _threshold) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/governance/Watchers.sol)
+
+```solidity
+File: contracts/helpers/BaseConnector.sol:
+
+33: constructor(BaseConnectorCP memory params) NoyaGovernanceBase(params.registry, params.vaultId) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/BaseConnector.sol)
+
+```solidity
+File: contracts/helpers/ConnectorMock2.sol:
+
+22: constructor(address _registry, uint256 _vaultId) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/ConnectorMock2.sol)
+
+```solidity
+File: contracts/helpers/LZHelpers/LZHelperReceiver.sol:
+
+31: constructor(address _endpoint, address _owner) OAppReceiver() OAppCore(_endpoint, _owner) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/LZHelpers/LZHelperReceiver.sol)
+
+```solidity
+File: contracts/helpers/LZHelpers/LZHelperSender.sol:
+
+29: constructor(address _endpoint, address _owner) OAppSender() OAppCore(_endpoint, _owner) { }
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/LZHelpers/LZHelperSender.sol)
+
+```solidity
+File: contracts/helpers/OmniChainHandler/OmnichainLogic.sol:
+
+33: constructor(address payable _lzHelper, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainLogic.sol)
+
+```solidity
+File: contracts/helpers/OmniChainHandler/OmnichainManagerBaseChain.sol:
+
+19: constructor(uint256 dl, address payable _lzHelper, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainManagerBaseChain.sol)
+
+```solidity
+File: contracts/helpers/OmniChainHandler/OmnichainManagerNormalChain.sol:
+
+11: constructor(address payable _lzHelper, BaseConnectorCP memory baseConnectorParams)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/OmniChainHandler/OmnichainManagerNormalChain.sol)
+
+```solidity
+File: contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol:
+
+34: constructor(address[] memory usersAddresses, address _valueOracle, PositionRegistry _registry, uint256 _vaultId)
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol)
+
+```solidity
+File: contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol:
+
+27: constructor(address swapHandler, address _lifi) Ownable2Step() Ownable(msg.sender) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol)
+
+```solidity
+File: contracts/helpers/valueOracle/NoyaValueOracle.sol:
+
+29: constructor(PositionRegistry _registry) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/NoyaValueOracle.sol)
+
+```solidity
+File: contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol:
+
+46: constructor(address _reg) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol)
+
+```solidity
+File: contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol:
+
+31: constructor(address _factory, PositionRegistry _registry) {
+```
+[Link to code](https://github.com/code-423n4/2024-04-noya/blob/main/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol)
+
 </details>
