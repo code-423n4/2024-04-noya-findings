@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Inspex",
+  "risk": "3",
+  "title": "Lack of the _updateTokenInRegistry() function call in Pendle Connector",
+  "issueId": 615,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/615"
+}
