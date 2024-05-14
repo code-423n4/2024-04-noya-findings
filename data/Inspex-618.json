@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Inspex",
+  "risk": "3",
+  "title": "Denial of Service in BalancerFlashLoan.receiveFlashLoan() due to Strict Token Balance Checking",
+  "issueId": 618,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/618"
+}
