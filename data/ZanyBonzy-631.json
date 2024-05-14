@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ZanyBonzy",
+  "risk": "2",
+  "title": "Queried chainlink decimals are not properly handled",
+  "issueId": 631,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/631"
+}
