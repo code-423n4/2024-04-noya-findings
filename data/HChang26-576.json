@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "HChang26",
+  "risk": "2",
+  "title": "`availableAssets` should not include `storedProfitForFee` when `fulfillCurrentWithdrawGroup()`",
+  "issueId": 576,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/576"
+}
