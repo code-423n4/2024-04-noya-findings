@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "JanuaryPersimmon2024",
+  "risk": "2",
+  "title": "GenericSwapAndBridgeHandler.sol:: the absence of a boolean flag argument in the addEligibleUser function doesn't allow for disabling a malicious user",
+  "issueId": 686,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/686"
+}
