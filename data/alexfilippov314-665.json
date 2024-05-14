@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexfilippov314",
+  "risk": "2",
+  "title": "The `AccountingManager` withdrawal flow is lacking slippage protection",
+  "issueId": 665,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/665"
+}
