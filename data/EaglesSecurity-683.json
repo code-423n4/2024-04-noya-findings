@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "EaglesSecurity",
+  "risk": "2",
+  "title": "Setting depositLimitPerTransaction and depositLimitTotalAmount to zero stops all new deposits",
+  "issueId": 683,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/683"
+}
