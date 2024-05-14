@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexfilippov314",
+  "risk": "2",
+  "title": "The `SwapAndBridgeHandler.onlyExistingRoute` modifier doesn't check whether the route is enabled",
+  "issueId": 651,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/651"
+}
