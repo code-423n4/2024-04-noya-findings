@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "atoko",
+  "risk": "2",
+  "title": "Non-compliance with EIP-4626 Standards in `calculateDepositShares` Function",
+  "issueId": 627,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/627"
+}
