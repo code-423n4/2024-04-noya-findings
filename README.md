@@ -78,14 +78,14 @@ Judges have the ultimate discretion in determining validity and severity of issu
 
 <hr>
 
-## 2. Respond to curated Low/Non-critical submissions and Gas optimizations
+## 2. Respond to curated Low/Non-critical submissions
 
-### [Low/Non-critical submissions and Gas optimizations for review →](../../issues?q=is%3Aopen+is%3Aissue+-label%3A"sponsor+acknowledged"%2C"sponsor+confirmed"%2C"sponsor+disputed"+label%3A"QA+(Quality+Assurance)"%2C"G+(Gas+Optimization)"%2C"analysis-advanced"+label%3A"grade-a"%2C"selected+for+report"%2C"high+quality+report")
+### [Low/Non-critical submissions for review →](../../issues?q=is%3Aopen+is%3Aissue+-label%3A"sponsor+acknowledged"%2C"sponsor+confirmed"%2C"sponsor+disputed"+label%3A"QA+(Quality+Assurance)"%2C"G+(Gas+Optimization)"%2C"analysis-advanced"+label%3A"grade-a"%2C"selected+for+report"%2C"high+quality+report")
 
 <sup>This curated list will shorten as you work. [View the original, longer list →](../../issues?q=is%3Aopen+is%3Aissue+label%3A"QA+(Quality+Assurance)"%2C"G+(Gas+Optimization)"%2C"analysis-advanced"+label%3A"grade-a"%2C"selected+for+report"%2C"high+quality+report")</sup>
 
 - Leave a comment for the judge on any reports you consider to be particularly high quality. (These reports will be awarded on a curve.)
-- For QA and Gas reports only: add the sponsor `disputed label` to any reports that you think should be completely disregarded by the judge, i.e. the report contains no valid findings at all.
+- For QA reports only: add the sponsor `disputed label` to any reports that you think should be completely disregarded by the judge, i.e. the report contains no valid findings at all.
 
 ## Once Step 1 and 2 are complete
 
