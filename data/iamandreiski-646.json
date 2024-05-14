@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "A malicious actor can affect the TVL of certain vaults causing it to drop and erasing the stored performance fee shares",
+  "issueId": 646,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/646"
+}
