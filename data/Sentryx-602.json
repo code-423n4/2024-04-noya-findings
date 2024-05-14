@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "3",
+  "title": "Balancer flashloan contract can be DOSed completely by sending 1 wei to it",
+  "issueId": 602,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/602"
+}
