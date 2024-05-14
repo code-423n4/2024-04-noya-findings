@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "atoko",
+  "risk": "2",
+  "title": "Consider checking if Token is Trusted in `removeTrustedPosition` function",
+  "issueId": 597,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/597"
+}
