@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "3",
+  "title": "SNXConnector counts assigned collateral twice towards position TVL",
+  "issueId": 580,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/580"
+}
