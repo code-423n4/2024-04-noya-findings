@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "2",
+  "title": "Missing _updateTokenInRegistry in repayWithCollateral function to invoke AavePool.repayWithATokens()",
+  "issueId": 666,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/666"
+}
