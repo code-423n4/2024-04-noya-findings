@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "3",
+  "title": "`onlyExistingRoute` modifier doesn't work properly in the SwapAndBridgeHandler contract",
+  "issueId": 569,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/569"
+}
