@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "2",
+  "title": "Decreasing a position in PendleConnector will remove it even if there's still a stake at Penpie",
+  "issueId": 677,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/677"
+}
