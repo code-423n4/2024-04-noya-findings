@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ak1",
+  "risk": "2",
+  "title": "AccountingManager : For some ERC20 tokens, the `depositLimitTotalAmount` and `depositLimitPerTransaction` are too tight",
+  "issueId": 561,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/561"
+}
