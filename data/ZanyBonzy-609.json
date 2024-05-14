@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ZanyBonzy",
+  "risk": "2",
+  "title": "WETH_Oracle will be unusable in ChainlinkOracleConnector.sol",
+  "issueId": 609,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/609"
+}
