@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "EaglesSecurity",
+  "risk": "3",
+  "title": "Threshold number can be bigger than number of owners",
+  "issueId": 687,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/687"
+}
