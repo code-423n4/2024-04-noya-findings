@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "2",
+  "title": "The `startBridgeTransaction` function in the OmnichainLogic does not support bridging the native token.",
+  "issueId": 681,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/681"
+}
