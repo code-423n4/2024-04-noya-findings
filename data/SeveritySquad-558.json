@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SeveritySquad",
+  "risk": "3",
+  "title": "The mechanism for price derivation in `NoyaValueOracle.sol` is wrongly implemented.",
+  "issueId": 558,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/558"
+}
