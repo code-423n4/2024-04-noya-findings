@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "3",
+  "title": "BalancerFlashLoan doesn't work when the user send the tokens to the contract directly",
+  "issueId": 573,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/573"
+}
