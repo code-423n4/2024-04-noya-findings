@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "bigtone",
+  "risk": "2",
+  "title": "No way to remove the eligible user in the SwapAndBridgeHandler contract.",
+  "issueId": 571,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/571"
+}
