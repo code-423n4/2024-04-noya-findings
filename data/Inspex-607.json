@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Inspex",
+  "risk": "3",
+  "title": "Incorrect Dolomite Connector TVL Calculation when Open Borrow Position",
+  "issueId": 607,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/607"
+}
