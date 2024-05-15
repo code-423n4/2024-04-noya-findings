@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "said",
+  "risk": "3",
+  "title": "`_getPositionTVL` of `UNIv3Connector` wrongly assumes ownership of all liquidity of the provided ticks inside `positionManager`.",
+  "issueId": 708,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/708"
+}
