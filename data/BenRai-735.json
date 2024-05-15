@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "In `ComoundConnector::getCollBlanace` the calculated value for the collateral balance is wrong",
+  "issueId": 735,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/735"
+}
