@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "fractal_20892",
+  "risk": "2",
+  "title": "Missing address check in the deposit function can lead to unfair accumulation of  referral bonus points",
+  "issueId": 747,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/747"
+}
