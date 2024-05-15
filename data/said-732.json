@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "said",
+  "risk": "2",
+  "title": "TVL calculation inside `Maverick` not considering `mav` and `veMav`",
+  "issueId": 732,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/732"
+}
