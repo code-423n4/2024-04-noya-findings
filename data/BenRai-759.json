@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "The health factor check in `PrismaConnector::adjustTrove` will always pass because the ICR in the Primsma protocol has 20 decimals",
+  "issueId": 759,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/759"
+}
