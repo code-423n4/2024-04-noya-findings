@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "said",
+  "risk": "2",
+  "title": "Lack of functionality for `claimFees` calls to the Aerodrome Pool causes the connector to lose its deserved fees",
+  "issueId": 712,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/712"
+}
