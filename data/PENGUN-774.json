@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "PENGUN",
+  "risk": "3",
+  "title": "Malicious user can DoS all deposit requests by setting the receiver to 0.",
+  "issueId": 774,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/774"
+}
