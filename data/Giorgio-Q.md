@@ -102,7 +102,11 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 
 ## Impact
 
-Currently the system cannot be correctly deployed on side chains, this severely limits the protocol. A new type of contract has to be designed before expansion on side chains can be achieved.
+Currently the system cannot be correctly deployed on side chains, this severely limits the protocol. 
+This will impact the position monitoring in the `BaseConnector`
+
+A new type of contract has to be designed before expansion on side chains can be achieved. 
+
 
 
 ## Proof of Concept
@@ -115,7 +119,9 @@ function addVault(
         uint256 vaultId,
         address _accountingManager,
 ```
-This is however not possible on side chains because AccountingVault managers will only be deployed on base chain only.
+This is however not possible on side chains because AccountingManagers will only be deployed on base chain only.
+
+Actions performed in the BaseConnector require a registered AccountingManager in order to manage vault position appropriately. 
 
 ## Mitigation Route
 
