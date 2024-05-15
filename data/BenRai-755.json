@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "In `PrismaConnector:: adjustTrove` if the health factor of a position is below the `minimumHealthFactor`, the vault cannot repay the position by less than is needed to reach the minimumHealthFactor",
+  "issueId": 755,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/755"
+}
