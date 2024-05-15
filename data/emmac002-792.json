@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "emmac002",
+  "risk": "2",
+  "title": "Incorrect logic in modifiers `NoyaGovernanceBase::onlyEmergencyOrWatcher` and `NoyaGovernanceBase::onlyMaintainerOrEmergency` cause numerous functions in `GenericSwapAndBridgeHandler.sol` always revert",
+  "issueId": 792,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/792"
+}
