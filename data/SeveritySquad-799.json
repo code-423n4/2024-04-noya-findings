@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SeveritySquad",
+  "risk": "2",
+  "title": "The watchers cannot perform their role and `can't` do anything to intervene during bridging as stated by the docs.",
+  "issueId": 799,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/799"
+}
