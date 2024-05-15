@@ -42,3 +42,13 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 
 ## Recommended 
 Add events for the mentioned codelines, & check for other parts where event emission might be needed 
+
+# [L-06] Access-controlled functions cannot be called when L2 sequencers are down
+L2 rollups like Optimism and Arbitrum have forced transaction inclusion, it is important that the aliased sender address is also checked within access control modifiers when verifying the sender holds a permissioned role to allow the functions to which they are applied to be called even in the event of sequencer downtime. 
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/NoyaGovernanceBase.sol#L31
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/NoyaGovernanceBase.sol#L43
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/NoyaGovernanceBase.sol#L53
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/NoyaGovernanceBase.sol#L65
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L659
+# Recommendation 
+Validate the sender address against permissioned pauser/keeper/manager roles .
