@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SeveritySquad",
+  "risk": "3",
+  "title": "An attacker can intentionally brick withdrawals by using a `blocklisted` address as receiver.",
+  "issueId": 764,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/764"
+}
