@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "said",
+  "risk": "2",
+  "title": "Connector's `getPositionTVL` not considering underlying tokens balance inside connectors",
+  "issueId": 699,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/699"
+}
