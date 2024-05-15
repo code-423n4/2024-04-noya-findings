@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ironsidesec",
+  "risk": "3",
+  "title": " No slippage on `AccountingManager.withdraw`",
+  "issueId": 776,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/776"
+}
