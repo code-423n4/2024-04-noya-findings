@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "said",
+  "risk": "2",
+  "title": "`_getPositionTVL` of `AerodromeConnector` doesn't consider staked liquidity inside the gauge",
+  "issueId": 713,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/713"
+}
