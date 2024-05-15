@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "mrMorningstar",
+  "risk": "3",
+  "title": "In `Dolimite::openBorrowPosition` is removing position in registry instead of creating it, making the protocol have opened position that is not aware of",
+  "issueId": 742,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/742"
+}
