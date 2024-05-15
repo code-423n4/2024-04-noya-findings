@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "shealtielanz",
+  "risk": "3",
+  "title": " An Attacker can brick the withdrawal Queue of an Accounting Manager for tokens that Revert on Zero Transfer",
+  "issueId": 757,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/757"
+}
