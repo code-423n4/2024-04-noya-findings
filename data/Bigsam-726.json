@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Bigsam",
+  "risk": "2",
+  "title": "Manager can be front-run by an attacker who will Manipulate Tvl always thus preventing manager from ever collecting collectPerformanceFees",
+  "issueId": 726,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/726"
+}
