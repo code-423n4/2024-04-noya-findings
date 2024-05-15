@@ -90,6 +90,37 @@ Make sure the fetched price is >= than 0 before casting unsafely
         uint256 uintprice = uint256(price);
 ```
 
+# The current registry is missing missing a replacement contract for AccountingManager on side chains
+
+## Links
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/Registry.sol#L108-L110
+
+## Details
+
+`AccountingManagers.sol` are only deployed on basechain only. But in order to add a vault to the registry we should provide an "AccountingManager.sol", the current system is missing a replacement contract.
+
+## Impact
+
+Currently the system cannot be correctly deployed on side chains, this severely limits the protocol. A new type of contract has to be designed before expansion on side chains can be achieved.
+
+
+## Proof of Concept
+
+When [adding a new Vault](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/Registry.sol#L108-L110) in the `registry` the address of the accountManager is supposed to be provided.
+
+
+```solidity
+function addVault(
+        uint256 vaultId,
+        address _accountingManager,
+```
+This is however not possible on side chains because AccountingVault managers will only be deployed on base chain only.
+
+## Mitigation Route
+
+In order to mitigate this issue craft an appropriate contract that would replace AccountingManager.
+It should be a contract that fetches the `TVL` only, the withdrawals and deposits handling can be skipped.
 
 # Typos
 
