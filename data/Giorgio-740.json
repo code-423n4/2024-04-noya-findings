@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Giorgio",
+  "risk": "3",
+  "title": "`getValue()` wrongly assumes that the oracle price will be in asset.decimals",
+  "issueId": 740,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/740"
+}
