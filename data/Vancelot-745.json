@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Vancelot",
+  "risk": "2",
+  "title": "`CurveConnector`'s core function wouldn't work with pools with more than 7 tokens",
+  "issueId": 745,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/745"
+}
