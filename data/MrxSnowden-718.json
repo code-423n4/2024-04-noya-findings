@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrxSnowden",
+  "risk": "3",
+  "title": "Unchecked Return Values from External Calls",
+  "issueId": 718,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/718"
+}
