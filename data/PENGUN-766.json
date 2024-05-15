@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "PENGUN",
+  "risk": "2",
+  "title": "Malicious deposit and withdrawal requests can cause DoS",
+  "issueId": 766,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/766"
+}
