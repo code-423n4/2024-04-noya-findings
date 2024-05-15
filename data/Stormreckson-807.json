@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Stormreckson",
+  "risk": "2",
+  "title": "incorrect withdrawal amount from the vault can deny ousers access to withdraw",
+  "issueId": 807,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/807"
+}
