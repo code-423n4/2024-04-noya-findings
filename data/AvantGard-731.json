@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "AvantGard",
+  "risk": "3",
+  "title": "`onlyVaultMaintainer ` prevents both the maintainer and emergency addresses from accessing designated functions",
+  "issueId": 731,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/731"
+}
