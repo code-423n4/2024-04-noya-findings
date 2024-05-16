@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "Deposits/Withdrawals will get calculated with wrong TVL values as the getLatestUpdateTime will always default to block.timestamp",
+  "issueId": 956,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/956"
+}
