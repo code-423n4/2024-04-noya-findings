@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "The conversion path from ETH to stETH can be very suboptimal in `LidoConnector::deposit` and make protocol loss fund when deposit",
+  "issueId": 971,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/971"
+}
