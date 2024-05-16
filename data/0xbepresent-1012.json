@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xbepresent",
+  "risk": "2",
+  "title": "Incorrect reset logic leads to double accounting in withdrawals",
+  "issueId": 1012,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1012"
+}
