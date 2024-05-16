@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "`AccountingManager` revert when mint to zero address. Deposit/Withdraw queue accept `address(0)` as receiver. DOS queue execution",
+  "issueId": 890,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/890"
+}
