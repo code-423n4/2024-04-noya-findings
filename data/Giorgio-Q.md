@@ -59,6 +59,7 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 ## Description
 
 In the UniswapValueOracle contract, the `getValue()` function is used to determine the value amount of tokenIn to base token. However, the `amount` is unsafely casted from uint256 to uint128. Meaning that any amount above uint128 will be inaccurate and thus return lower amounts of base token.
+This will break the system's profit calculation.
 
 Consider using safecast or making sure the amount is indeed lower than `type(uint128).max`.
 
@@ -96,6 +97,8 @@ Make sure the fetched price is >= than 0 before casting unsafely
 
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/Registry.sol#L108-L110
 
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/BaseConnector.sol#L84-L90
+
 ## Details
 
 `AccountingManagers.sol` are only deployed on basechain only. But in order to add a vault to the registry we should provide an "AccountingManager.sol", the current system is missing a replacement contract.
@@ -121,7 +124,8 @@ function addVault(
 ```
 This is however not possible on side chains because AccountingManagers will only be deployed on base chain only.
 
-Actions performed in the BaseConnector require a registered AccountingManager in order to manage vault position appropriately. 
+Actions performed in the BaseConnector require a registered AccountingManager in order to manage vault position appropriately. Such as sending tokens, swaps ect.
+
 
 ## Mitigation Route
 
