@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "ERC4626 donation attack still viable by spamming early deposit queue",
+  "issueId": 909,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/909"
+}
