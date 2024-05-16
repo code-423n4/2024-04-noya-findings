@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "In Dolomite, when opening a borrow position, the holding position in the Registry is removed, instead of being updated",
+  "issueId": 886,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/886"
+}
