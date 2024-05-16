@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "forgebyola",
+  "risk": "2",
+  "title": "Withdraw amount waiting for execution is wrongfully reset even when withdraw may not be sufficiently fulfilled",
+  "issueId": 1002,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1002"
+}
