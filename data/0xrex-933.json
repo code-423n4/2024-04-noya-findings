@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xrex",
+  "risk": "3",
+  "title": "Attacker can render deposits useless for honest depositors by reducing their shares amount forcing a loss of asset to depositors",
+  "issueId": 933,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/933"
+}
