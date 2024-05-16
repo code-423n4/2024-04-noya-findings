@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "joaovwfreire",
+  "risk": "2",
+  "title": "AaveConnector:repay has no slippage protection",
+  "issueId": 824,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/824"
+}
