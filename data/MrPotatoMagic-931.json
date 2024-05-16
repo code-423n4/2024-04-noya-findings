@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "Use of || instead of && denies EMERGENCY_ROLE from performing vault maintainer actions",
+  "issueId": 931,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/931"
+}
