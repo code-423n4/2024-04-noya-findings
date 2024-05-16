@@ -1,5 +1,5 @@
 # [L-01] A malicious deployer can set themselves as the fee reciever
-In the keeper contract a malicious deployer can set themsleves as fee reciever
+In the NoyafeeReciever contract a malicious deployer can set themsleves as fee reciever
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/NoyaFeeReceiver.sol#L20
 ## Recommendation
 Add proper explicit check for deployers/owners for such specific risks
@@ -74,8 +74,13 @@ Add an admin operated function, to migrate the updating of TVL from old to new `
 
 #[L-08] All harvest/claim doesn't yield same amount of reward
 A keeper is supposed to call and withdraw the rewards which user's generated at their respective positions in the connector.
-But all haverst doesn't produce same yield as reward which can be unprofitable for keeper in terms of gas costs
-One such code line of harvest rewards
+But all harvest doesn't produce same yield as reward which can be unprofitable for keeper in terms of gas costs
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L221
 ## Recommendation
 Make sure the keeper calls it with appropriate gas costs.
+
+# [L-09] A malicious keeper/watcher can attack on harvest reward
+Keepers/watcher are highly trusted entities that are intended to be multisigs/smart contracts with trust assumptions similar to governance addresses. However if they are compromised they can decrease other user's positions by making a large deposit, triggering a harvest or withdrawing a position from a certain connector
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L221
+# Recommendation 
+Make sure keeper’s/watcher's access well-secured to avoid misuse of the trust.
