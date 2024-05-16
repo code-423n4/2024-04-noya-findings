@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Stormreckson",
+  "risk": "3",
+  "title": "lack of slippage protection in withdraw function",
+  "issueId": 906,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/906"
+}
