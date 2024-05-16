@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ladboy233",
+  "risk": "3",
+  "title": "`AccountManager::executeWithdraw` can be DOSed by setting a blocklist address when creating withdraw request.",
+  "issueId": 989,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/989"
+}
