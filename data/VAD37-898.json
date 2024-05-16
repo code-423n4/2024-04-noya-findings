@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "DOS `BalancerFlashloan.sol` by deposit small amount of token to prevent balance check",
+  "issueId": 898,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/898"
+}
