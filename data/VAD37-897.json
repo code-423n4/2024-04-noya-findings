@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "`SwapAndBridgeHandler` post execution slippage check was not implemented. Slippage check completely depend on Li.Fi exchange external call",
+  "issueId": 897,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/897"
+}
