@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "Keeper from different vault can use each other funds despite have no permission in. Use `BalancerFlashloan` to bypass permission check",
+  "issueId": 900,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/900"
+}
