@@ -12,14 +12,8 @@ So some users who might be withdrawing <100 , might see their transaction get re
 ## Recommendation
 Either warn users through docs or implement the checks 
 
-# [L-03] Curve admin fees
-Curve has a feature for when adding liquidity into their pool they have a fees kept for admin. The protocol calculates the minAmount offchain to mitiagte for slippage, but for end users who interact with NOYA for them it can  be unknown
-https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L131
-## Recommendation 
-Make sure it is well known in the docs
 
-
-# [L-04] Uniswapv3 Price manipulation.
+# [L-03] Uniswapv3 Price manipulation.
 The oracle uses the TWAP price from Uniswap V3 to determine the price of each asset.
 If a pair is not listed on Uniswap V3, the oracle will not work.
 This will be a relatively common occurrence that doesn't require obscure tokens. Many combinations of tokens on Uniswap are able to be traded because they don't have a pool directly, but they share a poolmate. A quick review of [Uniswap Pairs](https://info.uniswap.org/pairs#/), can show this.
@@ -32,7 +26,7 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 ## Recommendation
 UniV3Oracle should require the pool being used as an oracle to meet certain liquidity thresholds or have existed for a predefined period of time before returning the price to the Swapper.
 
-# [L-05] Admin setter functions missing events
+# [L-04] Admin setter functions missing events
 Events are often used to monitor the protocol status. Without emission of events, users might be affected due to ignorance of the changes.
 
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L36
@@ -43,7 +37,7 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 ## Recommended 
 Add events for the mentioned codelines, & check for other parts where event emission might be needed 
 
-# [L-06] Access-controlled functions cannot be called when L2 sequencers are down
+# [L-05] Access-controlled functions cannot be called when L2 sequencers are down
 L2 rollups like Optimism and Arbitrum have forced transaction inclusion, it is important that the aliased sender address is also checked within access control modifiers when verifying the sender holds a permissioned role to allow the functions to which they are applied to be called even in the event of sequencer downtime. 
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/NoyaGovernanceBase.sol#L31
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/governance/NoyaGovernanceBase.sol#L43
@@ -53,7 +47,7 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 # Recommendation 
 Validate the sender address against permissioned pauser/keeper/manager roles .
 
-# [L-07] The contract will revert when trying to initialize with tokens, that do not support name/symbol in string type variable
+# [L-06] The contract will revert when trying to initialize with tokens, that do not support name/symbol in string type variable
 The accounting manager initializes the contracts with those tokens, when deploying the contract through `ERC20(p._name, p._symbol)` where p is the `AccountingManagerConstructorParams` struct where name/symbol are present as struct
 
 ```diff
@@ -70,4 +64,9 @@ Tokens such as makerdao has name/symbol encoded as bytes instead of string
 ## Recommended Mitigation Steps
 Add different logic if these tokens are expected to be supported
 
-
+# [L-07] Tvl might not get updated on hardfork
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L20
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L9
+The protocol uses mapping to store the `chainId` of that particular chain, If the chain were to through a hardfork the `chainId` will change. This might lead to token balance updating in the chain inaccessible due to a difference between the actual TVL & stored TVL
+## Recommendation
+Add an admin operated function, to migrate the updating of TVL from old to new `chainID`
