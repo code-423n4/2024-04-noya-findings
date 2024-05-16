@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "`AccountManger::deposit()` does not charge execution fee when depositing",
+  "issueId": 990,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/990"
+}
