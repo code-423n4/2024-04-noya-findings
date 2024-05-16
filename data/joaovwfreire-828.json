@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "joaovwfreire",
+  "risk": "2",
+  "title": "The Keepers contract is vulnerable to cross-chain signature replayability",
+  "issueId": 828,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/828"
+}
