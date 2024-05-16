@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KYP",
+  "risk": "3",
+  "title": "If the receiver gets blocklisted the withdraw can't continue, blocking withdrawals",
+  "issueId": 915,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/915"
+}
