@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Underflow revert will DOS TVL() flows in the accounting manager",
+  "issueId": 944,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/944"
+}
