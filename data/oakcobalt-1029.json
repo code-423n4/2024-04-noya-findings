@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "BalancerConnector::harvestAuraRewards misses _updateTokenInRegistry() for BAL, TVL might be incorrect",
+  "issueId": 1029,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1029"
+}
