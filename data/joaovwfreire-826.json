@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "joaovwfreire",
+  "risk": "2",
+  "title": "The fulfillCurrentWithdrawGroup function at the AccountingManager contract doesn't utilize the most capital efficient flow",
+  "issueId": 826,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/826"
+}
