@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Draiakoo",
+  "risk": "2",
+  "title": "Everybody can bother the action of removing a `holdingPosition` from a vault by sending 1 wei of the ERC20 token to the connector",
+  "issueId": 996,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/996"
+}
