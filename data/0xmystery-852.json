@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xmystery",
+  "risk": "2",
+  "title": "Improper Normalization of Token and Price Feed Decimals in `ChainlinkOracleConnector.getValueFromChainlinkFeed()` Calculations",
+  "issueId": 852,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/852"
+}
