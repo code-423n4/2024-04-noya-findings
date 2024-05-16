@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "John_Femi",
+  "risk": "3",
+  "title": "depositLimitTotalAmount can be bypassed on deposit",
+  "issueId": 823,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/823"
+}
