@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KYP",
+  "risk": "2",
+  "title": "It is possible to open insolvent position is Silo connector, due to missing check in borrow function",
+  "issueId": 926,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/926"
+}
