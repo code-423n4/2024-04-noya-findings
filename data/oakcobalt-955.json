@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "retrieveTokensForWithdraw() can be DOS by donation attack, protocol withdraw fulfillment flow can be DOS",
+  "issueId": 955,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/955"
+}
