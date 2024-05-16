@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "Emergency role in Registry cannot call `onlyVaultMaintainer` modifier",
+  "issueId": 901,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/901"
+}
