@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "DOS queue execution by set token receiver to ERC20 blacklist address",
+  "issueId": 891,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/891"
+}
