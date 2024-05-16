@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "public `burnShares()` function make it easier to do ERC4626 slippage attack in reverse",
+  "issueId": 888,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/888"
+}
