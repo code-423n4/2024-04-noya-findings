@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "In AerodromeConnector.sol, getPositionTVL missed the pending reward accounting. This will underestimate total TVL.",
+  "issueId": 1001,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1001"
+}
