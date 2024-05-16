@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ak1",
+  "risk": "3",
+  "title": "AccountingManager : `executeWithdraw` could be blocked by setting the receiver address as NULL",
+  "issueId": 841,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/841"
+}
