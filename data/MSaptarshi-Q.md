@@ -71,3 +71,11 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 The protocol uses mapping to store the `chainId` of that particular chain, If the chain were to through a hardfork the `chainId` will change. This might lead to token balance updating in the chain inaccessible due to a difference between the actual TVL & stored TVL
 ## Recommendation
 Add an admin operated function, to migrate the updating of TVL from old to new `chainID`
+
+#[L-08] All harvest/claim doesn't yield same amount of reward
+A keeper is supposed to call and withdraw the rewards which user's generated at their respective positions in the connector.
+But all haverst doesn't produce same yield as reward which can be unprofitable for keeper in terms of gas costs
+One such code line of harvest rewards
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L221
+## Recommendation
+Make sure the keeper calls it with appropriate gas costs.
