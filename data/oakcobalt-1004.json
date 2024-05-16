@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "In AerodromeConnector.sol, claimable fees will not be accounted in getPositionTVL(), resulting in undervalued total TVL",
+  "issueId": 1004,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1004"
+}
