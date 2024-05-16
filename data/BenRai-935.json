@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "Not all claimed rewards in `CurveConnector:: harvestConvexRewards` are not included in the TVL",
+  "issueId": 935,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/935"
+}
