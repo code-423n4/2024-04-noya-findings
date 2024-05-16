@@ -52,3 +52,22 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L659
 # Recommendation 
 Validate the sender address against permissioned pauser/keeper/manager roles .
+
+# [L-07] The contract will revert when trying to initialize with tokens, that do not support name/symbol in string type variable
+The accounting manager initializes the contracts with those tokens, when deploying the contract through `ERC20(p._name, p._symbol)` where p is the `AccountingManagerConstructorParams` struct where name/symbol are present as struct
+
+```diff
+struct AccountingManagerConstructorParams {
+    string _name;
+    string _symbol;
+   ,
+   ....
+    ,
+}
+```
+Tokens such as makerdao has name/symbol encoded as bytes instead of string
+
+## Recommended Mitigation Steps
+Add different logic if these tokens are expected to be supported
+
+
