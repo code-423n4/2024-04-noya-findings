@@ -67,6 +67,7 @@ Add different logic if these tokens are expected to be supported
 # [L-07] Tvl might not get updated on hardfork
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L20
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L9
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L78
 The protocol uses mapping to store the `chainId` of that particular chain, If the chain were to through a hardfork the `chainId` will change. This might lead to token balance updating in the chain inaccessible due to a difference between the actual TVL & stored TVL
 ## Recommendation
 Add an admin operated function, to migrate the updating of TVL from old to new `chainID`
