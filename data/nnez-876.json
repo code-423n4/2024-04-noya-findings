@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "nnez",
+  "risk": "3",
+  "title": "`receiveFlashloan` will always fail if there is at least 1 wei of tokens in `BalancerFlashLoan.sol`",
+  "issueId": 876,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/876"
+}
