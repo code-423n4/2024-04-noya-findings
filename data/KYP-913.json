@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KYP",
+  "risk": "2",
+  "title": "swapHoldings function in connectors allows for maximum slippage",
+  "issueId": 913,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/913"
+}
