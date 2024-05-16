@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0x486776",
+  "risk": "3",
+  "title": "The function `AccountingManager::retrieveTokensForWithdraw` can be `DoS`ed.",
+  "issueId": 848,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/848"
+}
