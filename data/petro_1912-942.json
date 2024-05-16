@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "petro_1912",
+  "risk": "3",
+  "title": "The 'Keepers' contract is permanently reverted due to a spacing error.",
+  "issueId": 942,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/942"
+}
