@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "forgebyola",
+  "risk": "2",
+  "title": "WithdrawQueue can be bloated with 0 amount withdraw requests causing withdraw Execution to become very expensive for protocol.",
+  "issueId": 980,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/980"
+}
