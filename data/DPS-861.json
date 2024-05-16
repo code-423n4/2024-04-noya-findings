@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DPS",
+  "risk": "3",
+  "title": "`Registry::onlyVaultMaintainer` modifier implements wrong access control",
+  "issueId": 861,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/861"
+}
