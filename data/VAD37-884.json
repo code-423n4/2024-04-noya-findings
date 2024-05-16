@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "`NoyaValueOracle.getValue()` input wrong token address in loop. Return wrong value if oracle use more than 2 oracles path",
+  "issueId": 884,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/884"
+}
