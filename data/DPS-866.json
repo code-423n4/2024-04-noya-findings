@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DPS",
+  "risk": "2",
+  "title": "Aura withdrawAndUnwrap can silently fail ",
+  "issueId": 866,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/866"
+}
