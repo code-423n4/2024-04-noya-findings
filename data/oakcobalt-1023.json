@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "In BalancerConnector.sol, Missing updating asset Token position balance in the registry, resulting in holding positions out of sync",
+  "issueId": 1023,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1023"
+}
