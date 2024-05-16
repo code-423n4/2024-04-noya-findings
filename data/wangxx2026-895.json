@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "wangxx2026",
+  "risk": "2",
+  "title": "ChainlinkOracleConnector does not check if Sequencer is still working",
+  "issueId": 895,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/895"
+}
