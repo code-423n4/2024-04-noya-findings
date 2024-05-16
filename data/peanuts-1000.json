@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "peanuts",
+  "risk": "2",
+  "title": "AccountingManager can be spammed with 1 wei deposits/withdrawals to grief the manager",
+  "issueId": 1000,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1000"
+}
