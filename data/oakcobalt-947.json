@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "3",
+  "title": "Erroneous _getValue() implementation causing TVL DOS or invalid TVL",
+  "issueId": 947,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/947"
+}
