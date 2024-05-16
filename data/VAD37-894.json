@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "Most of Polygon Chainlink USD Oracle update every 10 seconds. So hardcode minimum 1 hour price stale is too high",
+  "issueId": 894,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/894"
+}
