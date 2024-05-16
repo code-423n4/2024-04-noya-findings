@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "forgebyola",
+  "risk": "2",
+  "title": "Users `withdrawRequestsByShares` is wrongfully substracted during execution even when entire shares has not been redeemed",
+  "issueId": 1005,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1005"
+}
