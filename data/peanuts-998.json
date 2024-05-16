@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "peanuts",
+  "risk": "3",
+  "title": "Vault assumes that all base tokens have 6 decimals when the protocol intends to use base tokens with 18 decimals",
+  "issueId": 998,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/998"
+}
