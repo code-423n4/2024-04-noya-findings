@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ak1",
+  "risk": "3",
+  "title": "AccountingManager : TVL() return more value since the withdrawal which is waiting is not deducted.",
+  "issueId": 837,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/837"
+}
