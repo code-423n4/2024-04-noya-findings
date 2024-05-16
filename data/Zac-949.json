@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Zac",
+  "risk": "2",
+  "title": "Withdrawing/ decreasing positions fails to update TVL for underlying token in most connectors",
+  "issueId": 949,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/949"
+}
