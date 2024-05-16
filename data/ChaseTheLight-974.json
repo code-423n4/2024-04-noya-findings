@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ChaseTheLight",
+  "risk": "2",
+  "title": "Withdrawal mechanism can be Dos'd with dust withdrawals",
+  "issueId": 974,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/974"
+}
