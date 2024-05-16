@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Tigerfrake",
+  "risk": "2",
+  "title": "No real-time data due to hardcoded price in `WETH_Oracle`",
+  "issueId": 948,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/948"
+}
