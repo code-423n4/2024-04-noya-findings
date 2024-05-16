@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xMosh",
+  "risk": "3",
+  "title": "`burnShares` can be used to DOS withdrawal execution .",
+  "issueId": 970,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/970"
+}
