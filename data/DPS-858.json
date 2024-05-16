@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DPS",
+  "risk": "3",
+  "title": "`DolomiteConnector::openBorrowPosition` will never update the holding positions in `Registry`",
+  "issueId": 858,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/858"
+}
