@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "joaovwfreire",
+  "risk": "3",
+  "title": "OmnichainLogic:startBridgeTransaction wrongly enforces BRIDGE_TXN_WAITING_TIME",
+  "issueId": 816,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/816"
+}
