@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Any asset's chainlink oracle price become stale will DOS TVL() flow, due to vulnerable oracle implementation.",
+  "issueId": 1014,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1014"
+}
