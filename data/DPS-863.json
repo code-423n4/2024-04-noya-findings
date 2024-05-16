@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DPS",
+  "risk": "2",
+  "title": " In `AccountingManager::withdraw()` passing blacklisted USDC address as a `receiver` will DoS the contract",
+  "issueId": 863,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/863"
+}
