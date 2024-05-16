@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "forgebyola",
+  "risk": "2",
+  "title": "Users can still bloat DepositQueue with 1 wei amounts to cause deposit execution become very expensive for the manager.",
+  "issueId": 954,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/954"
+}
