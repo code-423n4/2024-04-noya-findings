@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "No default decimal for `USD = address(840)` in `ChainlinkOracleConnector`",
+  "issueId": 896,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/896"
+}
