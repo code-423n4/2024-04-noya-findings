@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KYP",
+  "risk": "2",
+  "title": "Missing circuit breaker checks for Chainlink price feeds",
+  "issueId": 928,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/928"
+}
