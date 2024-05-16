@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "XDZIBECX",
+  "risk": "3",
+  "title": "Incorrect Scaling in LP and PT Rate Calculations Leading to TVL Underestimation",
+  "issueId": 1022,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1022"
+}
