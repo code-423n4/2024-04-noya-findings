@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "AlexCzm",
+  "risk": "3",
+  "title": "SiloConnector `_getPositionTVL` miscalculate the TVL position",
+  "issueId": 938,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/938"
+}
