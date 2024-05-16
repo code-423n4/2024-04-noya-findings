@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KYP",
+  "risk": "2",
+  "title": "The protocol can experience loss when deposit in Pendle due to missing slippage protection",
+  "issueId": 922,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/922"
+}
