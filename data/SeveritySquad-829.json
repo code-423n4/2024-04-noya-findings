@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SeveritySquad",
+  "risk": "3",
+  "title": "User funds will be lost during withdrawals when there isn't enough assets in the AccountingManager to cover the withdrawal.",
+  "issueId": 829,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/829"
+}
