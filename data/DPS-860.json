@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DPS",
+  "risk": "3",
+  "title": "BalancerFlashLoan can be DOSed",
+  "issueId": 860,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/860"
+}
