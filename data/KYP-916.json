@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KYP",
+  "risk": "2",
+  "title": "No check if L2 Sequencer is down in Chainlink feeds",
+  "issueId": 916,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/916"
+}
