@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "steadyman",
+  "risk": "3",
+  "title": "When the receiver is the 0x00 address, the transaction will be reverted",
+  "issueId": 883,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/883"
+}
