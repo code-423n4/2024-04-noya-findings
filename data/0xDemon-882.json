@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xDemon",
+  "risk": "2",
+  "title": "`AccountingManager` is not full EIP-4626 compliant",
+  "issueId": 882,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/882"
+}
