@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Swap will always revert when SwapHandler calculates slippage for users, due to incorrect implementation in LifiImplementation",
+  "issueId": 973,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/973"
+}
