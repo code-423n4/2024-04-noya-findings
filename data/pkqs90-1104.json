@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "`AerodromeConnector.sol#withdraw()` does not account for LP staked in Gauge, and may remove the holdingPosition while LP is still being staked",
+  "issueId": 1104,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1104"
+}
