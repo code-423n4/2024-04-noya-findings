@@ -179,3 +179,163 @@ Refactor `checkIfTVLHasDroped` event emission code block as follows:
 -   emit ResetFee(currentProfit, storedProfitForFee, block.timestamp);
 +   emit ResetFee(storedProfitForFee, currentProfit, block.timestamp);
 ```
+
+## [QA] Informational Findings on AavConnector.sol
+## [QA-1] : Why isn't there a check for the maximum amount to be supplied
+## [QA-2] :  TITLE : Adherence to the Checks-Effects-Interactions(CEI) pattern
+***Description:***
+This report analyzes the AaveConnector::supply,AaveConnector::borrow, and AaveConnector::repay function, for adherence to the Checks-effects-Interactions pattern; the function initially isolated this pattern by updating the state after an external call. this report details the neccesary corrections, ensuring all state changes occur before any external Intercations, thereby enhancing the contract's security and robustness.
+
+**Impact:**
+Although the AaveConnector::supply,AaveConnector::borrow, and AaveConnector::repay function, function uses a non-reentrancy guard, which mitigates the risk of reentrancy attacks, strictly following the Checks-Effects-Interactions (CEI) pattern is still important for coding best practices and ethical standards. Adhering to the CEI pattern ensures a clear and structured approach to function execution, enhancing the readability and maintainability of the code. It also provides an additional layer of security, reinforcing the function's robustness against potential vulnerabilities. Therefore, even with the non-reentrancy guard in place, following the CEI pattern is a prudent practice that upholds high standards of smart contract development.
+
+**Proof of Concept:**
+
+<details>
+<summary>code</summary>
+
+```javascript
+    function supply(
+        address supplyToken,
+        uint256 amount
+    ) external onlyManager nonReentrant {
+        _approveOperations(supplyToken, pool, amount);
+        IPool(pool).supply(supplyToken, amount, address(this), 0);
+        registry.updateHoldingPosition(
+            vaultId,
+            registry.calculatePositionId(address(this), AAVE_POSITION_ID, ""),
+            "",
+            "",
+            false
+        );
+    @>    _updateTokenInRegistry(supplyToken);
+        emit Supply(supplyToken, amount);
+    }
+
+    function borrow(
+        uint256 _amount,
+        uint256 _interestRateMode,
+        address _borrowAsset
+    ) external onlyManager nonReentrant {
+        if (!registry.isTokenTrusted(vaultId, _borrowAsset, address(this))) {
+            revert IConnector_UntrustedToken(_borrowAsset);
+        }
+        IPool(pool).borrow(
+            _borrowAsset,
+            _amount,
+            _interestRateMode,
+            0,
+            address(this)
+        );
+        // get the health factor
+        (, , , , , uint256 healthFactor) = IPool(pool).getUserAccountData(
+            address(this)
+        );
+        if (healthFactor < minimumHealthFactor)
+            revert IConnector_LowHealthFactor(healthFactor);
+@>        _updateTokenInRegistry(_borrowAsset);
+        emit Borrow(_borrowAsset, _amount);
+    }
+ function repay(
+        address asset,
+        uint256 amount,
+        uint256 i
+    ) external onlyManager nonReentrant {
+        _approveOperations(asset, pool, amount);
+        IPool(pool).repay(asset, amount, i, address(this));
+    @>    _updateTokenInRegistry(asset);
+        emit Repay(asset, amount, i);
+    
+
+```
+</details>
+
+**Recommended Mitigation:**
+ AaveConnector::supply;
+
+The function performs external interactions (IPool(pool).supply and registry.updateHoldingPosition) before completing all state changes.
+According to CEI, state changes (effects) should happen before any external calls (interactions).
+Corrected Function:
+To follow the CEI pattern strictly, you should ensure all state changes occur before any external calls. Here is the revised version:
+
+solidity
+
+ ```diff
+ function supply(
+        address supplyToken,
+        uint256 amount
+    ) external onlyManager nonReentrant {
+        _approveOperations(supplyToken, pool, amount);
++         _updateTokenInRegistry(supplyToken);
+        IPool(pool).supply(supplyToken, amount, address(this), 0);
+        registry.updateHoldingPosition(
+            vaultId,
+            registry.calculatePositionId(address(this), AAVE_POSITION_ID, ""),
+            "",
+            "",
+            false
+        );
+-       _updateTokenInRegistry(supplyToken);
+        emit Supply(supplyToken, amount);
+    }   
+```
+AaveConnector::borrow;
+
+
+The call to IPool(pool).borrow(_borrowAsset, _amount, _interestRateMode, 0,address(this)); happens before the internal call to _updateTokenInRegistry, which is a state change.
+To strictly follow the CEI pattern, all state changes should be made before calling external contracts. Let’s correct the function to adhere to the CEI pattern:
+
+Corrected Function
+
+```diff
+ function borrow(
+        uint256 _amount,
+        uint256 _interestRateMode,
+        address _borrowAsset
+    ) external onlyManager nonReentrant {
+        if (!registry.isTokenTrusted(vaultId, _borrowAsset, address(this))) {
+            revert IConnector_UntrustedToken(_borrowAsset);
+        }
++         _updateTokenInRegistry(_borrowAsset);
+        IPool(pool).borrow(
+            _borrowAsset,
+            _amount,
+            _interestRateMode,
+            0,
+            address(this)
+        );
+        // get the health factor
+        (, , , , , uint256 healthFactor) = IPool(pool).getUserAccountData(
+            address(this)
+        );
+        if (healthFactor < minimumHealthFactor)
+            revert IConnector_LowHealthFactor(healthFactor);
+-        _updateTokenInRegistry(_borrowAsset);
+        emit Borrow(_borrowAsset, _amount);
+    }
+
+```
+
+AaveConnector::repay;
+
+The function calls _approveOperations and then interacts with the IPool contract.
+_updateTokenInRegistry(asset) is called after the external interaction.
+To adhere strictly to the CEI pattern, all state changes should occur before any external interactions.
+
+Corrected repay Function
+To strictly follow CEI, we should ensure all internal state changes are done before any external calls:
+
+solidity
+```diff
+ function repay(
+        address asset,
+        uint256 amount,
+        uint256 i
+    ) external onlyManager nonReentrant {
+        _approveOperations(asset, pool, amount);
++          _updateTokenInRegistry(asset);
+        IPool(pool).repay(asset, amount, i, address(this));
+-        _updateTokenInRegistry(asset);
+        emit Repay(asset, amount, i);
+    }
+```
