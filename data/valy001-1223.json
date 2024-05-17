@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "valy001",
+  "risk": "2",
+  "title": "Potential inflation/donation attack on ERC-4626 similar contract in AccountingManager.sol",
+  "issueId": 1223,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1223"
+}
