@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "honey-k12",
+  "risk": "2",
+  "title": "Missing calls to `_updateTokenInRegistry` leads to incorrect state of tokens in registry",
+  "issueId": 1404,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1404"
+}
