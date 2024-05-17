@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Some facades of Gearbox has no `enableToken()` function leading to improper token tracking in the registry.",
+  "issueId": 1316,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1316"
+}
