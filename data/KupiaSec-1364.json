@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KupiaSec",
+  "risk": "2",
+  "title": "Vulnerability in Vault Maintainer Access Control Implementation",
+  "issueId": 1364,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1364"
+}
