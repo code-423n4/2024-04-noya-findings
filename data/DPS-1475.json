@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DPS",
+  "risk": "2",
+  "title": "`txInputHash` in `Keepers` has to be using `abi.encodePacked` instead of `abi.encode`",
+  "issueId": 1475,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1475"
+}
