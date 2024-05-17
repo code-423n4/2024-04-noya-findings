@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "WinSec",
+  "risk": "3",
+  "title": "AMM-type connectors use uniswap oracle to fetch token prices. This leads to inaccurate accounting.",
+  "issueId": 1053,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1053"
+}
