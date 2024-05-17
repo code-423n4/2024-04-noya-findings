@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Evo",
+  "risk": "2",
+  "title": "updateHoldingPostionWithTime doesn't check positionTimestamp if outdated or not from other normal chains",
+  "issueId": 1284,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1284"
+}
