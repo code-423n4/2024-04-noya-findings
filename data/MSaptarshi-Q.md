@@ -102,7 +102,7 @@ Check for contract existance, in places where low level calls are used
 
 # [L-12] Decmials should be returned as uint8
 Some tokens are vulnerable when returning tokens decimal as uint256 instead of uint8
-
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol#L138
 ## Recommendation
   ```
 - function getTokenDecimals(address token) public view returns (uint256) {
