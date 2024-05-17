@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Vulnerable swap routeId check allows disabled route to be used in Swap or bridge, putting the protocol or users at risk",
+  "issueId": 1243,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1243"
+}
