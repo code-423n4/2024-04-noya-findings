@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "Price feed decimals are not taken into consideration in ChainlinkOracleConnector",
+  "issueId": 1290,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1290"
+}
