@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "cheatc0d3",
+  "risk": "2",
+  "title": "Rounding Error Exploitation in Share Calculation of AccountingManager",
+  "issueId": 1447,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1447"
+}
