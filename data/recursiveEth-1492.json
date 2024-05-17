@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "recursiveEth",
+  "risk": "2",
+  "title": "Mismatch in Length of Connector Addresses and Enabled Flags in addConnector Function",
+  "issueId": 1492,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1492"
+}
