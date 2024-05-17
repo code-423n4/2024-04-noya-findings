@@ -369,4 +369,138 @@ When user makes flashloan in BalancerFlashLoan.sol, the vault calls the `receive
 
 ***
 
-## 12.
+## 12. LidoConnector.sol should check for current staking limits before attempting deposits
+
+Links to affected code *
+
+https://github.com/lidofinance/lido-dao/blob/5fcedc6e9a9f3ec154e69cff47c2b9e25503a78a/contracts/0.4.24/Lido.sol#L930
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/LidoConnector.sol#L41
+### Impact
+
+Lido protocol employs a rate-limiting mechanism to limit the amount of ETH that can be staked within a 24 hour period. This check can easily be exhausted by whales or malicious users. When this occurs, depositng in LidoConnector.sol will be dossed without users not understanding why.
+
+```solidity
+    function deposit(uint256 amountIn) external onlyManager nonReentrant {
+        IWETH(weth).withdraw(amountIn);
+        // deposit recieved eth into Lido
+        // refferal address can be different
+        ILido(lido).submit{ value: amountIn }(address(0));
+        _updateTokenInRegistry(steth);
+        _updateTokenInRegistry(weth);
+        emit Deposit(amountIn);
+    }
+```
+### Recommended Mitigation Steps
+
+You can use the [getCurrentStakeLimit](https://github.com/lidofinance/lido-dao/blob/df95e563445821988baf9869fde64d86c36be55f/contracts/0.4.24/Lido.sol#L235-L237) function for this purpose and check if msg.value <= getCurrentStakeLimit().
+
+***
+
+## 13. Various holding positon removals can be prevented by users depositing 1 wei due to the use of balance of address(this) 
+
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/StargateConnector.sol#L89
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CamelotConnector.sol#L77
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AerodromeConnector.sol#L92
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/Registry.sol#L348
+
+### Impact
+
+To remove a position from the registry, the `updateHoldingPosition` function is called from the connectors, mostly upon liquidity removal.
+```solidity
+function updateHoldingPosition(
+        uint256 vaultId,
+        bytes32 _positionId,
+        bytes calldata _data,
+        bytes calldata additionalData,
+        bool removePosition
+    ) public vaultExists(vaultId) returns (uint256) {
+        ...
+        if (removePosition) {
+            if (positionIndex < vault.holdingPositions.length - 1) {
+                vault.holdingPositions[positionIndex] = vault.holdingPositions[vault.holdingPositions.length - 1];
+                vault.isPositionUsed[keccak256(
+                    abi.encode(
+                        vault.holdingPositions[positionIndex].calculatorConnector,
+                        vault.holdingPositions[positionIndex].positionId,
+                        vault.holdingPositions[positionIndex].data
+                    )
+                )] = positionIndex;
+            }
+            vault.holdingPositions.pop();
+        ...
+        }
+```
+
+The issue is that the removal can be dossed in certain connectors as the condition for position removal is balanceof query of the pool token.
+
+In CamelotConnector.sol
+```solidity
+    function removeLiquidityFromCamelotPool(CamelotRemoveLiquidityParams calldata p)
+        external
+        onlyManager
+        nonReentrant
+    {
+        ...
+        if (IERC20(pool).balanceOf(address(this)) == 0) {
+            registry.updateHoldingPosition(
+                vaultId,
+                registry.calculatePositionId(address(this), CAMELOT_POSITION_ID, abi.encode(p.tokenA, p.tokenB)),
+                "",
+                "",
+                true
+            );
+        }
+```
+In StargateConnector.sol
+```solidity
+    function withdrawFromStargatePool(StargateRequest calldata withdrawRequest) external onlyManager nonReentrant {
+    ...
+        if (IERC20(lpAddress).balanceOf(address(this)) + LPAmount == 0) {
+            bytes32 positionId = registry.calculatePositionId(
+                address(this), STARGATE_LP_POSITION_TYPE, abi.encode(withdrawRequest.poolId)
+            );
+            registry.updateHoldingPosition(vaultId, positionId, "", "", true);
+        }
+        ...
+    }
+```
+In AerodromeConnector.sol
+```solidity
+    function withdraw(WithdrawData memory data) public onlyManager nonReentrant {
+        ...
+        if (IERC20(data.pool).balanceOf(address(this)) == 0) {
+            registry.updateHoldingPosition(vaultId, positionId, "", "", true);
+        }
+        ...
+    }
+```
+This means that at the cost of 1 wei, users can block full position removal.
+
+***
+
+## 14. Should not use UniswapValueOracle on L2
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#L12
+
+### Impact
+The protocol intend to deploy on L2 networks Arbitrum, Base, BSC, Optimism, Polygon, zkSync, Other, Avax, polygon, zkevm.
+
+According to the information provided by the Uniswap team, as documented in the Uniswap Oracle Integration on Layer 2 Rollups [guide](https://docs.uniswap.org/concepts/protocol/oracle#oracles-integrations-on-layer-2-rollups), primarily addresses the integration of Uniswap oracle on L2 Optimism. However, it is relevant to note that the same concerns apply to Arbitrum as well. Arbitrum's average block time is approximately 0.25 seconds, making it vulnerable to potential oracle price manipulation.
+
+> Oracles Integrations on Layer 2 Rollups
+
+> Optimism
+
+> On Optimism, every transaction is confirmed as an individual block. The block.timestamp of these blocks, however, reflect the block.timestamp of the last L1 block ingested by the Sequencer. For this reason, Uniswap pools on Optimism are not suitable for providing oracle prices, as this high-latency block.timestamp update process makes the oracle much less costly to manipulate. In the future, it's possible that the Optimism block.timestamp will have much higher granularity (with a small trust assumption in the Sequencer), or that forced inclusion transactions will improve oracle security. For more information on these potential upcoming changes, please see the Optimistic Specs repo. For the time being, usage of the oracle feature on Optimism should be avoided.
+
+
+***
