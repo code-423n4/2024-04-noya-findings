@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "In the AaveConnector, if the debt of a position is higher than the collateral value, the deposit and withdraw functions of the corresponding vault will be DoSed",
+  "issueId": 1191,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1191"
+}
