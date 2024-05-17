@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KupiaSec",
+  "risk": "2",
+  "title": "The function `_getPositionTVL()` does not consider `PNP`, reward token from `Penpie`",
+  "issueId": 1376,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1376"
+}
