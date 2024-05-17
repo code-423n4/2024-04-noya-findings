@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Weed0607",
+  "risk": "2",
+  "title": "Attacker can increase the length of `withdrawQueue` by withdrawing 0 amount of tokens frequently",
+  "issueId": 1330,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1330"
+}
