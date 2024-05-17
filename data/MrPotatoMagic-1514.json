@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "GenericSwapAndBridgeHandler does not forward msg.value to perform bridge operation",
+  "issueId": 1514,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1514"
+}
