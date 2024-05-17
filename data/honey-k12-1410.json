@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "honey-k12",
+  "risk": "2",
+  "title": "Missing Current Stake Limit check will revert the whole `deposit()` function",
+  "issueId": 1410,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1410"
+}
