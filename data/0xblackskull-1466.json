@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xblackskull",
+  "risk": "2",
+  "title": "Chain support cannot be removed or cleared in `OmnichainLogic::updateChainInfo`",
+  "issueId": 1466,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1466"
+}
