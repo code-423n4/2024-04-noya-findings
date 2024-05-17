@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "`GearBoxV3.sol` should check health factor in `executeCommands()` function",
+  "issueId": 1125,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1125"
+}
