@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Dup1337",
+  "risk": "2",
+  "title": " `chainlinkPriceAgeThreshold` breaks the execution of the function even if the prices are the latest one",
+  "issueId": 1448,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1448"
+}
