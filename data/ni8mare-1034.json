@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ni8mare",
+  "risk": "3",
+  "title": "Usage of current reserves in AMM type connectors like Aerodrome to get the TVL is incorrect.",
+  "issueId": 1034,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1034"
+}
