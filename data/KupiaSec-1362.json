@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KupiaSec",
+  "risk": "3",
+  "title": "Bridge actions can't be done when it is required to pay fee with the native token of the chain",
+  "issueId": 1362,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1362"
+}
