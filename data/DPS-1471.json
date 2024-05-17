@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "DPS",
+  "risk": "2",
+  "title": "An attacker can prevent the holding position from being removed in `StargateConnector::withdrawFromStargatePool`",
+  "issueId": 1471,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1471"
+}
