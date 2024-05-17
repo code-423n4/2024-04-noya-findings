@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Centaur",
+  "risk": "3",
+  "title": " Incorrect Health Factor Calculation in getAccountHealthFactor Function",
+  "issueId": 1083,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1083"
+}
