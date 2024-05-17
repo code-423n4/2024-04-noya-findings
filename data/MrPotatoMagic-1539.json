@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "No way to recover refunded native tokens in LZHelperSender.sol",
+  "issueId": 1539,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1539"
+}
