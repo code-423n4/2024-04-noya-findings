@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "`FraxConnector.sol#repay` approved amount of tokens does NOT account for latest interest, which may cause DoS while repaying",
+  "issueId": 1112,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1112"
+}
