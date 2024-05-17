@@ -195,13 +195,60 @@ This is however not recorded at withdraw request creation but rather after calcu
 
 Consider updating the time of withdraw at the point of deposit and then validating this during execution instead of only after calculation.
 
-## [10] Not allowing the manager to manually end a `currentWithdrawGroup` and start a new one unless it is completely executed leads to numerous problems and can cause withdraw by legit users to be griefed
+# [10] Not allowing the manager to manually end a `currentWithdrawGroup` and start a new one unless it is completely executed leads to numerous problems and can cause withdraw by legit users to be griefed
 
-**File:** `AccountingManager.sol
+**File:** `AccountingManager.sol`
+In the current implementation, once a manager starts the `currentWithdrawGroup`, there is no way to end or skip over this group until the withdraw group is executed or fulfilled
+
+```solidity
+function startCurrentWithdrawGroup() public onlyManager nonReentrant whenNotPaused {
+        require(currentWithdrawGroup.isStarted == false && currentWithdrawGroup.isFullfilled == false);
+        currentWithdrawGroup.isStarted = true;
+        currentWithdrawGroup.lastId = withdrawQueue.middle;
+        emit WithdrawGroupStarted(currentWithdrawGroup.lastId, currentWithdrawGroup.totalCBAmount);
+    }
+```
+
+This prevents any more withdraw group from being started and therefore all withdraw requests after that withdraw group can never be completed. There are numerous issues that may occur while a `currentWithdrawGroup` is being fulfilled and some of these include complete DOS of the system, or even withdraw groups with bloated withdraw requests. Once a `currentWithdrawGroup` bricks, the entire system is DOSsed forever.
+Even attempts by the manager to `resetMiddle` of the `currentWithdrawGroup` would fail.
+
+```solidity
+ function resetMiddle(uint256 newMiddle, bool depositOrWithdraw) public onlyManager {
+    ...........................................................
+     if (newMiddle > withdrawQueue.middle || newMiddle < withdrawQueue.first || currentWithdrawGroup.isStarted) {
+                revert NoyaAccounting_INVALID_AMOUNT();
+            }
+            .......................................
+```
+
+### Recommendation
+
+- The manager should be able to manually end the `currentWithdrawGroup` if it proves to be malicious or encounters problems with that group.
 
 ## [11] uniswapV3 slot0 price is used to getPositionTvl in `UNIv3Connector` which is prone to manipulation.
 
+**File:** `UNIv3Connector.sol`
+To get the position tvl in the `UNIv3Connector`, the `sqrtPriceX96` is used to calculate the liquidity of the tokens in the position.
+
+```solidity
+    @>        (uint160 sqrtPriceX96,,,,,,) = pool.slot0();
+```
+
+`sqrtPriceX96` are vulnerable to manipulation by a malicious actor with control of a pool or with sufficient resources. Therefore the tvl can possibly be manipulative if the `UNIv3Connector` is being used.
+
+### Recommendation
+
+- Implement the twap feature from Uniswap instead of directly using the sqrtPriceX96 to reduce risks of manipulation
+
 ## [12] Execution of deposits in a loop can become very expensive and cause other problems with execution
+
+Deposit requests are calculated and executed in a loop using a push mechanism rather than a pull mechanism. Therefore the entire gas costs of processing requests is spent by the protocol.
+
+This may become very expensive for the protocol time and lead to accumulation of deposit backlogs
+
+### Recommendation
+
+- Make use of a pull mechanism rather than a push mechanism in the execution of deposits
 
 ## [13] `BaseConnector::executeSwap` would revert if any of the amounts for any token is 0.
 
