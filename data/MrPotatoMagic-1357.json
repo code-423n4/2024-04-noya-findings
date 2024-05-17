@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "ChainlinkOracleConnector does not consider for the difference in decimals between asset and base tokens",
+  "issueId": 1357,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1357"
+}
