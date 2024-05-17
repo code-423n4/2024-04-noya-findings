@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "korok",
+  "risk": "3",
+  "title": "Incorrect modifier logic makes protocol unusable",
+  "issueId": 1262,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1262"
+}
