@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "CamelotConnector does NOT promise token0/token1 order is the same as CamelotPool.",
+  "issueId": 1107,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1107"
+}
