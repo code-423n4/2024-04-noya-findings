@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "Looped incrementation risks overflow, causing incorrect calculations in total debt and collateral values.",
+  "issueId": 1158,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1158"
+}
