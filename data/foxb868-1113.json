@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Lack of allowance checks in `addLiquidityInCamelotPool` can cause transaction failures or unintended token spending.",
+  "issueId": 1113,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1113"
+}
