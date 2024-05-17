@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xJoyBoy03",
+  "risk": "2",
+  "title": " Timestamp Manipulation Vulnerabilities in the `AccountingManager::withdraw` Contract by frontrunners",
+  "issueId": 1170,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1170"
+}
