@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "AerodromeConnector TVL calculation does not count staked LP",
+  "issueId": 1102,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1102"
+}
