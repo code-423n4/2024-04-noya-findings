@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "LuarSec",
+  "risk": "3",
+  "title": "Missing FraxPool address validation allows for malicious strategies to steal FraxConnector contract funds.",
+  "issueId": 1521,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1521"
+}
