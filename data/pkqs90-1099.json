@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "Multiple connectors do not verify trusted tokens before using them in positions.",
+  "issueId": 1099,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1099"
+}
