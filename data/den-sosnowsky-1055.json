@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "den-sosnowsky",
+  "risk": "2",
+  "title": "`Registry::updateHoldingPosition` holdingPositionId is not correctly counted",
+  "issueId": 1055,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1055"
+}
