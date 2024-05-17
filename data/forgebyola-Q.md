@@ -1,4 +1,15 @@
-# LOWS
+# NOYA QA REPORT
+
+<details>
+  <summary>DISCLAIMER</summary>
+
+---
+After spending numerous hours analyzing the Noya codebase, the following Low and Non-critical vulnerabilities have been summarized in this report which we hope would help improve the functionality and operation of the entire protocol. Note that this list is by no means exhaustive. 
+Also, no finding in this list has been identified through an automated method.
+---
+</details>
+
+## LOWS
 
 ## [1] Any connector can transfer an arbitrary amount of tokens at any time from another connector by calling `sendTokensToTrustedAddress` from that connector.
 
@@ -447,23 +458,103 @@ It is recommended to limit the threshold which the maintainer can set between 1 
 ## NC/INFO
 
 ## [1] Missing 0 address checks in critical aspects of the system
+When setting some very important addresses in the system, several instances exist where the function parameter is not check for address(0).
 
-## [2] Wrong parameter documentation in various parts of the system
+```solidity
+src: Registry.sol
+ function setFlashLoanAddress(address _flashLoan) external onlyRole(MAINTAINER_ROLE) {
+        emit updateFlashloanAddress(_flashLoan, flashLoan);
+        flashLoan = _flashLoan;
+   }
 
-## [3] `Governer` should be corrrected to `Governor` in `Registry`
+```
 
-## [4] Difference in filename and contract name in `Registry.sol`
 
-## [5] `vaults[vaultId]` should be cached once in `Registry::changeVaultAddresses` to save gas
 
-## [6] Discrepancy in access control mechanism in `PositionRegistry`
+## [2] Difference in filename and contract name in `Registry.sol`
 
-## [7] Use of same function name in the same contract can be confusing for users and other devs
+```solidity
+ src: Registry.sol
+ contract PositionRegistry is AccessControl, IPositionRegistry, ReentrancyGuard {
+```
 
-## [8] When 2 arrays are accepted in a function, it is recommended to first check if both array lengths match before carrying out execution with them
+## [3] `vaults[vaultId]` should be cached once in `Registry::changeVaultAddresses` to save gas
 
-## [9] Routes can be added multiple times in `GenericSwapAndBridgeHandler`
+```solidity
+src: Registry::changeVaultAddresses
+       ..........................
+        vaults[vaultId].governer = _governer;
+        vaults[vaultId].maintainer = _maintainer;
+        vaults[vaultId].maintainerWithoutTimeLock = _maintainerWithoutTimelock;
+        vaults[vaultId].keeperContract = _keeperContract;
+        vaults[vaultId].watcherContract = _watcher;
+        vaults[vaultId].emergency = _emergency;
+        emit VaultAddressesChanged()
+        .....................
+```
 
-## [10] Wrong event emission in multiple parts of the system
+## [4] Discrepancy in access control mechanism in `PositionRegistry`
 
-## [11] Chainlink's library should be used directly in `AggregatorV3Interface`
+An example is `Registry.addTrustedPosition` which is only callable by the `maintainerWithoutTimeLock` address and `Registry.removeTrustedPosition` which is callable by the `maintainer` which is a different address
+
+## [5] Use of same function name in the same contract can be confusing for users and other devs
+
+#### instances:
+
+File: `NoyaValueOracle.sol`
+
+- https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/NoyaValueOracle.sol#L81
+- https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/NoyaValueOracle.sol#L95
+
+File: `NoyaValueOracle.sol`
+
+- https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/Registry.sol#L293
+- https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/Registry.sol#L335
+
+## [6] When 2 arrays are accepted in a function, it is recommended to first check if both array lengths match before carrying out execution with them
+
+```solidity
+src: BaseConnector.sol
+
+function swapHoldings(
+        address[] memory tokensIn,
+        address[] memory tokensOut,
+        uint256[] memory amountsIn,
+        bytes[] memory swapData,
+        uint256[] memory routeIds
+    ) external onlyManager nonReentrant {
+        //audit-info: Should first check if they all have same length
+```
+
+Other instances
+
+- https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/BaseConnector.sol#L169
+- https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol#L70
+
+## [7] Routes can be added multiple times in `GenericSwapAndBridgeHandler`
+
+Routes being added is not checked for whether it already exists before adding it to the `routes` array
+
+```solidity
+ function addRoutes(RouteData[] memory _routes) public onlyMaintainer {
+        for (uint256 i = 0; i < _routes.length;) {
+            routes.push(_routes[i]);
+            emit NewRouteAdded(i, _routes[i].route, _routes[i].isEnabled, _routes[i].isBridge);
+            unchecked {
+                i++;
+            }
+        }
+    }
+```
+
+## [8] Wrong parameter documentation in various parts of the system
+
+
+## [9] `Governer` should be corrrected to `Governor` in `Registry` and `IPositionRegistry`
+
+```solidity
+src: Registry.sol
+
+    bytes32 public constant GOVERNER_ROLE = keccak256("GOVERNER_ROLE");
+
+```
