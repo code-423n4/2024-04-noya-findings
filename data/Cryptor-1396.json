@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Cryptor",
+  "risk": "2",
+  "title": "Silo's isSolvent function is implemented incorrectly ",
+  "issueId": 1396,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1396"
+}
