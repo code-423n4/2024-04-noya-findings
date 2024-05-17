@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "den-sosnowsky",
+  "risk": "2",
+  "title": "`MorphoBlueConnector::withdraw` `SiloConnector::borrow` do not check health factor",
+  "issueId": 1058,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1058"
+}
