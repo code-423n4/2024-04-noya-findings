@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexxander",
+  "risk": "3",
+  "title": "`PendleConnector._getPositionTVL()` will revert if called in the same block after a `PendleMarketV3._writeState()` operation. ",
+  "issueId": 1381,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1381"
+}
