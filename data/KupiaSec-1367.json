@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KupiaSec",
+  "risk": "2",
+  "title": "A manager can't swap any native tokens into other tokens with `Lifi`",
+  "issueId": 1367,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1367"
+}
