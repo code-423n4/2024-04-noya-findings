@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Evo",
+  "risk": "2",
+  "title": "BalancerConnector doesn't update AURA token in registry in openPosition method",
+  "issueId": 1427,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1427"
+}
