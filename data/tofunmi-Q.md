@@ -359,3 +359,7 @@ Adding NatSpec documentation to the `addLiquidityInCamelotPool` function will si
 
 By implementing the recommended NatSpec comments, the contract will align with best practices for Solidity development, providing clear and helpful documentation directly within the code.
 ```
+## [QA] Informational Findings on LZHelperSender.sol
+
+## [QA-1] : Use Ownable2Step instead of Ownable; https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L4
+## [QA-2] : Change lzChainId to normalchainId; https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L10C12-L10C21
