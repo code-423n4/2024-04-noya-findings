@@ -8,7 +8,7 @@
 | [[L-04](#l-04)] | Consider bounding input array length | 37|
 | [[L-05](#l-05)] | Burning is missing access control | 1| 
 | [[L-06](#l-06)] | Privileged functions can create points of failure(Not captured by 4nalyzer) | 144| 
-| [[L-07](#l-07)] | Deleting mapping in struct will not delete the mapping | 3|
+| [[L-07](#l-07)] | Deleting mapping in struct will not delete the mapping | 2|
 | [[L-08](#l-08)] | Consider disabling `renounceOwnership()` | 3| 
 | [[L-09](#l-09)] | Possible reentrancy with callback on transfer tokens | 3| 
 | [[L-10](#l-10)] | Events may be emitted out of order due to reentrancy | 81| 
@@ -1952,15 +1952,6 @@ The [delete](https://docs.soliditylang.org/en/latest/types.html#delete) keyword 
 
 *GitHub* : [281](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L281-L281), [432](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L432-L432)
 
-```solidity
-📁 File: contracts/accountingManager/Registry.sol
-
-280:         delete vault.trustedPositionsBP[_positionId];
-
-```
-
-
-*GitHub* : [280](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/Registry.sol#L280-L280)
 
 ### [L-08]<a name="l-08"></a> Consider disabling `renounceOwnership()`
 
