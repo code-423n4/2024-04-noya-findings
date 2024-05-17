@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "heedfxn",
+  "risk": "3",
+  "title": "`AccouningManager::ExecuteWithdraw` can be affected by a DOS that locks user funds",
+  "issueId": 1231,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1231"
+}
