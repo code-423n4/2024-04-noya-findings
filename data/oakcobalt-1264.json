@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "UNIv3Connector::getPositionTVL might used outdated collected fee values, resulting in undervalued TVL",
+  "issueId": 1264,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1264"
+}
