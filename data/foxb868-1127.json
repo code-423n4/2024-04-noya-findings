@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Supply() and withdraw() failures to update registry may cause discrepancies in recorded token balances.",
+  "issueId": 1127,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1127"
+}
