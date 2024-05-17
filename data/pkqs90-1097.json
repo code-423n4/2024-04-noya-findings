@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "`AccountingManager#totalWithdrawnAmount` should reflect tokens actually transferred to users, instead of expected transfers",
+  "issueId": 1097,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1097"
+}
