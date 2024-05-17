@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "tchkvsky",
+  "risk": "3",
+  "title": "Withdrawal issues (inflated withdraw amounts and DOS issues) if a user/grifter transfers the base token to the vault before a user withdraws",
+  "issueId": 1220,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1220"
+}
