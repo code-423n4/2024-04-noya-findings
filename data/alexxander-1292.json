@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexxander",
+  "risk": "3",
+  "title": "The Deposit Queue inside `AccountingManager` can be blocked by supplying `address(0)` as the receiver in `deposit()`  ",
+  "issueId": 1292,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1292"
+}
