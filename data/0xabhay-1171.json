@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xabhay",
+  "risk": "2",
+  "title": "Exposure to Stale Price Risks in UniswapValueOracle During L2 Sequencer Interruptions",
+  "issueId": 1171,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1171"
+}
