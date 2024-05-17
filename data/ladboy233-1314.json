@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Reward tokens are always hardcoded in CurveConnector.sol",
+  "issueId": 1314,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1314"
+}
