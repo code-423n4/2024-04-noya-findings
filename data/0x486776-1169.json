@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0x486776",
+  "risk": "2",
+  "title": "The `AccountingManager::collectManagementFees` function should also be called prior to the execution of the `executeDeposit()` and `executeWithdraw()` functions.",
+  "issueId": 1169,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1169"
+}
