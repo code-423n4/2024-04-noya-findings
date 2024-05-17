@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "falconhoof",
+  "risk": "3",
+  "title": "Inadequate minimum checks allow malicious user to severely restrict Vault functionality by filling queues with miniscule orders",
+  "issueId": 1503,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1503"
+}
