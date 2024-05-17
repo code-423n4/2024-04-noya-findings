@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Rhaydden",
+  "risk": "2",
+  "title": "Incorrect Validation Logic for Chainlink Price Age Threshold in `updateChainlinkPriceAgeThreshold` Function",
+  "issueId": 1499,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1499"
+}
