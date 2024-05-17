@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ArsenLupin",
+  "risk": "2",
+  "title": "Connectors fail to remove the assets via updateHoldingPosition function.",
+  "issueId": 1416,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1416"
+}
