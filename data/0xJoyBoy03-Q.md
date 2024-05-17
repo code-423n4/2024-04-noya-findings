@@ -52,7 +52,7 @@ this function can be called by anyone and anyone could spam the logs with incorr
 include the emission inside the if statement
 
 
-## [L-1] The withdraw function doesn't handle the 0 value as shares
+## [L-4] The withdraw function doesn't handle the 0 value as shares
 ### Summary 
 anyone can call the withdraw function in the accounting manager contract with shares having 0 value. this will lead to infinite emission and increase the `withdraQueue.last` which leads to unexpected behavior and if when the manager calls the `executeWithdraw` and `calculateWithdrawShares`, this will create a lot of unnecessary and meaningless emission of events during the loops which all comes from unhandling the shares as 0 value
 
@@ -60,7 +60,7 @@ anyone can call the withdraw function in the accounting manager contract with sh
 in the withdraw function let the function revert if `shares == 0`
 
 
-## [L-1] No emission for collecting a fee in `UNIv3Connector::decreasePosition`
+## [L-6] No emission for collecting a fee in `UNIv3Connector::decreasePosition`
 ### Summary 
 the `decreasePosition` function calls the _collectFees function but doesn't emit an event for it. as we can see in the `collectAllFees` function which will emit an event for collecting fee so the `decreasePosition` function should do it too
 
@@ -71,7 +71,7 @@ add this line at the end of the `decreasePosition` function
 ```
 
 
-## [L-1] No equality check between owners and addOrRemove array leads to unexpected behavior
+## [L-7] No equality check between owners and addOrRemove array leads to unexpected behavior
 ### Summary 
 in the `Keepers::updateOwners` function there is no equality check between owners and addOrRemove array which might lead to unexpected behavior
 
