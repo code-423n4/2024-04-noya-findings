@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Dup1337",
+  "risk": "2",
+  "title": " FraxConnector´s _getHealthFactor suffers from division loss",
+  "issueId": 1460,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1460"
+}
