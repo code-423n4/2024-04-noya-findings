@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "`chainlinkPriceAgeThreshold` variable range is too big for some chain",
+  "issueId": 1259,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1259"
+}
