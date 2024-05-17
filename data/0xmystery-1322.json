@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xmystery",
+  "risk": "2",
+  "title": "Inconsistency in Emitted Parameter Order and Labeling in AccountingManager Smart Contract",
+  "issueId": 1322,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1322"
+}
