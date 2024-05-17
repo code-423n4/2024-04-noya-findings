@@ -6,38 +6,39 @@
 ## [2] `Manager` cannot remove malicious deposits or rearrange the depositQueue
 
 ## [3] `Manager` cannot remove malicious withdraw requests or rearrange the withdraw group
+## [4] Any connector can transfer any amount of token at any time out of `AccountingManager` which can lead to problems with other processes in the syste
+m
+## [5] Execution of the withdraw group in a loop can become very expensive and cause other problems with execution
 
-## [4] Execution of the withdraw group in a loop can become very expensive and cause other problems with execution
+## [6] There is no time limit between when deposits are created and when they're calculated by the manager, creating a scenario where users cannot reliable predict how long their deposits would take
 
-## [5] There is no time limit between when deposits are created and when they're calculated by the manager, creating a scenario where users cannot reliable predict how long their deposits would take
+## [7] There is no time limit between when withdraw are created and when they're executed by the manager, causing users to wait longer than the `WithdrawWaitingTime` for their withdrawn assets
 
-## [6] There is no time limit between when withdraw are created and when they're executed by the manager, causing users to wait longer than the `WithdrawWaitingTime` for their withdrawn assets
+## [8] Not allowing the manager to manually end a `currentWithdrawGroup` and start a new one unless it is completely executed leads to numerous problems and can cause withdraw by legit users to be griefed
 
-## [7] Not allowing the manager to manually end a `currentWithdrawGroup` and start a new one unless it is completely executed leads to numerous problems and can cause withdraw by legit users to be griefed
+## [9] uniswapV3 slot0 price is used to getPositionTvl in `UNIv3Connector` which is prone to manipulation.
 
-## [8] uniswapV3 slot0 price is used to getPositionTvl in `UNIv3Connector` which is prone to manipulation.
+## [10] Execution of deposits in a loop can become very expensive and cause other problems with execution
 
-## [9] Execution of deposits in a loop can become very expensive and cause other problems with execution
+## [11] `BaseConnector::executeSwap` would revert if any of the amounts for any token is 0.
 
-## [10] `BaseConnector::executeSwap` would revert if any of the amounts for any token is 0.
+## [12] `BaseConnector` should implement the erc165 interface in the BaseConnector to ensure any connector which inherits from it is completely compatible with it.
 
-## [11] `BaseConnector` should implement the erc165 interface in the BaseConnector to ensure any connector which inherits from it is completely compatible with it.
+## [13] Eligible users in `GenericSwapAndBridgeHandler` can be added but cannot be removed by the maintainer or emergency.
 
-## [12] Eligible users in `GenericSwapAndBridgeHandler` can be added but cannot be removed by the maintainer or emergency.
+## [14] Routes in `GenericSwapAndBridgeHandler` should be removeable by the maintainer or emergency
 
-## [13] Routes in `GenericSwapAndBridgeHandler` should be removeable by the maintainer or emergency
+## [15] Looping over all current positions when getting the position tvl can be expensive and gas-intensive. Depending on number of positions this can be DOSsed
 
-## [14] Looping over all current positions when getting the position tvl can be expensive and gas-intensive. Depending on number of positions this can be DOSsed
+## [16] `WETH_Oracle` does not implement `INoyaValueOracle` interface.
 
-## [15] `WETH_Oracle` does not implement `INoyaValueOracle` interface.
+## [17] Encoding the WETH_Oracle answer as 1e18 can cause problems when calculating value.
 
-## [16] Encoding the WETH_Oracle answer as 1e18 can cause problems when calculating value.
+## [18] The `AccountingManager` for a vault can never be changed.
 
-## [17] The `AccountingManager` for a vault can never be changed.
+## [19] `Vault` struct does not implement all parameters in documentation
 
-## [18] `Vault` struct does not implement all parameters in documentation
-
-## [19] The placeholder of ETH being `address(0)` in `ChainlinkOracleConnector` can cause problems with other aspects of the protocol.
+## [20] The placeholder of ETH being `address(0)` in `ChainlinkOracleConnector` can cause problems with other aspects of the protocol.
 
 ## NC/INFO
 
