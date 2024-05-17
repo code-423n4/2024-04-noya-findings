@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "2",
+  "title": "Generic swap handler depends on oracle for determining slippage parameter",
+  "issueId": 1276,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1276"
+}
