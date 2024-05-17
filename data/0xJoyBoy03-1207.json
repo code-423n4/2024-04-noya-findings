@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xJoyBoy03",
+  "risk": "2",
+  "title": "Frontrunners can keep or remove a position in `CurveConnector::decreaseCurvePosition` function",
+  "issueId": 1207,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1207"
+}
