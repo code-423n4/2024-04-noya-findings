@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "mansa11",
+  "risk": "2",
+  "title": "Lack of Access control leading to unwanted tokens added to an Holding Position",
+  "issueId": 1524,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1524"
+}
