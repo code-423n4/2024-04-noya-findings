@@ -504,3 +504,87 @@ According to the information provided by the Uniswap team, as documented in the 
 
 
 ***
+
+## 15. Contract expects to receive ETH but is not marked payable
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerConnector.sol#L122-L144
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L683-L692
+
+### Impact
+In BalancerConnector.sol's call to balancer vault, the contract is set as recipient, with a payable modifier, potentially hinting that the contract might intend to receive ETH. The contract itself however holds no receive() fucntion, causing that it cannot receive ETH.
+```solidity
+            ...
+            IBalancerVault(balancerVault).exitPool(
+                p.poolId,
+                address(this), // sender
+                payable(address(this)), // recipient
+                IBalancerVault.ExitPoolRequest(
+                    tokens,
+                    _amounts,
+                    abi.encode(
+                        IBalancerVault.ExitKind.EXACT_BPT_IN_FOR_ONE_TOKEN_OUT,
+                        p._lpAmount,
+                        p.withdrawIndex // enterTokenIndex
+                    ),
+                    false
+                )
+            );
+```
+
+The same can be observed in AccountingManager.sol's `rescue` function, which allows the Emergency admin to withdraw native token. This also hints that the contract may probably have to work with ETH, but doesn't hold any `receive()` functionlity.
+
+```solidity
+    function rescue(address token, uint256 amount) public onlyEmergency nonReentrant { 
+        if (token == address(0)) {
+            (bool success,) = payable(msg.sender).call{ value: amount }("");
+            require(success, "Transfer failed.");
+        } else {
+            IERC20(token).safeTransfer(msg.sender, amount); 
+        }
+        emit Rescue(msg.sender, token, amount);
+    }
+
+```
+### Recommended Mitigation Steps
+
+Introduce a `receive()` functionality.
+
+***
+
+## 16. Should check for return value of `withdrawAndUnwrap'
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerConnector.sol#L116-L121
+### Impact
+
+From the aurapool interface, the withdrawAndUnwrap function returns a bool upon success or failure.
+```solidity
+    //withdraw directly to curve LP token
+    function withdrawAndUnwrap(uint256 _amount, bool _claim) external returns (bool);
+```
+
+But as can be seen from the `decreasePosition` function, the return value of the `withdrawAndUnwrap` function is not checked.
+
+```solidity
+    function decreasePosition(DecreasePositionParams memory p) public onlyManager nonReentrant {
+        if (p._auraAmount > 0) {
+            (PoolInfo memory _poolInfo, bytes32 positionId) = _getPoolInfo(p.poolId);
+
+            IRewardPool(_poolInfo.auraPoolAddress).withdrawAndUnwrap(p._auraAmount, true);
+        }
+
+```
+
+### Recommended Mitigation Steps
+
+Recommend handling the return value using the bool.
+
+```solidity
+bool withdrawn = IRewardPool(_poolInfo.auraPoolAddress).withdrawAndUnwrap(p._auraAmount, true);
+require(withdrawn, 'withdrawal failed')
+```
+***
