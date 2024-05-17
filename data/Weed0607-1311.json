@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Weed0607",
+  "risk": "2",
+  "title": "The function `MaverickConnector::addLiquidityInMaverickPool()` is reverted when a Keeper is going to add liquidity to `ETH-ERC20` pool.",
+  "issueId": 1311,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1311"
+}
