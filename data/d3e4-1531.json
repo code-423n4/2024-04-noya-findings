@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "d3e4",
+  "risk": "2",
+  "title": "Zero margin in `checkIfTVLHasDroped()` causes/allows DoS on claiming performance fees",
+  "issueId": 1531,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1531"
+}
