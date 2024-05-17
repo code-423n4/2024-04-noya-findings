@@ -369,16 +369,28 @@ When user makes flashloan in BalancerFlashLoan.sol, the vault calls the `receive
 
 ***
 
-## 12. LidoConnector.sol should check for current staking limits before attempting deposits
+## 12. LidoConnector.sol and AaveConnector.sol should check for current staking limits before attempting deposits
 
 Links to affected code *
 
 https://github.com/lidofinance/lido-dao/blob/5fcedc6e9a9f3ec154e69cff47c2b9e25503a78a/contracts/0.4.24/Lido.sol#L930
 
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/LidoConnector.sol#L41
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L70
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L83
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L89
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L101
+
+https://github.com/aave/aave-v3-core/blob/27a6d5c83560694210849d4abf09a09dec8da388/contracts/protocol/libraries/logic/ValidationLogic.sol#L66
+
+https://github.com/aave/aave-v3-core/blob/27a6d5c83560694210849d4abf09a09dec8da388/contracts/protocol/pool/Pool.sol
 ### Impact
 
-Lido protocol employs a rate-limiting mechanism to limit the amount of ETH that can be staked within a 24 hour period. This check can easily be exhausted by whales or malicious users. When this occurs, depositng in LidoConnector.sol will be dossed without users not understanding why.
+Lido protocol employs a rate-limiting mechanism to limit the amount of ETH that can be staked within a 24 hour period. This check can easily be exhausted by whales or malicious users. When this occurs, depositng in LidoConnector.sol will be dossed unexpected reversions.
 
 ```solidity
     function deposit(uint256 amountIn) external onlyManager nonReentrant {
@@ -391,6 +403,10 @@ Lido protocol employs a rate-limiting mechanism to limit the amount of ETH that 
         emit Deposit(amountIn);
     }
 ```
+
+The same can be observed in AaveConnector.sol's operations. The [`borrow`](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L70), [`repay`](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L83-L83), [`repayWithATokens`](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L89), [`withdraw`](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L101) functions all hold limits which can be dossed by malicious users, and are best queried before use. These caps can be found in the (ValidationLogic.sol](https://github.com/aave/aave-v3-core/blob/27a6d5c83560694210849d4abf09a09dec8da388/contracts/protocol/libraries/logic/ValidationLogic.sol) contract.
+
+
 ### Recommended Mitigation Steps
 
 You can use the [getCurrentStakeLimit](https://github.com/lidofinance/lido-dao/blob/df95e563445821988baf9869fde64d86c36be55f/contracts/0.4.24/Lido.sol#L235-L237) function for this purpose and check if msg.value <= getCurrentStakeLimit().
@@ -587,4 +603,24 @@ Recommend handling the return value using the bool.
 bool withdrawn = IRewardPool(_poolInfo.auraPoolAddress).withdrawAndUnwrap(p._auraAmount, true);
 require(withdrawn, 'withdrawal failed')
 ```
+***
+
+# 17. Assets could have an LTV of 0, completely dossing AaveConnector.sol's operations
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L48
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L70
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L83
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L89
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/AaveConnector.sol#L101
+
+### Impact
+
+When an AToken has LTV = 0, Aave restricts the usage of some operations. In particular, if the protocol owns at least one AToken as collateral that has LTV = 0, operations could revert. The LTVs of assets can also be set to 0. When this occurs, repayments, withdrawals, borrowing etc, will be dossed.  In extreme cases, this could lead to a potential loss of user funds or even a complete protocol shutdown, thus impacting user trust and the overall functionality of the protocol.
+
 ***
