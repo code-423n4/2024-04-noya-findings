@@ -72,7 +72,7 @@ The protocol uses mapping to store the `chainId` of that particular chain, If th
 ## Recommendation
 Add an admin operated function, to migrate the updating of TVL from old to new `chainID`
 
-#[L-08] All harvest/claim doesn't yield same amount of reward
+# [L-08] All harvest/claim doesn't yield same amount of reward
 A keeper is supposed to call and withdraw the rewards which user's generated at their respective positions in the connector.
 But all harvest doesn't produce same yield as reward which can be unprofitable for keeper in terms of gas costs
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L221
@@ -84,3 +84,11 @@ Keepers/watcher are highly trusted entities that are intended to be multisigs/sm
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L221
 # Recommendation 
 Make sure keeper’s/watcher's access well-secured to avoid misuse of the trust.
+
+# [L-10] Multiple Token Address (Weird ERC20)
+A owner is set to send funds `rescuefunds` to user's address if anyhow some assets let remain in the contract `LifiImplementation.sol`. 
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol#L193
+But some proxied tokens have multiple addresses. Any protocol would assume single address per token and so allowing the owner to steal all the funds in the bridge.
+More importantly there are no further checks which user's address the assets are being sent to, making an owner to send those assets to any random user's address
+## Recommendation
+Make sure the owner is well trusted and have a gateway for the tokens supported
