@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "aariiif",
+  "risk": "2",
+  "title": "Unsecured `balanceOf()` use for TVL calculation allows manipulation, potentially causing contract vulnerabilities and exploitation.",
+  "issueId": 1160,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1160"
+}
