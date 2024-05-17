@@ -363,3 +363,46 @@ By implementing the recommended NatSpec comments, the contract will align with b
 
 ## [QA-1] : Use Ownable2Step instead of Ownable; https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L4
 ## [QA-2] : Change lzChainId to normalchainId; https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L10C12-L10C21
+# INFORMATIONAL REPORT
+
+## [QA]: Informational Findings on NoyaFeeReceiver.sol
+
+### Description:
+The NoyaFeeReceiver contract currently uses the OpenZeppelin Ownable contract for managing ownership. However, it is recommended to use the Ownable2Step contract instead of Ownable.
+
+### Impact:
+This issue is not a security vulnerability, but it is an important improvement for the following reasons:
+
+- **Risk of Ownership Loss:** The OpenZeppelin Ownable contract can lead to the loss of contract ownership if ownership is transferred to a non-existent or incorrect address. This could happen due to a typo or other mistake when specifying the new owner's address.
+- **Ownership Confirmation:** The Ownable2Step contract requires the new owner to confirm ownership, providing an additional layer of security. This ensures that ownership is not accidentally transferred to a mistyped address.
+
+### Recommended Mitigation:
+Replace the use of Ownable with Ownable2Step to enhance the security and robustness of the ownership transfer process. This change ensures that the new owner must explicitly accept the ownership transfer, reducing the risk of accidental loss of ownership.
+
+### Example Mitigation:
+
+1. **Update Import Statement:**
+   Update the import statement to use Ownable2Step instead of Ownable.
+
+```solidity
+import "@openzeppelin/contracts/access/Ownable2Step.sol";
+```
+
+2. **Replace Ownable with Ownable2Step:**
+   Replace the inheritance of Ownable with Ownable2Step in the NoyaFeeReceiver contract.
+
+```solidity
+// Current code
+contract NoyaFeeReceiver is Ownable {
+    // contract code...
+}
+
+// Updated code
+contract NoyaFeeReceiver is Ownable2Step {
+    // contract code...
+}
+```
+
+By implementing Ownable2Step, the NoyaFeeReceiver contract will benefit from enhanced security in the ownership transfer process, reducing the risk of accidentally losing ownership of the contract.
+
+This small but significant improvement aligns the contract with best practices for Solidity development, providing better safeguards for ownership management.
