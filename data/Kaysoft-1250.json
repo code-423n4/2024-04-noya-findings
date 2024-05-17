@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Kaysoft",
+  "risk": "2",
+  "title": "Malicious user can easily DOS the withdrawal system by passing a USDC blacklisted address as the `receiver` parameter",
+  "issueId": 1250,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1250"
+}
