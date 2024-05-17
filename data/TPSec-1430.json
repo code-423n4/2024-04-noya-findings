@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "TPSec",
+  "risk": "3",
+  "title": "`NoyaValueOracle.getValue` returns an incorrect price when a multi-token route is used",
+  "issueId": 1430,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1430"
+}
