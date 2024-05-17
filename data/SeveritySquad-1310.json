@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SeveritySquad",
+  "risk": "2",
+  "title": "`withdrawWeiFromDefaultAccount()` will revert if dolomite doesn't have enough liquidity present in a market, which is most likely the case",
+  "issueId": 1310,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1310"
+}
