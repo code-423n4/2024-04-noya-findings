@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "befree3x",
+  "risk": "2",
+  "title": "A maintainer can set a malicious user (or himself) as a new flashloan address to give him full control of the protocol",
+  "issueId": 1234,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1234"
+}
