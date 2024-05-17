@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexxander",
+  "risk": "3",
+  "title": "Loss of funds in `PendleConnector.depositIntoMarket()`",
+  "issueId": 1363,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1363"
+}
