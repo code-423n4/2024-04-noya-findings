@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "3",
+  "title": "Base tokens like USDT, USDC having different decimals on different chains can have their TVL updated incorrectly",
+  "issueId": 1438,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1438"
+}
