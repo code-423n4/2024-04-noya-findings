@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Ruandevos",
+  "risk": "3",
+  "title": "Title: Missing Access Control Allows Unauthorized Token Transfers and Operations",
+  "issueId": 1383,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1383"
+}
