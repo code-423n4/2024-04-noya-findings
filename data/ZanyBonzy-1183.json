@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ZanyBonzy",
+  "risk": "2",
+  "title": "Univ3Connector and UniswapOracle work with libraries that are not optimized for ^0.8.0 solidity usage",
+  "issueId": 1183,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1183"
+}
