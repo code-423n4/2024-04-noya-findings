@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "poslednaya",
+  "risk": "3",
+  "title": "Malicious actor can stuck queue by passing Blacklisted address when `withdraw()`",
+  "issueId": 1041,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1041"
+}
