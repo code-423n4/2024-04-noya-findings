@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "`CurveConnector.sol#depositIntoConvexBooster` does not keep track of TVL if `stake == false`",
+  "issueId": 1110,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1110"
+}
