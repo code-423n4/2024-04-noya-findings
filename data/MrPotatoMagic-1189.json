@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "Price underflow possible in ChainlinkOracleConnector due to uint256 typecast before price <= 0 check",
+  "issueId": 1189,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1189"
+}
