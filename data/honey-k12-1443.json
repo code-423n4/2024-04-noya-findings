@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "honey-k12",
+  "risk": "2",
+  "title": " `UniswapValueOracle` unsafe on L2s in event of Sequencer downtime",
+  "issueId": 1443,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1443"
+}
