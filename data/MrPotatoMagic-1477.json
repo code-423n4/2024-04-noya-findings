@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "LifiImplementation.sol cannot be used as a swap handler and bridge at the same time",
+  "issueId": 1477,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1477"
+}
