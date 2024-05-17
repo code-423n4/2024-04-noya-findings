@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Use of `slot0` to get `sqrtPriceLimitX96` can lead to DOS of deposit function.",
+  "issueId": 1325,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1325"
+}
