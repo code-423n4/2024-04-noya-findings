@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KupiaSec",
+  "risk": "2",
+  "title": "When `MorphoBlueConnector` withdraw collateral from Morphoblue, it doesn't consider healthfactor correctly",
+  "issueId": 1374,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1374"
+}
