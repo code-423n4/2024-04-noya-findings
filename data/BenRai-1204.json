@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "3",
+  "title": "The calculated TVL in `BalancerConnector::_getPositionTVL` will always be to low for most recent versions of Weighted and Stable Pools",
+  "issueId": 1204,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1204"
+}
