@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "TPSec",
+  "risk": "3",
+  "title": "When all available funds from a connector are deployed to the protocol, the holding position is removed, resulting in incorrect TVL",
+  "issueId": 1401,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1401"
+}
