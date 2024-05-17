@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexxander",
+  "risk": "3",
+  "title": "Insufficient access control in modifier `NoyaGovernanceBase.onlyManager()` allows a Vault to access another Vault's `onlyManager` functions",
+  "issueId": 1386,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1386"
+}
