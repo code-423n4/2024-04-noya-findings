@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ArsenLupin",
+  "risk": "2",
+  "title": "Pendle Connector is not able to interact with WETH. But it should be according to the dev comments.",
+  "issueId": 1397,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1397"
+}
