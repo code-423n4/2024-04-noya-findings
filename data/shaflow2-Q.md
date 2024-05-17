@@ -7,6 +7,7 @@
 | L-5     | The BalancerConnector contract failed to update the position in a timely manner after calling the openPosition function |
 | L-6     | ReceiveFlashLoan function obtained the emergencyManager variable, but did not use it, causing EmergencyManager to be unable to call flashloan |
 | L-7     | DolomiteConnector lacks health value management |
+| L-8   | Suggest calling the _quote function to obtain gas consumption instead of directly passing in address (this).balance                                  |
 | N-1   | Delete useless local variables                                       |
 | N-2   | Delete useless global variables                                      |
 | N-3   | Suggest using the enabled field to check if vault exists              |
@@ -262,6 +263,28 @@ github:[https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8f
 The DolomiteConnector contract has borrowed positions, but the contract has not been designed with a relevant health value management system, which may result in low health values of the contract account positions, which cannot be detected in a timely manner, leading to liquidation
 # Suggestion
 Add a function to obtain health values and check the health values when calling the withdraw function
+# [L-8] Suggest calling the _quote function to obtain gas consumption instead of directly passing in address (this).balance
+## impact
+The LZHelperSender contract directly passes in all the ETH in the contract as gas fees when sending cross chain messages. Conversely, the function should be called first to obtain gas consumption
+github:[https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L80](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/LZHelpers/LZHelperSender.sol#L80)
+```solidity
+    function updateTVL(uint256 vaultId, uint256 tvl, uint256 updateTime) public {
+        if (msg.sender != vaultIdToVaultInfo[vaultId].omniChainManager) revert InvalidSender();
+        uint32 lzChainId = chainInfo[vaultIdToVaultInfo[vaultId].baseChainId].lzChainId;
+        bytes memory data = abi.encode(vaultId, tvl, updateTime);
+        _lzSend(lzChainId, data, messageSetting, MessagingFee(address(this).balance, 0), payable(address(this))); // TODO: send event here
+    }
+```
+## Suggestion
+```solidity
+    function updateTVL(uint256 vaultId, uint256 tvl, uint256 updateTime) public {
+        if (msg.sender != vaultIdToVaultInfo[vaultId].omniChainManager) revert InvalidSender();
+        uint32 lzChainId = chainInfo[vaultIdToVaultInfo[vaultId].baseChainId].lzChainId;
+        bytes memory data = abi.encode(vaultId, tvl, updateTime);
+-        _lzSend(lzChainId, data, messageSetting, MessagingFee(address(this).balance, 0), payable(address(this))); // TODO: send event here
++        _lzSend(lzChainId, data, messageSetting, _quote(lzChainId, data, messageSetting, false), payable(address(this))); // TODO: send event here
+    }
+```
 
 # [N-1] Delete useless local variables
 
