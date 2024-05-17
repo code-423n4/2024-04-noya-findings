@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "forgebyola",
+  "risk": "2",
+  "title": "`Registry.getUnderlyingTokens` is not sufficiently implemented in Connector contracts",
+  "issueId": 1084,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1084"
+}
