@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "`Dolomite.sol` should check health factor in `openBorrowPosition()` function",
+  "issueId": 1123,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1123"
+}
