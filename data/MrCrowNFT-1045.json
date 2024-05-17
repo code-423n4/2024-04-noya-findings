@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrCrowNFT",
+  "risk": "2",
+  "title": "DoS by non users calling `withdraw` with zero amount can freeze the withdrawal logic",
+  "issueId": 1045,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1045"
+}
