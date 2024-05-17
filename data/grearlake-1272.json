@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "grearlake",
+  "risk": "3",
+  "title": "Unable to decrease position when the pool in curve is killed",
+  "issueId": 1272,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1272"
+}
