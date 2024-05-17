@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexxander",
+  "risk": "3",
+  "title": "The Withdraw Queue inside `AccountingManager` can be blocked by supplying `address(0)` as the receiver in `withdraw()` ",
+  "issueId": 1296,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1296"
+}
