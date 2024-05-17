@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xJoyBoy03",
+  "risk": "2",
+  "title": "so many functions don't update their token in registry which leads to unexpected behavior",
+  "issueId": 1309,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1309"
+}
