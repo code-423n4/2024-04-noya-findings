@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "falconhoof",
+  "risk": "2",
+  "title": "Hardcoded dust value in Aave connector removes non-dusty positions causing incorrect TVL calculations",
+  "issueId": 1537,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1537"
+}
