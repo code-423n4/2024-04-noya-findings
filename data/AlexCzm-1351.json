@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "AlexCzm",
+  "risk": "2",
+  "title": "Protocol can mint/burn vault shares using a wrong TVL due to stale TVL reported from 'normal' chain",
+  "issueId": 1351,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1351"
+}
