@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "`getPositionTVL()` function may throw a null pointer exception if the `registry.getPositionBP()` call returns an invalid pointer.",
+  "issueId": 1082,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1082"
+}
