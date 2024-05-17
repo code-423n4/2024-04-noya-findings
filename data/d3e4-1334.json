@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "d3e4",
+  "risk": "2",
+  "title": "AccountingManager has no correct implementations of the core ERC-4626 functions `deposit`, `mint`, `withdraw` and `redeem`",
+  "issueId": 1334,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1334"
+}
