@@ -8,7 +8,7 @@
 
 ---
 
-To maintain clarity and brevity, we have selectively shortened the provided code snippets to highlight the most pertinent parts. Some sections may be condensed, and certain references are accessible through search commands due to the project's scope and time limitations.
+To maintain clarity and brevity, we have selectively shortened the provided code snippets to highlight the most pertinent parts. Some sections may be condensed, and certain references are accessible through search commands due to the project's scope.
 
 ---
 
@@ -47,8 +47,11 @@ Note to the judge: To avoid spamming the judging repo with issues that may still
 | [QA-19](#qa-19-incorrect-permission-checks-in-onlyvaultmaintainer-modifier) | Incorrect Permission Checks in `onlyVaultMaintainer` Modifier |
 | [QA-20](#qa-20-deposit-in-depositintoconvexbooster-may-revert) | Deposit in `depositIntoConvexBooster` may revert |
 | [QA-21](#qa-21-receiveflashloan-function-not-protected-against-reentrancy) | `receiveFlashLoan` Function Not Protected Against Reentrancy |
-| [QA-22](#qa-22-fix-typos-and-documentations-multiple-instances) | Fix Typos and Documentations (Multiple instances) |
+| [QA-22](#qa-22-fix-typos-and-documentations-multiple-instances) | Fix Typos and Documentations _(Multiple instances)_ |
 | [QA-23](#qa-23-multiple-instances-of-todos) | Multiple Instances of TODOs |
+| [QA-24](#qa-24-inconsistent-variable-naming-convention-in-getdata-function) | Inconsistent Variable Naming Convention in `getData` Function |
+| [QA-25](#qa-25-issiloempty-function-does-not-consider-outstanding-debt-tokens) | `isSiloEmpty` Function Does Not Consider Outstanding Debt Tokens |
+| [QA-26](#qa-26-inability-to-reset-middle-index-during-active-withdraw-group) | Inability to Reset Middle Index During Active Withdraw Group |
 
 
 
@@ -1291,6 +1294,28 @@ Fix the TODOs
 
 
 
+## [QA-24] Inconsistent Variable Naming Convention in `getData` Function
+
+### Proof of Concept
+The variable `LiquidationThreshold` in the `getData` function does not follow Solidity's naming conventions, which suggest using camelCase for variable names.
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/SiloConnector.sol#L74
+
+### Recommended Mitigation Steps
+Rename the variable `LiquidationThreshold` to `liquidationThreshold` to adhere to Solidity's naming conventions. It should be like this:
+
+```diff
+function getData(address siloToken)
+    public
+    view
+-    returns (uint256 userLTV, uint256 LiquidationThreshold, bool isSolvent)
++   returns (uint256 userLTV, uint256 liquidationThreshold, bool isSolvent)
+{
+    return SolvencyV2.getData(ISilo(siloRepository.getSilo(siloToken)), address(this), minimumHealthFactor);
+}
+```
+
+Additionally, ensure that all references to `LiquidationThreshold` in the codebase are updated to `liquidationThreshold`.
 
 
 
@@ -1304,3 +1329,127 @@ Fix the TODOs
 
 
 
+
+
+## [QA-25] `isSiloEmpty` Function Does Not Consider Outstanding Debt Tokens
+
+### Proof of Concept
+
+The `isSiloEmpty` function in the `SiloConnector` contract checks for balances greater than 0 for `collateralToken` and `collateralOnlyToken` but does not consider the balance of `debtToken`. This could lead to an inaccurate determination of whether a silo is truly empty, as outstanding debt tokens are not accounted for.
+
+Look at this part:
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/SiloConnector.sol#L130-L141
+
+```solidity
+function isSiloEmpty(ISilo silo) public view returns (bool) {
+        (, IBaseSilo.AssetStorage[] memory assetsS) = silo.getAssetsWithState();
+        for (uint256 i = 0; i < assetsS.length; i++) {
+            if (
+                IERC20(assetsS[i].collateralToken).balanceOf(address(this))
+                    + IERC20(assetsS[i].collateralOnlyToken).balanceOf(address(this)) > 0
+            ) {
+                return false;
+            }
+        }
+        return true;
+    }
+```
+
+### Recommended Mitigation Steps
+
+NOYA team should consider outstanding debt tokens, which might be relevant to determine if a silo is truly empty and update the `isSiloEmpty` function to include a check for the balance of `debtToken` in addition to `collateralToken` and `collateralOnlyToken`. Here is the revised function:
+
+```diff
+function isSiloEmpty(ISilo silo) public view returns (bool) {
+    (, IBaseSilo.AssetStorage[] memory assetsS) = silo.getAssetsWithState();
+    for (uint256 i = 0; i < assetsS.length; i++) {
+        if (
+            IERC20(assetsS[i].collateralToken).balanceOf(address(this))
+                + IERC20(assetsS[i].collateralOnlyToken).balanceOf(address(this))
++                + IERC20(assetsS[i].debtToken).balanceOf(address(this)) > 0
+        ) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+This ensures that the function accurately determines if a silo is empty by considering all relevant token balances.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## [QA-26] Inability to Reset Middle Index During Active Withdraw Group
+
+The current implementation of the `resetMiddle` function prevents resetting the middle index of the withdraw queue if there is an active withdraw group.
+
+If there is an active withdraw group, the middle index cannot be reset. This could be necessary in cases where there is a need to adjust the middle index due to price manipulation or other reasons, even if a withdraw group is active.
+
+Also, if the withdraw group is started but not fulfilled, and there is a need to reset the middle index, the function will revert. This could block necessary adjustments and lead to operational issues.
+
+### Proof of Concept
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L453-L469
+
+```solidity
+function resetMiddle(uint256 newMiddle, bool depositOrWithdraw) public onlyManager {
+    if (depositOrWithdraw) {
+        emit ResetMiddle(newMiddle, depositQueue.middle, depositOrWithdraw);
+
+        if (newMiddle > depositQueue.middle || newMiddle < depositQueue.first) {
+            revert NoyaAccounting_INVALID_AMOUNT();
+        }
+        depositQueue.middle = newMiddle;
+    } else {
+        emit ResetMiddle(newMiddle, withdrawQueue.middle, depositOrWithdraw);
+
+        if (newMiddle > withdrawQueue.middle || newMiddle < withdrawQueue.first || currentWithdrawGroup.isStarted) {
+            revert NoyaAccounting_INVALID_AMOUNT();
+        }
+        withdrawQueue.middle = newMiddle;
+    }
+}
+```
+
+### Recommended Mitigation Steps
+
+We can revise the code logic like this:
+
+```solidity
+function resetMiddle(uint256 newMiddle, bool depositOrWithdraw) public onlyManager {
+    if (depositOrWithdraw) {
+        emit ResetMiddle(newMiddle, depositQueue.middle, depositOrWithdraw);
+
+        if (newMiddle > depositQueue.middle || newMiddle < depositQueue.first) {
+            revert NoyaAccounting_INVALID_AMOUNT();
+        }
+        depositQueue.middle = newMiddle;
+    } else {
+        emit ResetMiddle(newMiddle, withdrawQueue.middle, depositOrWithdraw);
+
+        if (newMiddle > withdrawQueue.middle || newMiddle < withdrawQueue.first) {
+            revert NoyaAccounting_INVALID_AMOUNT();
+        }
+
+        // Additional check to ensure the new middle index does not interfere with the active withdraw group
+        if (currentWithdrawGroup.isStarted && newMiddle < currentWithdrawGroup.lastId) {
+            revert NoyaAccounting_INVALID_AMOUNT();
+        }
+
+        withdrawQueue.middle = newMiddle;
+    }
+}
+```
+- The function now allows resetting the middle index for the withdraw queue even if a withdraw group is active.
+- An additional check ensures that the new middle index does not interfere with the active withdraw group by ensuring it is not less than `currentWithdrawGroup.lastId`.
+- This ensures that the middle index can be reset when necessary without causing inconsistencies or blocking operations.
