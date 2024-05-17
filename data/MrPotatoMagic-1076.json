@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "Keepers.sol does not enforce a minimum (n/2) or (n/2 + 1) threshold for executing operations",
+  "issueId": 1076,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1076"
+}
