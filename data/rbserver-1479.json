@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "rbserver",
+  "risk": "3",
+  "title": "`retrieveTokensForWithdraw` function call can be DOS'ed, which blocks queued withdrawals from being executed",
+  "issueId": 1479,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1479"
+}
