@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrxSnowden",
+  "risk": "2",
+  "title": "Unvalidated Input Leads to Excessive Gas Consumption and Potential Manipulation",
+  "issueId": 1420,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1420"
+}
