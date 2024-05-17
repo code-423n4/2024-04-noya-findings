@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xMosh",
+  "risk": "3",
+  "title": "Tokens with blacklisting capabilities may block the withdrawal queue. ",
+  "issueId": 1528,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1528"
+}
