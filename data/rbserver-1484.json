@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "rbserver",
+  "risk": "3",
+  "title": "Calling `executeWithdraw` function can make share amount to be burned and profit be incorrect after `retrieveTokensForWithdraw` function is called with actual amount for withdrawal being less than asked amount for withdrawal",
+  "issueId": 1484,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1484"
+}
