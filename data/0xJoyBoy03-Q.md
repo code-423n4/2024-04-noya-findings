@@ -80,3 +80,23 @@ add this at the first line of the function
 ```git
 + require(_owners.length == addOrRemove.length, "Arrays length mismatch");
 ```
+
+
+## [N-1] Addressing Centralization Risk in the Rescue Function
+### Summary
+The rescue function poses a centralization risk by allowing unrestricted token or Ether transfers to the contract owner or another designated address. This lack of control over who can trigger the function raises concerns about centralization.
+```java
+    // @audit-centralization-risk
+    function rescue(address token, uint256 amount) public onlyEmergency nonReentrant {
+        if (token == address(0)) {
+            (bool success,) = payable(msg.sender).call{ value: amount }("");
+            require(success, "Transfer failed.");
+        } else {
+            IERC20(token).safeTransfer(msg.sender, amount);
+        }
+        emit Rescue(msg.sender, token, amount);
+    }
+```
+
+### mitigation
+Consider implementing a multi-signature wallet or approval process for added security.
