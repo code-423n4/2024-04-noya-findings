@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "fathergun",
+  "risk": "2",
+  "title": "Unable to execute the command vault.holdingPositions[0].additionalData = AD",
+  "issueId": 1203,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1203"
+}
