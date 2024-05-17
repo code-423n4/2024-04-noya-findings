@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Dup1337",
+  "risk": "2",
+  "title": " WETH Oracle Hardcoded Price and Decimal Mismatch",
+  "issueId": 1445,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1445"
+}
