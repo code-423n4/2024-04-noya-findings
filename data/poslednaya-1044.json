@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "poslednaya",
+  "risk": "3",
+  "title": "Malicious actor can stuck all funds on protocol by passing address(0) to `receiver` when deposit",
+  "issueId": 1044,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1044"
+}
