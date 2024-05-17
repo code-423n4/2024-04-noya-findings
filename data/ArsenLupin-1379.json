@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ArsenLupin",
+  "risk": "3",
+  "title": "When the startBridgeTransaction is triggered, it doesn't have the 'payable'.",
+  "issueId": 1379,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1379"
+}
