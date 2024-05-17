@@ -10,7 +10,9 @@ constructor(address _endpoint, address _owner) OAppReceiver() OAppCore(_endpoint
 ```solidity
     constructor(address _endpoint, address _owner) OAppSender() OAppCore(_endpoint, _owner) { }
 ```
-The issue is that the `LZHelpers` make use of the `OpenzeppelinV5.0` ownable contract meanwhile the LayerZero contracts make use of the `OpenzeppelinV4.6` ownable contract.
-The difference is that on v5.0 the owner is specified but on v4.6 the owner is the msg,sender.
+The issue is that the `LZHelpers` make use of the `OpenzeppelinV5.0` ownable contract meanwhile the LayerZero contracts make use of the `OpenzeppelinV4.8` ownable contract.
+The difference is that on v5.0 the owner is specified but on v4.8 the owner is the msg,sender.
+
+- https://github.com/LayerZero-Labs/LayerZero-v2/blob/1fde89479fdc68b1a54cda7f19efa84483fcacc4/oapp/package.json#L17
 ## Mitigation
 Adjust the ownable contracts to match the same one used by layer zero
