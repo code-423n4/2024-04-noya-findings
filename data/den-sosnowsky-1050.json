@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "den-sosnowsky",
+  "risk": "2",
+  "title": "`AccountingManager::executeWithdraw` calculates `totalWithdrawnAmount` and thus contract profit in a wrong way",
+  "issueId": 1050,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1050"
+}
