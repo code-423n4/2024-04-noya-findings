@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "When calling `PrismaConnector::addColl` and `PrismaConnector::closeTrove`, the positions for tokens send from the connector to the protocol are not updated",
+  "issueId": 1556,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1556"
+}
