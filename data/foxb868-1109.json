@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Removing liquidity from the wrong pool can lead to the user losing funds or accessing assets that they do not own.",
+  "issueId": 1109,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1109"
+}
