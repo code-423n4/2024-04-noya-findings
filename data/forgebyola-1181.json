@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "forgebyola",
+  "risk": "3",
+  "title": "Execution of Withdraw Queue is DOSsed if any receiver is blacklisted by USDC",
+  "issueId": 1181,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1181"
+}
