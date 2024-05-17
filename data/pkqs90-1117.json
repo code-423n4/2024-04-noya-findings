@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "`PrismaConnector.sol#adjustTrove` does not call `_updateTokenInRegistry()` for collateralToken",
+  "issueId": 1117,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1117"
+}
