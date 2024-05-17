@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Inconsistent approvals in `supply()` and `withdraw()` can be exploited to manipulate token balances and transactions.",
+  "issueId": 1118,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1118"
+}
