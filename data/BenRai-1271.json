@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "In MorphoBlueConnector:withdraw there is no check if the requirements of the minumumHealthFactor are met",
+  "issueId": 1271,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1271"
+}
