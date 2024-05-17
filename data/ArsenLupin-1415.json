@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ArsenLupin",
+  "risk": "2",
+  "title": "Chainlink connector doesn’t check for the Min / Max prices returned",
+  "issueId": 1415,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1415"
+}
