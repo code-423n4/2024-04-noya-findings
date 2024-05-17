@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "falconhoof",
+  "risk": "2",
+  "title": "UniswapV3 slot0 should not be used to get price as it can be maniuplated",
+  "issueId": 1533,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1533"
+}
