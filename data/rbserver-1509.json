@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "rbserver",
+  "risk": "2",
+  "title": "Value of asset token can be incorrect when usage of ETH/USD Chainlink oracle is needed",
+  "issueId": 1509,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1509"
+}
