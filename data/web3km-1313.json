@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "web3km",
+  "risk": "2",
+  "title": "For tokens than revert on 0 transfers, malicious actor can DoS the `AccountingManager::executeWithdraw` by created a withdrawal request for 0 amount",
+  "issueId": 1313,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1313"
+}
