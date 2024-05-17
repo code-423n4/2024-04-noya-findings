@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Lack of calling the BaseConnector#`_updateTokenInRegistry()` in the AaveConnector#`repayWithCollateral()`, which lead the stale balance of the give `_borrowAsset` position to being used in the token registry",
+  "issueId": 1051,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1051"
+}
