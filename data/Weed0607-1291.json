@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Weed0607",
+  "risk": "3",
+  "title": "The `NoyaValueOracle._getValue` function doesn't correctly loop through the `priceRoutes`",
+  "issueId": 1291,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1291"
+}
