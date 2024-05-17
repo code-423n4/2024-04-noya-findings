@@ -76,4 +76,100 @@ In Keepers::execute, if signature threshold is met, any external call can be exe
 
 Recommendations:
 In destination.call, add msg.value options to enable calling a payable method with native ETH.
- 
+
+### Low-04 bridgeRequest encoding with no nonce implementation, risk of bridging revert in edge conditions
+**Instances(1)**
+In OmnichainLogic::startBridgeTransaction, bridgeRequest is encoded without a nonce. This means that if two adjacent bridgeRequet are identical (e.g. sending tokens), the encoding will be identical, resulting in a conflicted key in approvedBrdigeTXN mapping.
+```solidity
+//contracts/helpers/OmniChainHandler/OmnichainLogic.sol
+    function startBridgeTransaction(BridgeRequest memory bridgeRequest) public onlyManager nonReentrant {
+|>       bytes32 txn = keccak256(abi.encode(bridgeRequest));
+...
+```
+(https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/OmniChainHandler/OmnichainLogic.sol#L69)
+
+When the manager approve the two identical bridgeQuest, the second `updateBridgeTransactionApproval()` call will actually delete the approval for the first bridgeQuest. In the above edge condition, two adjacent bridgeRequest share the save approvedBrdigeTXN mapping storage. 
+```solidity
+    function updateBridgeTransactionApproval(bytes32 transactionHash) public onlyManager {
+|>      if (approvedBridgeTXN[transactionHash] != 0) delete approvedBridgeTXN[transactionHash];
+        else approvedBridgeTXN[transactionHash] = block.timestamp;
+        emit UpdateBridgeTransactionApproval(transactionHash, block.timestamp);
+    }
+```
+(https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/OmniChainHandler/OmnichainLogic.sol#L58)
+
+As a result, after BRIDGE_TXN_WAITING_TIME time has passed, executing either bridgeQuest will [revert and fail due to canceled approval info](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/OmniChainHandler/OmnichainLogic.sol#L71).
+
+Recommendations:
+Consider adding a nonce in bridgeRequest encoding.
+
+### Low-05  executeSwap and executeBridge are not able to perform swap or bridge with Native token due to missing msg.value implementation
+**Instances(2)**
+LifiImplementation.sol supports [swapping/bridging with native tokens](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol#L176). 
+
+However, this native ETH swapping bridging functionality will be disabled by GenericSwapAndBridgeHandler.sol, because the handler failed to add msg.value compatibility.
+(1)
+```solidity
+//contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol
+    function executeSwap(SwapRequest memory _swapRequest)
+        external
+        payable
+        onlyEligibleUser
+        onlyExistingRoute(_swapRequest.routeId)
+        nonReentrant
+        returns (uint256 _amountOut)
+    {
+...
+          //@audit even though executeSwap is payable, ETH will not be forwarded to SwapImplementation contract
+|>        _amountOut = ISwapAndBridgeImplementation(swapImplInfo.route).performSwapAction(msg.sender, _swapRequest);
+...
+```
+(https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol#L115)
+
+(2)
+```solidity
+//contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol
+    function executeBridge(BridgeRequest calldata _bridgeRequest)
+        external
+        payable
+        onlyEligibleUser
+        onlyExistingRoute(_bridgeRequest.routeId)
+        nonReentrant
+    {
+...
+          //@audit even though executeBridge is payable, ETH will not be forwarded to SwapImplementation contract        ISwapAndBridgeImplementation(bridgeImplInfo.route).performBridgeAction(msg.sender, _bridgeRequest);
+...
+```
+(https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/SwapHandler/GenericSwapAndBridgeHandler.sol#L137)
+
+In addition, any native ETH sent through GenericSwapAndBridgeHandler::executeBridge might be stuck in the contract if any future external bridging protocol doesn't revert the tx. 
+
+Recommendations:
+Pass `msg.value` to the implementation contract's methods.
+
+### Low-06 AccountingManager's TVL will be incorrect if debt and non-debt positions have the same underlying token.
+**Instances(1)**
+A trustedPosition can either be a debt position or non-debt position. And all underlying token's holdingPositions that are calculated by AccountingManager have the same trustedPosition id encoding method(BaseConnector::_updateTokenInRegistry).
+```solidity
+//contracts/helpers/BaseConnector.sol
+    function _updateTokenInRegistry(address token, bool remove) internal {
+        (address accountingManager,) = registry.getVaultAddresses(vaultId);
+        // the value function is inside the accounting manager contract (so we can use the accounting manager address as the calculator connector)
+          //@audit All holding positions with the same underlying token will use the same trustedPositionID = keccak256(abi.encode(accountingManager, 0, abi.encode(token)))
+|>        bytes32 positionId = registry.calculatePositionId(accountingManager, 0, abi.encode(token));
+        // if the token is not in the registry, we add it or remove it if the remove flag is true
+        uint256 positionIndex =
+            registry.getHoldingPositionIndex(vaultId, positionId, address(this), abi.encode(address(this)));
+        if ((positionIndex == 0 && !remove) || (positionIndex > 0 && remove)) {
+            emit UpdateTokenInRegistry(token, remove);
+            registry.updateHoldingPosition(vaultId, positionId, abi.encode(address(this)), "", remove);
+        }
+```
+(https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/BaseConnector.sol#L138)
+
+As seen above, all holding positions with the same underlying token will use the same trustedPositionID = `keccak256(abi.encode(accountingManager, 0, abi.encode(token)))`. This means that the vault will have the debt holdingPositions and non-debt holdingPositions sharing the same trustedPosition ID.
+
+This creates a problem when calculating TVL (TVLHelpper::getTVL), because both debt /non-debt holdingPositions will [be counted the same way](https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/TVLHelper.sol#L24-L27) based on their shared trustedPosition. So the shared trustedPostion is a debt position, the non-debt holding position will also be counted as debt. Vice versa.
+
+Recommendations:
+Consider changing BaseConnector's _updateTokenInRegistry to allow for debt holding positions to use a different trusted position Id, perhaps input a different position type.
