@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "SeveritySquad",
+  "risk": "2",
+  "title": "Use of `slot0` sqrtPriceX96 in liquidity conversion can lead to price manipulation.",
+  "issueId": 1380,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1380"
+}
