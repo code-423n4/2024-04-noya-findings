@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Evo",
+  "risk": "2",
+  "title": "Noya protocol should use chainlink uptime feed incase the sequencer of the L2 went down",
+  "issueId": 1414,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1414"
+}
