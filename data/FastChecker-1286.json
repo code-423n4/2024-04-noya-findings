@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "FastChecker",
+  "risk": "2",
+  "title": "The `TVLHelper.sol#getTVL` function is DOSed by the `under collateralized connector`, and as a result, many parts of the protocol may be DOS.",
+  "issueId": 1286,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1286"
+}
