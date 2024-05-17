@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "TPSec",
+  "risk": "2",
+  "title": "`executeWithdraw` may be blocked if any of the users are blacklisted from the `baseToken`",
+  "issueId": 1426,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1426"
+}
