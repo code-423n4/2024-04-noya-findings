@@ -45,10 +45,10 @@ function checkIfTVLHasDroped() public nonReentrant {
 ```
 
 As part of the `AccountingManager` logic, the system allows the performanceFees gathered for the protocol to be reset once the TVL has dropped more than the previous time of calculating profit. This function can be called by anyone to reset the fees gathered once this condition is met.
-While a noble design, this may cause losses to accumulate for the protocol on the long run since if profit drops by even a very tiny amount, the entire performance fees gathered is completely reset.
+While a noble design, this may cause losses to accumulate for the protocol on the long run since if tvl drops by even a very tiny amount, the entire performance fees gathered is completely reset.
 It may also be possible (although difficult) for an actor with sufficient resources to directly manipulate the tvl to drop and cause the performance fees to be reset.
 
-## [3] Any connector can transfer any amount of token at any time out of `AccountingManager` which can lead to problems with other processes in the system
+## [3] Any connector can transfer any amount of token at any time out of `AccountingManager` which can lead to problems with other processes in the syste
 
 **File:** `AccountingManager.sol`
 
@@ -79,7 +79,7 @@ Any malicious Connector can completely damage the protocol functionality .
 
 ```
 
-## [5] `Manager` cannot remove malicious deposit requests or rearrange the depositQueue
+## [5] `Manager` cannot remove malicious deposits or rearrange the depositQueue
 
 **File:** `AccountingManager.sol`
 
@@ -195,7 +195,7 @@ This is however not recorded at withdraw request creation but rather after calcu
 
 Consider updating the time of withdraw at the point of deposit and then validating this during execution instead of only after calculation.
 
-# [10] Not allowing the manager to manually end a `currentWithdrawGroup` and start a new one unless it is completely executed leads to numerous problems and can cause withdraw by legit users to be griefed
+## [10] Not allowing the manager to manually end a `currentWithdrawGroup` and start a new one unless it is completely executed leads to numerous problems and can cause withdraw by legit users to be griefed
 
 **File:** `AccountingManager.sol`
 In the current implementation, once a manager starts the `currentWithdrawGroup`, there is no way to end or skip over this group until the withdraw group is executed or fulfilled
@@ -248,27 +248,159 @@ This may become very expensive for the protocol time and lead to accumulation of
 
 ### Recommendation
 
-- Make use of a pull mechanism rather than a push mechanism in the execution of deposits
+- Implement a pull mechanism rather than a push mechanism in the execution of deposits
 
 ## [13] `BaseConnector::executeSwap` would revert if any of the amounts for any token is 0.
 
+**File:** `BaseConnector.sol`
+
+Execution of swaps in `BaseConnector` is done in a loop, any error in the execution of any swap would result in all other swap for the other tokens reverting.
+
+```solidity
+ function swapHoldings(
+        address[] memory tokensIn,
+        address[] memory tokensOut,
+        uint256[] memory amountsIn,
+        bytes[] memory swapData,
+        uint256[] memory routeIds
+    ) external onlyManager nonReentrant {
+
+        //audit: If the amountsIn for any token is 0 this whole function reverts
+        for (uint256 i = 0; i < tokensIn.length; i++) {
+            _executeSwap(
+                SwapRequest(address(this), routeIds[i], amountsIn[i], tokensIn[i], tokensOut[i], swapData[i], true, 0)
+            );
+```
+
+```solidity
+src:  SwapAndBridgeHandler::executeSwap
+
+        if (_swapRequest.amount == 0) revert InvalidAmount();
+```
+
 ## [14] `BaseConnector` should implement the erc165 interface in the BaseConnector to ensure any connector which inherits from it is completely compatible with it.
+
+**File:** `BaseConnector.sol`
+
+```solidity
+
+```
 
 ## [15] Eligible users in `GenericSwapAndBridgeHandler` can be added but cannot be removed by the maintainer or emergency.
 
+**File:** `GenericSwapAndBridgeHandler.sol`
+
+Users can be added to the swapHandler but can never be removed. Once a user is set as eligible, this cannot be revoked.
+
+```solidity
+ function addEligibleUser(address _user) external onlyMaintainerOrEmergency {
+        isEligibleToUse[_user] = true;
+        emit AddEligibleUser(_user);
+    }
+```
+
+It should be possible for the maintainer or emergency to remove users if they become malicious
+
+### Recommendation
+
+- Implement a method for admin addresses to remove users just as they were added.
+
 ## [16] Routes in `GenericSwapAndBridgeHandler` should be removeable by the maintainer or emergency
+
+**File:** `GenericSwapAndBridgeHandler.sol`
+
+Similar to **[16]**, routes can be added in the swapHandler but can never actually be removed once added
+
+```solidity
+ function addRoutes(RouteData[] memory _routes) public onlyMaintainer {
+        for (uint256 i = 0; i < _routes.length;) {
+            routes.push(_routes[i]);
+            emit NewRouteAdded(i, _routes[i].route, _routes[i].isEnabled, _routes[i].isBridge);
+            unchecked {
+                i++;
+            }
+        }
+    }
+```
+
+### Recommendation
+
+- Admin addresses should be able to remove routes from the routes array
 
 ## [17] Looping over all current positions when getting the position tvl can be expensive and gas-intensive. Depending on number of positions this can be DOSsed
 
+**File:** `TvlHelper.sol`
+
+```solidity
+ function getTVL(uint256 vaultId, PositionRegistry registry, address baseToken) public view returns (uint256) {
+        uint256 totalTVL;
+        uint256 totalDebt;
+        HoldingPI[] memory positions = registry.getHoldingPositions(vaultId);
+        for (uint256 i = 0; i < positions.length; i++) {
+            if (positions[i].calculatorConnector == address(0)) {
+                continue;
+            }
+            uint256 tvl = IConnector(positions[i].calculatorConnector).getPositionTVL(positions[i], baseToken);
+            bool isPositionDebt = registry.isPositionDebt(vaultId, positions[i].positionId);
+            if (isPositionDebt) {
+                totalDebt += tvl;
+            } else {
+                totalTVL += tvl;
+            }
+        }
+
+```
+
+In the `TvlHelper` in other to get the tvl of a vault, all holding positions are retrieved from the vault and then calculated within a loop.
+Depending on the number of positions in that vault, this process can be very expensive considering this function is used frequently in other very important parts of the system.
+
 ## [18] `WETH_Oracle` does not implement `INoyaValueOracle` interface.
+
+**File:** `WETH_Oracle.sol`
+
+```solidity
+contract WETH_Oracle {
+  //
+}
+```
+
+The `WETH_Oracle` does not implement the `INoyaValueOracle` interface. Being part of the value oracles and considering that all oracles in the system rely on the `INoyaValueOracle` interface, this may cause incompatibility if the `WETH_Oracle` is to be used.
+
+### Recommendation
+
+- The `WETH_Oracle` should inherit from the `INoyaValueOracle` interface
 
 ## [19] Encoding the WETH_Oracle answer as 1e18 can cause problems when calculating value.
 
+**File:** `AccountingManager.sol`
+
+```solidity
+
+```
+
 ## [20] The `AccountingManager` for a vault can never be changed.
+
+**File:** `AccountingManager.sol`
+
+```solidity
+
+```
 
 ## [21] `Vault` struct does not implement all parameters in documentation
 
+**File:** `AccountingManager.sol`
+
+```solidity
+
+```
+
 ## [22] The placeholder of ETH being `address(0)` in `ChainlinkOracleConnector` can cause problems with other aspects of the protocol.
+
+**File:** `AccountingManager.sol`
+
+```solidity
+
+```
 
 ## NC/INFO
 
@@ -295,4 +427,3 @@ This may become very expensive for the protocol time and lead to accumulation of
 ## [11] Allowing the price threshold of chainlink to be set up to 10 days can create arbitrage opportunities
 
 ## [12] Chainlink's library should be used directly in `AggregatorV3Interface`
-
