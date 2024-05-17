@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "2",
+  "title": "AccountingManager `retrieveTokensForWithdraw` may be frontrun to DoS token withdraw",
+  "issueId": 1201,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1201"
+}
