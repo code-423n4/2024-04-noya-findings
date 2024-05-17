@@ -61,7 +61,7 @@ struct AccountingManagerConstructorParams {
 ```
 Tokens such as makerdao has name/symbol encoded as bytes instead of string
 
-## Recommended Mitigation Steps
+## Recommendation
 Add different logic if these tokens are expected to be supported
 
 # [L-07] Tvl might not get updated on hardfork
@@ -92,3 +92,9 @@ But some proxied tokens have multiple addresses. Any protocol would assume singl
 More importantly there are no further checks which user's address the assets are being sent to, making an owner to send those assets to any random user's address
 ## Recommendation
 Make sure the owner is well trusted and have a gateway for the tokens supported
+
+# [L-11] Failed transfer with low level call won't revert
+Noya uses low level call to transfer assets. According to [Solidity Docs](https://docs.soliditylang.org/en/develop/control-structures.html#error-handling-assert-require-revert-and-exceptions)the call may return true even if it was a failure. This may result in user funds lost because funds were transferred into this contract in preparation for the swap. The swap fails but doesn't revert.
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol#L176
+## Recommendation
+Check for contract existance, in places where low level calls are used
