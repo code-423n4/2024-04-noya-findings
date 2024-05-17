@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xabhay",
+  "risk": "2",
+  "title": "updateTVL Reversion Due to Inadequate Fee Handling in LZHelperSender Contract",
+  "issueId": 1075,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1075"
+}
