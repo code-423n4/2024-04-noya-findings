@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "AlexCzm",
+  "risk": "2",
+  "title": "PendleConnector: closing and opening positions can be DoS-ed",
+  "issueId": 1487,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1487"
+}
