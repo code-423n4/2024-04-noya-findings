@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Sentryx",
+  "risk": "2",
+  "title": "Chainlink oracle will revert for price feeds with a wider heartbeat timeframe",
+  "issueId": 1265,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1265"
+}
