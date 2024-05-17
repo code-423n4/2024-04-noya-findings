@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "Base tokens accumulated from withdraw fees can't be transferred to/from the NoyaFeeReceiver and will remain stuck",
+  "issueId": 1287,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1287"
+}
