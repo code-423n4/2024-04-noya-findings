@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "d3e4",
+  "risk": "3",
+  "title": "`managementFeeReceiver` and `performanceFeeReceiver` can make it so they receive to much management fees",
+  "issueId": 1550,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1550"
+}
