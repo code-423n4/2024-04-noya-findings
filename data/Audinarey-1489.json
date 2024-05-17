@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Audinarey",
+  "risk": "3",
+  "title": "`whenNotPaused` modifier is not properly implemented and applied breaking core protocol functionality",
+  "issueId": 1489,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1489"
+}
