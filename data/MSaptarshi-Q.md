@@ -99,3 +99,16 @@ Noya uses low level call to transfer assets. According to [Solidity Docs](https:
 https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol#L176
 ## Recommendation
 Check for contract existance, in places where low level calls are used
+
+# [L-12] Decmials should be returned as uint8
+Some tokens are vulnerable when returning tokens decimal as uint256 instead of uint8
+
+## Recommendation
+  ```
+- function getTokenDecimals(address token) public view returns (uint256) {
++    function getTokenDecimals(address token) public view returns (uint8) {
+```
+
+Also wrap it in try/catch if the metadata of the token is not supported
+
+
