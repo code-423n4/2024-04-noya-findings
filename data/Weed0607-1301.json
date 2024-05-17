@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Weed0607",
+  "risk": "2",
+  "title": "`AerodromeConnector._getPositionTVL` function doesn't consider staked amount",
+  "issueId": 1301,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1301"
+}
