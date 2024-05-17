@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "falconhoof",
+  "risk": "2",
+  "title": "Deposits can be easily DOS'd in wETH vaults.",
+  "issueId": 1535,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1535"
+}
