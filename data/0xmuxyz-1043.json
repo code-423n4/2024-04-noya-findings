@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Lack of a function to update a TVL info, which internally call the LZHelperReceiver#`_lzReceive()`, in the OmnichainManagerBaseChain contract",
+  "issueId": 1043,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1043"
+}
