@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "If token is rebasing token and token is rebasing down, deposit can never be completed",
+  "issueId": 1219,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1219"
+}
