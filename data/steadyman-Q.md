@@ -37,7 +37,7 @@ https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad80
 +               &&  maxIterations == 0;
         ) {
 -           i += 1;
-+           maxIterations--;
++           if(maxIterations > 0){maxIterations--;}
 
             DepositRequest storage data = depositQueue.queue[middleTemp];
 
