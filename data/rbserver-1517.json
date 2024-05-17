@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "rbserver",
+  "risk": "2",
+  "title": "`maxDeposit`, `maxMint`, `maxWithdraw`, and `maxRedeem` functions do not return 0 when they should",
+  "issueId": 1517,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1517"
+}
