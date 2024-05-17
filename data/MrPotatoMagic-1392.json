@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "MrPotatoMagic",
+  "risk": "2",
+  "title": "chainlinkPriceAgeThreshold does not consider that different price feeds have different staleness thresholds",
+  "issueId": 1392,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1392"
+}
