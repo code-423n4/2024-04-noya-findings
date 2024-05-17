@@ -217,3 +217,156 @@ Doing this will dos swap executions.
 
 ### Recommended Mitigation Steps
 Consider introducing a check that the set tolerance is not > 1e6
+
+***
+
+## 8. User exit functions should not be pausable
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L304
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L328
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L360
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L370
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/accountingManager/AccountingManager.sol#L396
+
+### Impact
+
+The withdrawal functions in AccountingManager.sol have a `whenNotPaused` modifier meaning that users will not be able to withdraw their tokens if the protocol is paused. This should be avoided as it risks users funds getting trapped in the contract if it is paused for malicious reasons.
+### Recommended Mitigation Steps
+Remove the `whenNotPaused` modifier from the functions.
+
+***
+
+## 9. Should introduce a `remove_liquidity` function in case curve pool gets killed
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L160-L175
+### Impact
+
+`decreaseCurvePosition` function in CurveConnector.sol uses `remove_liquidity_one_coin` function to remove tokens from curve when decreasing position. The issue is that the function is will always revert if `self.is_killed` in the curve pool contract becomes true. This will cause position decrement to become impossible. If the pool is killed permanently, the tokens will be locked forever.
+```solidity
+    function decreaseCurvePosition(address pool, uint256 withdrawIndex, uint256 amount, uint256 minAmount)
+        public
+        onlyManager
+        nonReentrant
+    {
+        PoolInfo memory poolInfo = _getPoolInfo(pool);
+        address token = poolInfo.tokens[withdrawIndex];
+        bytes32 positionId = registry.calculatePositionId(address(this), CURVE_LP_POSITION, abi.encode(pool));
+
+        ICurveSwap(poolInfo.pool).remove_liquidity_one_coin(amount, int128(uint128(withdrawIndex)), minAmount);
+        _updateTokenInRegistry(token);
+        if (totalLpBalanceOf(poolInfo) == 0) {
+            registry.updateHoldingPosition(vaultId, positionId, "", "", true);
+        }
+        emit DecreaseCurvePosition(pool, withdrawIndex, amount, minAmount);
+    }
+```
+### Recommended Mitigation Steps
+When killed, it is only possible for existing LPs to remove liquidity via `remove_liquidity`, so introduce a function that queries this to prevent permanent loss of funds.
+
+***
+
+## 10. `harvestAuraRewards`, `harvestConvexRewards`  is not as secure as the protocol might intend.
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerConnector.sol#L56
+
+https://github.com/aurafinance/convex-platform/blob/6c8abb264022b0f83f8ddd8bec56ddedfd83d741/contracts/contracts/BaseRewardPool.sol#L311-L335
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/CurveConnector.sol#L250
+
+https://github.com/convex-eth/sidechain-platform/blob/49c1c3e6d216d6c7a64da051d0711b93151d3944/contracts/contracts/ConvexRewardPool.sol#L349
+### Impact
+
+The `harvestAuraRewards` in intended to be called by only the manager. It transfers the rewards from aura pool to the contract while updating the token amount in the registry. Aura allows for users to claim [on behalf](https://github.com/aurafinance/convex-platform/blob/6c8abb264022b0f83f8ddd8bec56ddedfd83d741/contracts/contracts/BaseRewardPool.sol#L311) of other users. Users can claim the protocol's aura rewards, the function will succeed without updating token in registry. This defeats the intended access control put in place on the function.
+
+```solidity
+    function harvestAuraRewards(address[] calldata rewardsPools) public onlyManager nonReentrant {
+        for (uint256 i = 0; i < rewardsPools.length; i++) {
+            IRewardPool baseRewardPool = IRewardPool(rewardsPools[i]);
+            baseRewardPool.getReward();
+        }
+        _updateTokenInRegistry(address(AURA));
+    }
+```
+The same can be observed in `harvestConvexRewards` which can be bypassed by users calling the [getReward](https://github.com/convex-eth/sidechain-platform/blob/49c1c3e6d216d6c7a64da051d0711b93151d3944/contracts/contracts/ConvexRewardPool.sol#L349) directly in the reward pool contract.
+
+```solidity
+    function harvestConvexRewards(address[] calldata rewardsPools) public onlyManager nonReentrant {
+        for (uint256 i = 0; i < rewardsPools.length; i++) {
+            IConvexBasicRewards baseRewardPool = IConvexBasicRewards(rewardsPools[i]);
+            baseRewardPool.getReward(address(this), true);
+        }
+        _updateTokenInRegistry(CVX);
+        _updateTokenInRegistry(CRV);
+        emit HarvestConvexRewards(rewardsPools);
+    }
+```
+
+***
+
+## 11. Balancer flashloans can potentially be dossed by donations
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-04-noya/blob/9c79b332eff82011dcfa1e8fd51bad805159d758/contracts/connectors/BalancerFlashLoan.sol#L89-L93
+
+### Impact
+
+When user makes flashloan in BalancerFlashLoan.sol, the vault calls the `receiveFlashLoan` which executes the loan. AN important part is when the tokens being loaned are sent back to the vault. The function holds a check to ensure that no tokens exist in the contract after the tokens are sent back. This is dangerous because users can dos this by sending at least 1 wei of the tokens being loaned into the contract. Considering the amount + fees being sent back will not necessarily be the token balance of the contract, an extra wei would cause the function to fail, dossing the flashloan process. 
+
+```solidity
+    function receiveFlashLoan(
+        IERC20[] memory tokens,
+        uint256[] memory amounts,
+        uint256[] memory feeAmounts,
+        bytes memory userData
+    ) external override {
+        emit ReceiveFlashLoan(tokens, amounts, feeAmounts, userData);
+        require(msg.sender == address(vault));
+        (
+            uint256 vaultId,
+            address receiver,
+            address[] memory destinationConnector,
+            bytes[] memory callingData,
+            uint256[] memory gas
+        ) = abi.decode(userData, (uint256, address, address[], bytes[], uint256[]));
+        (,,, address keeperContract,, address emergencyManager) = registry.getGovernanceAddresses(vaultId);
+        if (!(caller == keeperContract)) {
+            revert Unauthorized(caller);
+        }
+        if (registry.isAnActiveConnector(vaultId, receiver)) {
+            for (uint256 i = 0; i < tokens.length; i++) {
+                // send the tokens to the receiver
+                tokens[i].safeTransfer(receiver, amounts[i]);
+                amounts[i] = amounts[i] + feeAmounts[i];
+            }
+            for (uint256 i = 0; i < destinationConnector.length; i++) {
+                // execute the transactions
+                (bool success,) = destinationConnector[i].call{ value: 0, gas: gas[i] }(callingData[i]);
+                require(success, "BalancerFlashLoan: Flash loan failed");
+            }
+            for (uint256 i = 0; i < tokens.length; i++) {
+                // send the tokens back to this contract
+                BaseConnector(receiver).sendTokensToTrustedAddress(address(tokens[i]), amounts[i], address(this), "");
+            }
+        }
+        for (uint256 i = 0; i < tokens.length; i++) {
+            // send the tokens back to the vault
+            tokens[i].safeTransfer(msg.sender, amounts[i]);
+            require(tokens[i].balanceOf(address(this)) == 0, "BalancerFlashLoan: Flash loan extra tokens");
+        }
+    }
+```
+
+***
+
+## 12.
