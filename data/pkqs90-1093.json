@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "pkqs90",
+  "risk": "3",
+  "title": "`Registry.sol#updateHoldingPosition` remove position logic is incorrect: should use `ownerConnector` instead of `calculatorConnector` when calculating holdingPositionId.",
+  "issueId": 1093,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1093"
+}
