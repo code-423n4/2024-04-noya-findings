@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "In the CurveConnector, unclaimed rewards Convex are not included in the calculation of the connectors TVL",
+  "issueId": 1063,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1063"
+}
