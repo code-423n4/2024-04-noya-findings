@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "alexxander",
+  "risk": "3",
+  "title": "A Vault can steal all funds from another Vault through the Registry's flash loan contract due to insufficient access control in `Connector.sendTokensToTrustedAddress()`",
+  "issueId": 1327,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1327"
+}
