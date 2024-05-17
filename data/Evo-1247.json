@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Evo",
+  "risk": "2",
+  "title": "Temporary DoS for deposit by depositing dust amounts",
+  "issueId": 1247,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1247"
+}
