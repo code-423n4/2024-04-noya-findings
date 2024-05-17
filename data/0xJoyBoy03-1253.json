@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xJoyBoy03",
+  "risk": "2",
+  "title": "Closing the position after calling `DolomiteConnector::openBorrowPosition`",
+  "issueId": 1253,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1253"
+}
