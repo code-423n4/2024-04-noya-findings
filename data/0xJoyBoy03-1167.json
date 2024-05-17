@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "0xJoyBoy03",
+  "risk": "2",
+  "title": "the record time in `AccountingManager`  might be manipulated by the frontrunners",
+  "issueId": 1167,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1167"
+}
