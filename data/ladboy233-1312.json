@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "crvcvx reward is always restaked in `CurveConnector::harvestConvexRewards()`",
+  "issueId": 1312,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1312"
+}
