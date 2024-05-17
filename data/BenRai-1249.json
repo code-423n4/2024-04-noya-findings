@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "In the MaverickConnector, unclaimed rewards from Boosted Positions are not included in the calculation of the position TVL",
+  "issueId": 1249,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1249"
+}
