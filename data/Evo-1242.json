@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Evo",
+  "risk": "3",
+  "title": "Deposit to dead address could revert on executeDeposit, and DoS deposits from being executed",
+  "issueId": 1242,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1242"
+}
