@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "TPSec",
+  "risk": "2",
+  "title": "Anyone can donate 1 wei and block the token position removal in `BaseConnector::_updateTokenInRegistry`",
+  "issueId": 1417,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1417"
+}
