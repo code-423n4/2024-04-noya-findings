@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "KupiaSec",
+  "risk": "2",
+  "title": "Extra reward tokens are not updated in the registry when calling `CurveConnector::harvestConvexRewards` function.",
+  "issueId": 1377,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1377"
+}
