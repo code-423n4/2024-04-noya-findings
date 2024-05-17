@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "Autosaida",
+  "risk": "2",
+  "title": "Logic Error in SwapAndBridgeHandler Contract Allowing Disabled Routes to be Mistakenly Considered valid.",
+  "issueId": 1210,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1210"
+}
