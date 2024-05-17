@@ -1,6 +1,6 @@
 In the file `contracts/governance/Keepers.sol`, the function `execute()` validates if `threshold` owners have approved the transaction before executing the transaction. Line 103 sets `address lastAdd = address(0);` and Line 106 `require(recovered > lastAdd && isOwner[recovered]);` sets a required order of the recovered address: only addresses in ascending order will be accepted.
 
-The executor should take care of this order to avoid a failed transaction. If this transaction is urgent, a potential failure might lead to serious consequences. I suggest using the modified function below:
+The executor should take care of this order to avoid a failed transaction. If this transaction is urgent, a potential failure might lead to serious consequences. For example, if an urgent undo transaction is needed, failed to call the function in a limited timeframe might lead to unforeseen results. I suggest using the modified function below:
 
 ```solidity
 function execute(
