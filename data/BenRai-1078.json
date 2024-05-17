@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "In the CurveConnector there is no option to only claim rewards from the ConvexRewardPool without unstaking the staked LP tokens",
+  "issueId": 1078,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1078"
+}
