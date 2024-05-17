@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "BenRai",
+  "risk": "2",
+  "title": "`MaverickConnector::addLiquidityInMaverickPool` does not work for pools where one of the tokens is Eth",
+  "issueId": 1230,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1230"
+}
