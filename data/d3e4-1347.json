@@ -1,0 +1,8 @@
+{
+  "contest": 368,
+  "handle": "d3e4",
+  "risk": "2",
+  "title": "Withdrawals may return arbitrarily less than the vault share equivalent",
+  "issueId": 1347,
+  "issueUrl": "https://github.com/code-423n4/2024-04-noya-findings/issues/1347"
+}
